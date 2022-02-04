@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- See https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_full_page_tabs for tab setup. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="tabs.css">
+</head>
+
+<body>
+
+    <button class="tablink" onclick="openPage('Letters', this, 'turquoise')" id="defaultOpen">Letters</button>
+    <button class="tablink" onclick="openPage('Numbers', this, 'turquoise')">Numbers</button>
+    <button class="tablink" onclick="openPage('Contact', this, 'lightsteelblue')">Contact</button>
+    <button class="tablink" onclick="openPage('About', this, 'lightsteelblue')">About</button>
+
+    <div id="Letters" class="tabcontent">
+        <h3>ABCs</h3>
+        <p id="abcs"></p>
+    </div>
+
+    <div id="Numbers" class="tabcontent">
+        <h3>123s</h3>
+        <p id="123s"></p>
+    </div>
+
+    <div id="Contact" class="tabcontent">
+        <h3>Contact</h3>
+        <p>Get in touch, or swing by for a cup of coffee.</p>
+    </div>
+
+    <div id="About" class="tabcontent">
+        <h3>About</h3>
+        <p>A place to learn letters and numbers.</p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        function openPage(pageName, element, color) {
+            var i, tabContent, tabLinks;
+            tabContent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabContent.length; i++) {
+                tabContent[i].style.display = "none";
+            }
+            tabLinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tabLinks.length; i++) {
+                tabLinks[i].style.backgroundColor = "";
+                tabLinks[i].style.color = "white";
+            }
+            document.getElementById(pageName).style.display = "block";
+            element.style.backgroundColor = color;
+            element.style.color = "black";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+
+</body>
+
+</html>
