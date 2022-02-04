@@ -7,36 +7,56 @@ html {
     height: 100%;
     margin: 0;
     font-family: Arial;
+    background: linear-gradient(225deg, #222, #323232);
 }
 
-.tablink {
+a:link, a:visited {
+    color: #8ebf42;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #aedf29;
+    font-weight: bold;
+}
+
+.tab {
+    float: left;
+    border: 0px none;
+    width: 30%;
+} .tab button {
+    float: left;
+    display: block;
     background-color: #555;
     color: white;
-    float: left;
     border: none;
     outline: none;
     cursor: pointer;
     padding: 14px 16px;
     font-size: 17px;
-    width: 25%;
-}
-
-.tablink:hover {
+    width: 100%;
+} .tab button:hover {
     background-color: #777;
     color: black;
 }
 
 .tabcontent {
-    color: black;
+    float: left;
+    color: white;
     display: none;
-    padding: 100px 20px;
+    padding-left: 20px;
     height: 100%;
+    width: 70%;
 }
 
-#Letters, #Numbers {
+#Letters, 
+#Numbers {
     background-color: turquoise;
+    background: linear-gradient(45deg, #08694c 65%, #044b35);
 }
 
-#Contact, #About {
+#Contact, 
+#About {
     background-color: lightsteelblue;
+    background: linear-gradient(225deg, #083869, #042547);
 }
