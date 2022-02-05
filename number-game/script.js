@@ -18,8 +18,8 @@ const randMin = 1;
 const randMax = 20;//50;
 const size = 50;
 let randChars = [];
-for (var i =0; i< size; i++) {
-    randChars.push(getRandom(randMin, randMax));
+for (var i =0; i< rSize; i++) {
+    random.push(getRandom(rMinimum, rMaximum));
 }
 
 
@@ -28,7 +28,7 @@ const maxNumber = 21;//31;
 const numberChars = Array.from(Array(maxNumber).keys()) // 0 to (max - 1).
 const capitalChars = new Array(26).fill(1).map((_, i) => String.fromCharCode(65 + i));
 const lowercaseChars = new Array(26).fill(1).map((_, i) => String.fromCharCode(97 + i));
-let availableKeyMapChars = [].concat(numberChars, capitalChars, lowercaseChars);
+let availableKeyMapChars = [].concat(ordered, capitalChars, lowercaseChars);
 
 function getRandomIndex(a) {
     return Math.floor((Math.random() * (a.length - 1)) + 0);
@@ -57,7 +57,7 @@ function encodeMessage() {
     // Reset available key map characters.
     availableKeyMapChars = 0;
     availableKeyMapChars = [];
-    availableKeyMapChars = [].concat(numberChars, capitalChars, lowercaseChars);
+    availableKeyMapChars = [].concat(ordered, capitalChars, lowercaseChars);
 
     const msg = $('#message').val();
     var encoded = [];

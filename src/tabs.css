@@ -23,7 +23,7 @@ a:hover {
 .tab {
     float: left;
     border: 0px none;
-    width: 30%;
+    width: 20%;
 } .tab button {
     float: left;
     display: block;
@@ -46,7 +46,7 @@ a:hover {
     display: none;
     padding-left: 20px;
     height: 100%;
-    width: 70%;
+    width: 80%;
 }
 
 #Letters, 
