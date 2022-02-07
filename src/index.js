@@ -9,8 +9,9 @@ $(document).ready(function () {
 
     setOrderedContent(ordered, "#o123s");
     setRandomContent(random, "#r123s");
-    $("#oMin").val(oMinimum);
-    $("#oMax").val(oMaximum);
+
+    setOrderedLetterContent();
+    setRandomLetterContent();
 });
 
 function openPage(pageName, element, color) {

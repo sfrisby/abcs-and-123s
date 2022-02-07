@@ -49,13 +49,14 @@ a:hover {
     width: 80%;
 }
 
-#Letters, 
+#Letters {
+    background-color: mediumpurple;
+    background: linear-gradient(45deg, #580f83 65%, #2f033a);
+}
 #Numbers {
     background-color: turquoise;
     background: linear-gradient(45deg, #08694c 65%, #044b35);
 }
-
-#Contact, 
 #About {
     background-color: lightsteelblue;
     background: linear-gradient(225deg, #083869, #042547);

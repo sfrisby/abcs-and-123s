@@ -1,21 +1,15 @@
-.oInput {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 22px;
-    width: 5ch;
-}
-
-p.numbers {
+p.letters {
     width: 1000px;
     margin: 20px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-} p.numbers button {
+} p.letters button {
     font-size: 32px;
 }
 
-div.number {
+div.letter {
     font-size: 48px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
