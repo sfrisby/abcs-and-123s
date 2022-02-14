@@ -1,5 +1,4 @@
 p.letters {
-    width: 1000px;
     margin: 20px;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -19,4 +18,7 @@ div.letter {
     color: #eee;
     background-color: #222;
     display: inline-block;
-} 
+}
+div.letter:hover {
+    background-color: royalblue;
+}

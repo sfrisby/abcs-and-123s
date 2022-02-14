@@ -4,6 +4,8 @@ const colors = ['indianred', 'salmon', 'coral', 'magenta', 'darkorange', 'orange
     'greenyellow', 'mediumspringgreen', 'cyan', 'lightseagreen', 'lightskyblue',
     'darkorchid', 'blueviolet', 'tomato', 'mistyrose'];
 
+const hexColors = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
+
 $(document).ready(function () {
     document.getElementById("defaultOpen").click();
 
@@ -12,6 +14,12 @@ $(document).ready(function () {
 
     setOrderedLetterContent();
     setRandomLetterContent();
+
+    // Set random gradient for each tab.
+    let tabs = ["#Letters", "#Numbers", "#About"];
+    tabs.forEach(element => {
+        setRandomHexBackgroundGradient(element);
+    });
 });
 
 function openPage(pageName, element, color) {
@@ -44,4 +52,19 @@ function setRandomBackgroundColor(ele) {
     $("#" + i).css("background-color", colors[c]);
     $("#" + i).css("color", "#222");
     $("#" + i).css("font-weight", "bolder");
+}
+
+function getRandomHexBackgroundColor() {
+    let color = "#"
+    for (var i = 0; i < 6; i++) {
+        color += hexColors[getRandomIndex(hexColors)];
+    }
+    return color
+}
+
+function setRandomHexBackgroundGradient(ele) {
+    let color1 = getRandomHexBackgroundColor();
+    let color2 = getRandomHexBackgroundColor();
+    let b = "linear-gradient(45deg, " + color1 + ", " + color2 + ")";
+    $(ele).css({ background: b });  
 }

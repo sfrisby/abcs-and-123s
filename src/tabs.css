@@ -23,7 +23,7 @@ a:hover {
 .tab {
     float: left;
     border: 0px none;
-    width: 20%;
+    width: 15%;
 } .tab button {
     float: left;
     display: block;
@@ -46,18 +46,5 @@ a:hover {
     display: none;
     padding-left: 20px;
     height: 100%;
-    width: 80%;
-}
-
-#Letters {
-    background-color: mediumpurple;
-    background: linear-gradient(45deg, #580f83 65%, #2f033a);
-}
-#Numbers {
-    background-color: turquoise;
-    background: linear-gradient(45deg, #08694c 65%, #044b35);
-}
-#About {
-    background-color: lightsteelblue;
-    background: linear-gradient(225deg, #083869, #042547);
+    width: 85%;
 }
