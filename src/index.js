@@ -16,13 +16,18 @@ $(document).ready(function () {
     setRandomLetterContent();
 
     // Set random gradient for each tab.
-    let tabs = ["#Letters", "#Numbers", "#About"];
+    let tabs = ["Letters", "LettersCards", "Numbers", "About"];
     tabs.forEach(element => {
-        setRandomHexBackgroundGradient(element);
+        setRandomHexBackgroundGradientById(element);
     });
+
+    // Setup ordered and random letter cards.
+    $("#ordLetter").text(letters[0]);
+    $("#prevOrdLetter").prop('disabled', true);
+    getRandomLetter();
 });
 
-function openPage(pageName, element, color) {
+function openPage(pageName, element) {
     var i, tabContent, tabLinks;
     tabContent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabContent.length; i++) {
@@ -34,7 +39,7 @@ function openPage(pageName, element, color) {
         tabLinks[i].style.color = "white";
     }
     document.getElementById(pageName).style.display = "block";
-    element.style.backgroundColor = color;
+    element.style.backgroundColor = getRandomColor();
     element.style.color = "black";
 }
 
@@ -46,10 +51,13 @@ function getRandomIndex(arr) {
     return Math.floor((Math.random() * arr.length));
 }
 
+function getRandomColor() {
+    return colors[getRandomIndex(colors)];
+}
+
 function setRandomBackgroundColor(ele) {
     const i = ele.id;
-    const c = getRandomIndex(colors)
-    $("#" + i).css("background-color", colors[c]);
+    $("#" + i).css("background-color", getRandomColor());
     $("#" + i).css("color", "#222");
     $("#" + i).css("font-weight", "bolder");
 }
@@ -62,9 +70,74 @@ function getRandomHexBackgroundColor() {
     return color
 }
 
-function setRandomHexBackgroundGradient(ele) {
+/**
+ * Set random gradient background given for the given ID.
+ * <p>
+ * Pre-pending '#' in front ID.
+ * @param {*} id either a string or element object.
+ */
+function setRandomHexBackgroundGradientById(id) {
+    if (typeof id === 'string' && id[0] != "#") {
+        id = ("#" + id);
+    } else if (typeof id === 'object') {
+        id = ("#" + id.id)
+    }
     let color1 = getRandomHexBackgroundColor();
     let color2 = getRandomHexBackgroundColor();
     let b = "linear-gradient(45deg, " + color1 + ", " + color2 + ")";
-    $(ele).css({ background: b });  
+    $(id).css({ background: b });
+}
+
+function setRandomHexBackgroundGradientForParent(ele) {
+    setRandomHexBackgroundGradientById(ele.parentElement.id)
+}
+
+/**
+ * Setting given ID to a random linear gradient background and dark font.
+ * @param {} id 
+ */
+function updateBackground(id) {
+    if (typeof id === 'string' && id[0] != "#") {
+        id = ("#" + id);
+    } else if (typeof id === 'object') {
+        id = ("#" + id.id)
+    }
+    let color1 = getRandomHexBackgroundColor();
+    let color2 = getRandomHexBackgroundColor();
+    let b = "linear-gradient(" + getRandomNumber(0, 360) + "deg, " + color1 + ", " + color2 + ")";
+    $(id).css({ background: b });
+    $(id).css("font-weight", "bolder");
+    if (isDark(color1) || isDark(color2)) {
+        $(id).css({ color: "#ddd" });
+    } else {
+        $(id).css({ color: "#222" });
+    }
+}
+
+/**
+ * Determine if color is 'dark' or 'light'.
+ * <p>
+ * Credit to https://awik.io/determine-color-bright-dark-using-javascript/ and
+ * https://stackoverflow.com/questions/25426819.
+ * @param {*} color 
+ * @returns 
+ */
+function isDark(color) {
+    let threshold = 127.5; // 255/2
+    var r = 0, g = 0, b = 0, hsp = 0;
+    if (color.match(/^rgb/)) { // RGB --> store the red, green, blue.
+        color = color.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/);
+        r = color[1];
+        g = color[2];
+        b = color[3];
+    } else { // Assume hex --> Convert it to RGB: http://gist.github.com/983661.
+        color = +("0x" + color.slice(1).replace(
+            color.length < 5 && /./g, '$&$&'));
+        r = color >> 16;
+        g = color >> 8 & 255;
+        b = color & 255;
+    }
+    // HSP (Highly Sensitive Poo) equation http://alienryderflex.com/hsp.html.
+    hsp = Math.sqrt(0.299 * (r * r) + 0.587 * (g * g) + 0.114 * (b * b));
+    return (hsp < threshold)
 }

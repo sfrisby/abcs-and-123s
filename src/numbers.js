@@ -30,10 +30,10 @@ for (var i = 0; i < rSize; i++) {
 function setOrderedContent(arr = ordered, id = "#o123s") {
     let output = "";
     for (var i = 0; i < arr.length; i++) {
-        output += ("<div class='number' id='num_" + arr[i] + "' onclick='setRandomBackgroundColor(this)'> " + arr[i] + " </div>");
+        output += ("<div class='number' id='num_" + arr[i] + "' onclick='updateBackground(this)'> " + arr[i] + " </div>");
     }
     let maxIndex = arr.length - 1;
-    output += ("<div class='number' id='num_" + Number(arr[maxIndex] + 1) + "' onclick='setRandomBackgroundColor(this)'> " + Number(arr[maxIndex] + 1) + " </div>");
+    output += ("<div class='number' id='num_" + Number(arr[maxIndex] + 1) + "' onclick='updateBackground(this)'> " + Number(arr[maxIndex] + 1) + " </div>");
     $(String(id)).html(output);
 }
 
@@ -56,7 +56,7 @@ function reloadOrderedNumbers() {
 function setRandomContent(arr, id) {
     let output = "";
     for (var i = 0; i < arr.length; i++) {
-        output += ("<div class='number' id='num_" + arr[i] + "_" + i + "' onclick='setRandomBackgroundColor(this)'><span class='coded'> " + arr[i] + " </span></div>");
+        output += ("<div class='number' id='num_" + arr[i] + "_" + i + "' onclick='updateBackground(this)'><span class='coded'> " + arr[i] + " </span></div>");
     }
     $(String(id)).html(output);
 }

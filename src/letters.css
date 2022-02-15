@@ -22,3 +22,32 @@ div.letter {
 div.letter:hover {
     background-color: royalblue;
 }
+
+div#stageOrdLetter, div#stageRandLetter {
+    width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+    font-size: 196px;
+    user-select: none;
+    font-family: 'Courier New', Courier, monospace;
+}
+div#stageOrdLetter #randLetter {
+    padding: 30px;
+}
+div#stageOrdLetter button {
+    padding: 20px;
+    vertical-align: middle;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+div#stageRandLetter #ordLetter {
+    padding: 30px;
+}
+div#stageRandLetter button {
+    padding: 3px;
+    vertical-align: middle;
+    font-size: 48px;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
