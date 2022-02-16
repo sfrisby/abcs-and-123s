@@ -8,6 +8,7 @@ const hexColors = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', '
 
 $(document).ready(function () {
     document.getElementById("defaultOpen").click();
+    document.getElementById("defaultLetterOpen").click();
 
     setOrderedContent(ordered, "#o123s");
     setRandomContent(random, "#r123s");
@@ -22,8 +23,12 @@ $(document).ready(function () {
     });
 
     // Setup ordered and random letter cards.
-    $("#ordLetter").text(letters[0]);
-    $("#prevOrdLetter").prop('disabled', true);
+    $("#capOrdLetter").text(cLetters[0]);
+    $("#firstCapOrdLetter").prop('disabled', true);
+    $("#prevCapOrdLetter").prop('disabled', true);
+    $("#lowOrdLetter").text(lLetters[0]);
+    $("#firstLowOrdLetter").prop('disabled', true);
+    $("#prevLowOrdLetter").prop('disabled', true);
     getRandomLetter();
 });
 

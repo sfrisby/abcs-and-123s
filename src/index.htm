@@ -11,39 +11,51 @@
 <body>
 
     <div class="tab">
-        <button class="tablink" onclick="openPage('Letters', this)">Letters</button>
-        <button class="tablink" onclick="openPage('LettersCards', this)" id="defaultOpen">Letter Cards</button>
+        <button class="tablink" onclick="openPage('Letters', this)" id="defaultOpen">Letters</button>
         <button class="tablink" onclick="openPage('Numbers', this)">Numbers</button>
         <button class="tablink" onclick="openPage('About', this)">About</button>
     </div>
 
     <div id="Letters" class="tabcontent">
-        <p class="letters">
+
+        <button onclick="setRandomHexBackgroundGradientForParent(this)">&#10051; Change Background &#10051;</button><br />
+
+        <button class="letterTablink" id="defaultLetterOpen" onclick="openLetterPage('allLetters', this)">Alphabet</button>
+        <button class="letterTablink" id="randLettersBtn" onclick="openLetterPage('randLetters', this)" >Mixed Letters</button>
+        <button class="letterTablink" id="stageOrdLetterBtn" onclick="openLetterPage('stageOrdLetter', this)">Letter Case</button>
+        <button class="letterTablink" id="stageRandLetterBtn" onclick="openLetterPage('stageRandLetter', this)">Letter Quiz</button>
+        
+        <div id="allLetters" class="letterTabcontent">
             <span id="oabcs"></span><br />
             <button onclick="setOrderedLetterContent()">&olarr;</button>
-        </p>
-        <p class="letters">
+        </div>
+
+        <div id="randLetters" class="letterTabcontent">
             <span id="rabcs"></span><br />
             <button onclick="setRandomLetterContent()">&olarr;</button>
-        </p>
-        <button onclick="setRandomHexBackgroundGradientForParent(this)">&#10051; Change Background &#10051;</button>
-    </div>
-
-    <div id="LettersCards" class="tabcontent">
-
-        <div id="stageOrdLetter">
-            <button id="prevOrdLetter" onclick="getPrevLetter()">&#60;&#60;</button>
-            <span id="ordLetter"></span>
-            <button id="nextOrdLetter" onclick="getNextLetter()">&#62;&#62;</button>
         </div>
 
-        <div id="stageRandLetter">
+        <div id="stageOrdLetter" class="letterTabcontent">
+            <button id="firstCapOrdLetter" onclick="getFirstCapLetter()">&#11244;</button>
+            <button id="prevCapOrdLetter" onclick="getPrevCapLetter()">&#11164;</button>
+            <span class="letter" id="capOrdLetter"></span>
+            <button id="nextCapOrdLetter" onclick="getNextCapLetter()">&#11166;</button>
+            <button id="lastCapOrdLetter" onclick="getLastCapLetter()">&#11246;</button>
+            <br />
+            <button id="firstLowOrdLetter" onclick="getFirstLowLetter()">&#11244;</button>
+            <button id="prevLowOrdLetter" onclick="getPrevLowLetter()">&#11164;</button>
+            <span class="letter" id="lowOrdLetter"></span>
+            <button id="nextLowOrdLetter" onclick="getNextLowLetter()">&#11166;</button>
+            <button id="lastLowOrdLetter" onclick="getLastLowLetter()">&#11246;</button>
+        </div>
+
+        <div id="stageRandLetter" class="letterTabcontent">
+            <p>Correct: <span id="letterCorrectCount">0</span></p><br />
             <button id="prevRandLetter" onclick="getRandomLetter(false)">&#128078;</button>
-            <span id="randLetter"></span>
+            <span class="letter" id="randLetter"></span>
             <button id="nextRandLetter" onclick="getRandomLetter(true)">&#x1F44D;</button>
         </div>
-        <span>Correct: <span id="letterCorrectCount">0</span></span><br />
-        <button onclick="setRandomHexBackgroundGradientForParent(this)">&#10051; Change Background &#10051;</button>
+
     </div>
 
     <div id="Numbers" class="tabcontent">

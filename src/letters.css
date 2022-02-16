@@ -1,53 +1,59 @@
-p.letters {
-    margin: 20px;
+.letterTablink {
+    vertical-align: center;
+    background-color: #555;
+    color: white;
+    font-weight: bolder;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 24px 26px;
+    font-size: 17px;
+    width: 25%;
+} .letterTablink:hover {
+    background-color: #444;
+}
+
+.letterTabcontent {
+    font-size: 18px;
+    font-family: monospace;
+    float: left;
+    display: none;
+} .letterTabcontent span {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-} p.letters button {
-    font-size: 32px;
+} .letterTabcontent button {
+    font-size: 72px;
+    background: none;
+    font-weight: bolder;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+} .letterTabcontent button:hover:enabled {
+    color: #eee;
 }
 
-div.letter {
-    font-size: 48px;
-    font-family: 'Courier New', Courier, monospace;
+.letter {
+    cursor: pointer;
+    font-size: 72px;
     font-weight: bold;
     text-align: center;
-    margin: 3px;
-    padding: 15px;
+    margin: 5px;
+    padding: 25px;
     color: #eee;
     background-color: #222;
     display: inline-block;
-}
-div.letter:hover {
+} .letter:hover {
     background-color: royalblue;
 }
 
-div#stageOrdLetter, div#stageRandLetter {
-    width: 100%;
-    margin: 20px auto;
-    padding: 20px;
+span.letter {
+    cursor: crosshair;
+    background: none;
     font-size: 196px;
-    user-select: none;
-    font-family: 'Courier New', Courier, monospace;
-}
-div#stageOrdLetter #randLetter {
-    padding: 30px;
-}
-div#stageOrdLetter button {
-    padding: 20px;
-    vertical-align: middle;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-div#stageRandLetter #ordLetter {
-    padding: 30px;
-}
-div#stageRandLetter button {
-    padding: 3px;
-    vertical-align: middle;
-    font-size: 48px;
-    font-weight: bold;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 10px
+} span.letter:hover {
+    background: none;
 }
