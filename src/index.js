@@ -9,9 +9,11 @@ const hexColors = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', '
 $(document).ready(function () {
     document.getElementById("defaultOpen").click();
     document.getElementById("defaultLetterOpen").click();
+    document.getElementById("defaultNumberOpen").click();
 
-    setOrderedContent(ordered, "#o123s");
-    setRandomContent(random, "#r123s");
+    setOrderedNumbers();
+    setRandomNumbers();
+    setRandomNumber(false);
 
     setOrderedLetterContent();
     setRandomLetterContent();
@@ -23,13 +25,16 @@ $(document).ready(function () {
     });
 
     // Setup ordered and random letter cards.
-    $("#capOrdLetter").text(cLetters[0]);
+    // Set the game board.
+    $("#capOrdLetter").text(CAP_LETTERS[0]);
     $("#firstCapOrdLetter").prop('disabled', true);
     $("#prevCapOrdLetter").prop('disabled', true);
-    $("#lowOrdLetter").text(lLetters[0]);
+    $("#lowOrdLetter").text(LOW_LETTERS[0]);
     $("#firstLowOrdLetter").prop('disabled', true);
     $("#prevLowOrdLetter").prop('disabled', true);
     getRandomLetter();
+    setGameBoard();
+
 });
 
 function openPage(pageName, element) {
@@ -145,4 +150,15 @@ function isDark(color) {
     // HSP (Highly Sensitive Poo) equation http://alienryderflex.com/hsp.html.
     hsp = Math.sqrt(0.299 * (r * r) + 0.587 * (g * g) + 0.114 * (b * b));
     return (hsp < threshold)
+}
+
+/**
+ * 
+ * @returns RGB color with 25% transparency.
+ */
+function getRandRGB() {
+    let r = getRandomNumber(0,255);
+    let g = getRandomNumber(0,255);
+    let b = getRandomNumber(0,255);
+    return ('rgba('+r+','+g+','+b+', 0.6)')
 }

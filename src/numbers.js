@@ -1,4 +1,4 @@
-
+const SUM_OF_RANDOM_NUMBERS = 50;
 
 function getOrderedMax() {
     return Number($("#oMax").val());
@@ -6,75 +6,116 @@ function getOrderedMax() {
 function getOrderedMin() {
     return Number($("#oMin").val());
 }
-let oMinimum = getOrderedMin();
-let oMaximum = getOrderedMax();
-let oSize = oMaximum - oMinimum;
-let ordered = Array(oSize);
-for (var i = oMinimum; i < oSize; i++) {
-    ordered[i] = i;
+function getOrderedCountBy() {
+    return Number($("#oCountBy").val());
 }
 
-const rSize = 50;
-const random = Array(50);
-for (var i = 0; i < rSize; i++) {
-    random[i] = (getRandomNumber(oMinimum, oMaximum));
+function getRandMax() {
+    return Number($("#rMax").val());
+}
+function getRandMin() {
+    return Number($("#rMin").val());
+}
+
+function getQuizMax() {
+    return Number($("#qMax").val());
+}
+function getQuizMin() {
+    return Number($("#qMin").val());
+}
+
+function openNumberPage(pageName, element) {
+    var i, tabContent, tabLinks;
+    tabContent = document.getElementsByClassName("numberTabContent");
+    for (i = 0; i < tabContent.length; i++) {
+        tabContent[i].style.display = "none";
+    }
+    tabLinks = document.getElementsByClassName("numberTabLink");
+    for (i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].style.background = "";
+        tabLinks[i].style.color = "white";
+    }
+    document.getElementById(pageName).style.display = "block";
+    updateBackground(element.id);
 }
 
 /**
- * Set ordered number HTML given an array of values.
- * <p>
- * Adding an extra element at the end to adjust for array indexing offset.
- * @param {*} arr array values.
- * @param {*} id where output is stored.
+ * Set ordered numbers, min to max by 1.
+ * @param {*} id where HTML is stored.
  */
-function setOrderedContent(arr = ordered, id = "#o123s") {
+function setOrderedNumbers(id = "#o123s") {
+    let oMin = getOrderedMin();
+    let oMax = getOrderedMax();
+    let c = getOrderedCountBy();
     let output = "";
-    for (var i = 0; i < arr.length; i++) {
-        output += ("<div class='number' id='num_" + arr[i] + "' onclick='updateBackground(this)'> " + arr[i] + " </div>");
+    for (var i = oMin; i < oMax; i = (i + c)) {
+        output += ("<div class='number' id='num_" + i + "' onclick='updateBackground(this)'> " + i + " </div>");
     }
-    let maxIndex = arr.length - 1;
-    output += ("<div class='number' id='num_" + Number(arr[maxIndex] + 1) + "' onclick='updateBackground(this)'> " + Number(arr[maxIndex] + 1) + " </div>");
-    $(String(id)).html(output);
-}
-
-function reloadOrderedNumbers() {
-    ordered = Array();
-    oMinimum = getOrderedMin();
-    oMaximum = getOrderedMax();
-    if (oMinimum > oMaximum) {
-        alert("The minimum value is more than the maximum. Reverse and try again.")
-        return;
-    }
-    oSize = Math.abs(oMaximum - oMinimum);
-    ordered = Array(oSize);
-    for (var i = 0; i < oSize; i++) {
-        ordered[i] = i + oMinimum;
-    }
-    setOrderedContent(ordered, "#o123s");
-}
-
-function setRandomContent(arr, id) {
-    let output = "";
-    for (var i = 0; i < arr.length; i++) {
-        output += ("<div class='number' id='num_" + arr[i] + "_" + i + "' onclick='updateBackground(this)'><span class='coded'> " + arr[i] + " </span></div>");
+    if ( oMax % c === 0) {
+        output += ("<div class='number' id='num_" + oMax + "' onclick='updateBackground(this)'> " + oMax + " </div>");
     }
     $(String(id)).html(output);
 }
 
-/**
- * Generating then setting random number content.
- * <p>
- * Adjusting the maximum to correct of array index offset.
- */
-function reloadRandomNumbers() {
-    oMinimum = getOrderedMin();
-    oMaximum = getOrderedMax() + 1;
-    if (oMinimum > oMaximum) {
-        alert("The minimum value is more than the maximum. Reverse and try again.")
-        return;
+function setRandomNumbers(id = "#r123s") {
+    let oMinimum = getRandMin();
+    let oMaximum = getRandMax() + 1;
+    let output = "";
+    for (var i = 0; i < SUM_OF_RANDOM_NUMBERS; i++) {
+        let tmp = getRandomNumber(oMinimum, oMaximum);
+        output += ("<div class='number' id='num_" + tmp + "_" + i + "' onclick='updateBackground(this)'><span class='coded'> " + tmp + " </span></div>");
     }
-    for (var i = 0; i < rSize; i++) {
-        random[i] = (getRandomNumber(oMinimum, oMaximum));
+    $(String(id)).html(output);
+}
+
+
+function minusRandMin() {
+    let v = getRandMin();
+    v = v - 1;
+    $("#rMin").val(v);
+}
+function addRandMin() {
+    let v = getRandMin();
+    v = v + 1;
+    $("#rMin").val(v);
+}
+function minusRandMax() {
+    let v = getRandMax();
+    v = v - 1;
+    $("#rMax").val(v);
+}
+function addRandMax() {
+    let v = getRandMax();
+    v = v + 1;
+    $("#rMax").val(v);
+}
+
+function minusQuizMin() {
+    let v = getQuizMin();
+    v = v - 1;
+    $("#qMin").val(v);
+}
+function addQuizMin() {
+    let v = getQuizMin();
+    v = v + 1;
+    $("#qMin").val(v);
+}
+function minusQuizMax() {
+    let v = getQuizMax();
+    v = v - 1;
+    $("#qMax").val(v);
+}
+function addQuizMax() {
+    let v = getQuizMax();
+    v = v + 1;
+    $("#qMax").val(v);
+}
+
+function setRandomNumber(increment) {
+    if (increment) {
+        let c = Number($("#numberCorrectCount").text());
+        c = c + 1;
+        $("#numberCorrectCount").text(c);
     }
-    setRandomContent(random, "#r123s");
+    $("#randNumber").text(getRandomNumber(getQuizMin(), getQuizMax()));
 }

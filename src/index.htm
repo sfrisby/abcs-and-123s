@@ -11,19 +11,24 @@
 <body>
 
     <div class="tab">
-        <button class="tablink" onclick="openPage('Letters', this)" id="defaultOpen">Letters</button>
-        <button class="tablink" onclick="openPage('Numbers', this)">Numbers</button>
+        <button class="tablink" onclick="openPage('Letters', this)" id="defaultOpen">Pre-School Letters</button>
+        <button class="tablink" onclick="openPage('Numbers', this)">Pre-School Numbers</button>
         <button class="tablink" onclick="openPage('About', this)">About</button>
     </div>
 
     <div id="Letters" class="tabcontent">
 
-        <button class="letterTablink" id="defaultLetterOpen" onclick="openLetterPage('allLetters', this)">Alphabet</button>
-        <button class="letterTablink" id="randLettersBtn" onclick="openLetterPage('randLetters', this)" >Mixed Letters</button>
-        <button class="letterTablink" id="stageOrdLetterBtn" onclick="openLetterPage('stageOrdLetter', this)">Letter Case</button>
-        <button class="letterTablink" id="stageRandLetterBtn" onclick="openLetterPage('stageRandLetter', this)">Letter Quiz</button>
-        <button class="letterTablink" id="letterBackgroundBtn" onclick="setRandomHexBackgroundGradientForParent(this)">&#9617;</button>
-        
+        <button class="letterTablink" id="alphabetLettersBtn"
+            onclick="openLetterPage('allLetters', this)">Alphabet</button>
+        <button class="letterTablink" id="randLettersBtn" onclick="openLetterPage('randLetters', this)">Random</button>
+        <button class="letterTablink" id="stageOrdLetterBtn"
+            onclick="openLetterPage('stageOrdLetter', this)">Cases</button>
+        <button class="letterTablink" id="letterQuizBtn" onclick="openLetterPage('letterQuiz', this)">Quiz</button>
+        <!-- id="stageLetterGameBtn" -->
+        <button class="letterTablink" id="defaultLetterOpen"
+            onclick="openLetterPage('stageLetterGame', this)">Game</button>
+        <button class="letterTablink" onclick="setRandomHexBackgroundGradientForParent(this)">&#9617;</button><br />
+
         <div id="allLetters" class="letterTabcontent">
             <span id="oabcs"></span><br />
             <button onclick="setOrderedLetterContent()">&olarr;</button>
@@ -48,43 +53,95 @@
             <button id="lastLowOrdLetter" onclick="getLastLowLetter()">&#11246;</button>
         </div>
 
-        <div id="stageRandLetter" class="letterTabcontent">
+        <div id="letterQuiz" class="letterTabcontent">
             <button id="prevRandLetter" onclick="getRandomLetter(false)">&#128078;</button>
             <span class="letter" id="randLetter"></span>
             <button id="nextRandLetter" onclick="getRandomLetter(true)">&#x1F44D;</button>
             <p>Thumbs Up: <span id="letterCorrectCount">0</span></p>
         </div>
 
+        <div id="stageLetterGame" class="letterTabcontent">
+            <!-- 
+                TODO: Create a letter game like bejeweled where letters are the jewels
+                * 26 rows?
+                * 13 characters (cols) per row
+                Start out at selecting A then B etc. More points rewarded for the number
+                of alphabet characters touching each other - also combo with different
+                cases but just get half the points.
+                Game over after getting 3 characters wrong or the next letter needed
+                doesn't exist?
+             -->
+            <div id="letterGameBoard"></div>
+        </div>
+
     </div><!-- Letters -->
 
     <div id="Numbers" class="tabcontent">
-        <p class="numbers">
-            <span>Min: <input class="oInput" id="oMin" type="text" maxlength="4" placeholder="Min." onchange="reloadOrderedNumbers()" value="0"> Max: <input class="oInput" id="oMax" type="text" maxlength="4" placeholder="Max." onchange="reloadOrderedNumbers()" value="20"></span><br />
-            <span id="o123s"></span><br />
-            <button onclick="setOrderedContent()">&olarr;</button>
-        </p>
-        <p class="numbers">
-            <span id="r123s"></span><br />
-            <button onclick="reloadRandomNumbers()">&olarr;</button>
-        </p>
-        <button onclick="setRandomHexBackgroundGradientForParent(this)">&#10051; Change Background &#10051;</button>
-    </div>
+
+        <button class="numberTabLink" id="defaultNumberOpen"
+            onclick="openNumberPage('orderedNumbers', this)">Ordered</button><!-- orderedNumbers -->
+        <button class="numberTabLink" id="randNumbersBtn" onclick="openNumberPage('randNumbers', this)">Random</button>
+        <button class="numberTabLink" id="numberQuizBtn" onclick="openNumberPage('numbersQuiz', this)">Quiz</button>
+        <button class="numberTabLink" onclick="setRandomHexBackgroundGradientForParent(this)">&#9617;</button><br />
+
+        <div id="orderedNumbers" class="numberTabContent">
+            <p class="numbers">
+                <span>Min: <input class="oInput" id="oMin" type="text" maxlength="3" placeholder="Min"
+                        onchange="setOrderedNumbers()" value="0"> Max: <input class="oInput" id="oMax" type="text"
+                        maxlength="3" placeholder="Max" onchange="setOrderedNumbers()" value="20"></span> Count By:
+                <input class="oInput" id="oCountBy" type="text" maxlength="2" placeholder="#"
+                    onchange="setOrderedNumbers()" value="1"></span><br />
+                <span id="o123s"></span><br />
+                <button onclick="setOrderedNumbers()">&olarr;</button>
+            </p>
+        </div>
+
+        <div id="randNumbers" class="numberTabContent">
+            <p>Min: <button class="subButton" onclick="minusRandMin()"> - </button><input class="randInput" id="rMin"
+                    type="text" maxlength="3" placeholder="min" value="0"><button class="addButton"
+                    onclick="addRandMin()"> + </button> Max: <button class="subButton" onclick="minusRandMax()"> -
+                </button><input class="randInput" id="rMax" type="text" maxlength="3" placeholder="max"
+                    value="20"><button class="addButton" onclick="addRandMax()"> + </button>
+            </p>
+            <p class="numbers">
+                <span id="r123s"></span><br />
+                <button onclick="setRandomNumbers()">&olarr;</button>
+            </p>
+        </div>
+
+        <div id="numbersQuiz" class="numberTabContent">
+            <p>Min: <button class="subButton" onclick="minusQuizMin()"> - </button><input class="quizInput" id="qMin"
+                    type="text" maxlength="3" placeholder="min" value="0"><button class="addButton"
+                    onclick="addQuizMin()"> + </button> Max: <button class="subButton" onclick="minusQuizMax()"> -
+                </button><input class="quizInput" id="qMax" type="text" maxlength="3" placeholder="max"
+                    value="20"><button class="addButton" onclick="addQuizMax()"> + </button></p>
+            <button id="prevRandNumber" onclick="setRandomNumber(false)">&#128078;</button>
+            <span class="number" id="randNumber"></span>
+            <button id="nextRandNumber" onclick="setRandomNumber(true)">&#x1F44D;</button>
+            <p>Thumbs Up: <span id="numberCorrectCount">0</span></p>
+        </div>
+    </div> <!-- Numbers -->
+
+
 
     <div id="About" class="tabcontent">
         <h3>About</h3>
-        <p>A place for me to help my kids learn letters and numbers. Made for simple interaction and discussion together.</p>
+        <p>A place for me to help my kids learn letters and numbers. Made for simple interaction and discussion
+            together.</p>
         <p>Page setup obtained from <a href="https://www.w3schools.com/" target="_blank">w3school's</a>
             <a href="https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_full_page_tabs"
                 target="_blank">horizontal</a> and <a
                 href="https://www.w3schools.com/howto/howto_js_vertical_tabs.asp">vertical</a>
             tab tutorials.
         </p>
-        <p>Created by Spencer Frisby. Visit me on <a href="https://github.com/sfrisby" target="_blank">Github</a> or <a href="https://www.linkedin.com/in/spencer-f-8246b527"
-            target="_blank">LinkedIn</a>.
+        <p>Created by Spencer Frisby. Visit me on <a href="https://github.com/sfrisby" target="_blank">Github</a> or <a
+                href="https://www.linkedin.com/in/spencer-f-8246b527" target="_blank">LinkedIn</a>.
         </p>
         <button onclick="setRandomHexBackgroundGradientForParent(this)">&#10051; Change Background &#10051;</button>
-    </div>
-    
+    </div> <!-- About -->
+
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="index.js" type="text/javascript"></script>
     <script src="numbers.js" type="text/javascript"></script>
