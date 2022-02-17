@@ -9,7 +9,6 @@
     cursor: pointer;
     padding: 24px 26px;
     font-size: 17px;
-    width: 25%;
 } .letterTablink:hover {
     background-color: #444;
 }

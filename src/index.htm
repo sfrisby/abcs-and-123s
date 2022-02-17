@@ -3,7 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="tabs.css">
+    <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="numbers.css">
     <link rel="stylesheet" href="letters.css">
 </head>
@@ -18,12 +18,11 @@
 
     <div id="Letters" class="tabcontent">
 
-        <button onclick="setRandomHexBackgroundGradientForParent(this)">&#10051; Change Background &#10051;</button><br />
-
         <button class="letterTablink" id="defaultLetterOpen" onclick="openLetterPage('allLetters', this)">Alphabet</button>
         <button class="letterTablink" id="randLettersBtn" onclick="openLetterPage('randLetters', this)" >Mixed Letters</button>
         <button class="letterTablink" id="stageOrdLetterBtn" onclick="openLetterPage('stageOrdLetter', this)">Letter Case</button>
         <button class="letterTablink" id="stageRandLetterBtn" onclick="openLetterPage('stageRandLetter', this)">Letter Quiz</button>
+        <button class="letterTablink" id="letterBackgroundBtn" onclick="setRandomHexBackgroundGradientForParent(this)">&#9617;</button>
         
         <div id="allLetters" class="letterTabcontent">
             <span id="oabcs"></span><br />
@@ -50,13 +49,13 @@
         </div>
 
         <div id="stageRandLetter" class="letterTabcontent">
-            <p>Correct: <span id="letterCorrectCount">0</span></p><br />
             <button id="prevRandLetter" onclick="getRandomLetter(false)">&#128078;</button>
             <span class="letter" id="randLetter"></span>
             <button id="nextRandLetter" onclick="getRandomLetter(true)">&#x1F44D;</button>
+            <p>Thumbs Up: <span id="letterCorrectCount">0</span></p>
         </div>
 
-    </div>
+    </div><!-- Letters -->
 
     <div id="Numbers" class="tabcontent">
         <p class="numbers">
