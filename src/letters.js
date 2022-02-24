@@ -256,7 +256,14 @@ function getColorForLetter(l) {
 function process(ele) {
     let [row, col, l] = ele.id.split("_");
 
-    var ids = getGroupIds(row, col, l);
+    var selected = {
+        'row': Number(row),
+        'col': Number(col),
+        'letter': l
+    };
+    let group = new Set();
+
+    var ids = getGroupIds(group, selected);
 
     let foo = 1;
 }
@@ -298,38 +305,53 @@ function process(ele) {
  *     bottom left  |  bottom right
  *              bottom
  * 
- * @param {*} row of selected
- * @param {*} col of selected
- * @param {*} l letter
- * @param {*} ignore elements already counted.
- * @returns 
+ * @param {*} group set of elements already added.
+ * @param {*} selected element; containing the row, col, and letter.
+ * @returns IDs of all the elements with the same letter touching each other.
  */
-function getGroupIds(row, col, l) {
-    let group = new Set();
+function getGroupIds(group, selected) {
+    let tmpSet = new Set();
 
-    let topRow = parseInt(row) - 1;
-    let bottomRow = parseInt(row) + 1;
-    let rightCol = parseInt(col) + 1;
-    let leftCol = parseInt(col) - 1;
+    let row = selected.row;
+    let col = selected.col;
+    let l = selected.letter;
 
     let center = (row + "_" + col + "_" + l);
-    group.add(center);
+    tmpSet.add(center);
+    group.forEach(element => {
+        tmpSet.add(element);
+    });
 
+    let topRow = row - 1;
+    let bottomRow = row + 1;
+    let rightCol = col + 1;
+    let leftCol = col - 1;
+
+    let topLeft = (topRow + "_" + leftCol + "_" + l);
     let top = (topRow + "_" + col + "_" + l);
     let topRight = (topRow + "_" + rightCol + "_" + l);
-    let topLeft = (topRow + "_" + leftCol + "_" + l);
     let right = (row + "_" + rightCol + "_" + l);
-    let bottom = (bottomRow + "_" + col + "_" + l);
     let bottomRight = (bottomRow + "_" + rightCol + "_" + l);
+    let bottom = (bottomRow + "_" + col + "_" + l);
     let bottomLeft = (bottomRow + "_" + leftCol + "_" + l);
     let left = (row + "_" + leftCol + "_" + l);
 
-    // Infinite loop --- need return condition
     let neighbors = [topLeft, top, topRight, right, bottomRight, bottom, bottomLeft, left];
     neighbors.forEach(element => {
-        if ($("#" + element).length) {
-            let [r, c, _dummy] = element.split("_");
-            group.add(getGroupIds(r, c, l));
+        if ($("#" + element).length) { // Filtering edges.
+            let [r, c, letter] = element.split("_");
+            if (l === letter && !group.has(element)) {
+                var tmpSelected = {
+                    'row': Number(r),
+                    'col': Number(c),
+                    'letter': letter
+                };
+                let a = new Set();
+                a = getGroupIds(tmpSet, tmpSelected);
+                a.forEach(element => {
+                    group.add(element);
+                });
+            }
         }
     });
 

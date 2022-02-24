@@ -53,7 +53,8 @@ span.letter {
     cursor: crosshair;
     background: none;
     font-size: 196px;
-    padding: 10px
+    padding: 10px;
+    min-width: 300px;
 } span.letter:hover {
     background: none;
 }

@@ -9,6 +9,9 @@ function getOrderedMin() {
 function getOrderedCountBy() {
     return Number($("#oCountBy").val());
 }
+function setOrderedCountBy(v) {
+    return $("#oCountBy").val(v);
+}
 
 function getRandMax() {
     return Number($("#rMax").val());
@@ -47,11 +50,15 @@ function setOrderedNumbers(id = "#o123s") {
     let oMin = getOrderedMin();
     let oMax = getOrderedMax();
     let c = getOrderedCountBy();
+    if (c <= 0) {
+        c = 1;
+        setOrderedCountBy(1);
+    }
     let output = "";
     for (var i = oMin; i < oMax; i = (i + c)) {
         output += ("<div class='number' id='num_" + i + "' onclick='updateBackground(this)'> " + i + " </div>");
     }
-    if ( oMax % c === 0) {
+    if (oMax % c === 0) {
         output += ("<div class='number' id='num_" + oMax + "' onclick='updateBackground(this)'> " + oMax + " </div>");
     }
     $(String(id)).html(output);
@@ -68,6 +75,36 @@ function setRandomNumbers(id = "#r123s") {
     $(String(id)).html(output);
 }
 
+function minusOrderedMin() {
+    let v = getOrderedMin();
+    v = v - 1;
+    $("#oMin").val(v);
+}
+function addOrderedMin() {
+    let v = getOrderedMin();
+    v = v + 1;
+    $("#oMin").val(v);
+}
+function minusOrderedMax() {
+    let v = getOrderedMax();
+    v = v - 1;
+    $("#oMax").val(v);
+}
+function addOrderedMax() {
+    let v = getOrderedMax();
+    v = v + 1;
+    $("#oMax").val(v);
+}
+function minusCountBy() {
+    let v = getOrderedCountBy();
+    v = v - 1;
+    $("#oCountBy").val(v);
+}
+function addCountBy() {
+    let v = getOrderedCountBy();
+    v = v + 1;
+    $("#oCountBy").val(v);
+}
 
 function minusRandMin() {
     let v = getRandMin();

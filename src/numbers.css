@@ -1,7 +1,8 @@
 .oInput {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 22px;
-    width: 5ch;
+    font-size: 38px;
+    width: 3ch;
+    vertical-align: middle;
 }
 
 .randInput {
@@ -115,7 +116,8 @@ p.numbers {
     cursor: crosshair;
     background: none;
     font-size: 196px;
-    padding: 10px
+    padding: 10px;
+    min-width: 500px;
 } span.number:hover {
     background: none;
 }
