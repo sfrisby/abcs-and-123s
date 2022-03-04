@@ -337,6 +337,7 @@ function getGroupIds(group, selected) {
     let left = (row + "_" + leftCol + "_" + l);
 
     let neighbors = [topLeft, top, topRight, right, bottomRight, bottom, bottomLeft, left];
+    
     neighbors.forEach(element => {
         if ($("#" + element).length) { // Filtering edges.
             let [r, c, letter] = element.split("_");
