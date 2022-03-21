@@ -90,7 +90,7 @@
 
         <div id="orderedNumbers" class="numberTabContent">
             <p class="numbers">
-                Min: <button class="subButton" onclick="minusOrderedMin()"> - </button><input class="oInput" id="oMin" type="text" maxlength="3" placeholder="Min" onchange="setOrderedNumbers()" value="0"><button class="addButton" onclick="addOrderedMin()"> + </button> Max: <button class="subButton" onclick="minusOrderedMax()"> - </button><input class="oInput" id="oMax" type="text" maxlength="3" placeholder="Max" onchange="setOrderedNumbers()" value="20"><button class="addButton" onclick="addOrderedMax()"> + </button> Count By: <button class="subButton" onclick="minusCountBy()"> - </button><input class="oInput" id="oCountBy" type="text" maxlength="2" placeholder="#" onchange="setOrderedNumbers()" value="1"><button class="addButton" onclick="addCountBy()"> + </button><br />
+                Min: <button class="subButton" onclick="minusOrderedMin()"> - </button><input class="oInput" id="oMin" type="text" maxlength="4" placeholder="Min" onchange="setOrderedNumbers()" value="0"><button class="addButton" onclick="addOrderedMin()"> + </button> Max: <button class="subButton" onclick="minusOrderedMax()"> - </button><input class="oInput" id="oMax" type="text" maxlength="4" placeholder="Max" onchange="setOrderedNumbers()" value="20"><button class="addButton" onclick="addOrderedMax()"> + </button> Count By: <button class="subButton" onclick="minusCountBy()"> - </button><input class="oInput" id="oCountBy" type="text" maxlength="3" placeholder="#" onchange="setOrderedNumbers()" value="1"><button class="addButton" onclick="addCountBy()"> + </button><br />
                 <span id="o123s"></span><br />
                 <button onclick="setOrderedNumbers()">&olarr;</button>
             </p>
@@ -98,9 +98,9 @@
 
         <div id="randNumbers" class="numberTabContent">
             <p>Min: <button class="subButton" onclick="minusRandMin()"> - </button><input class="randInput" id="rMin"
-                    type="text" maxlength="3" placeholder="min" value="0"><button class="addButton"
+                    type="text" maxlength="4" placeholder="min" value="0"><button class="addButton"
                     onclick="addRandMin()"> + </button> Max: <button class="subButton" onclick="minusRandMax()"> -
-                </button><input class="randInput" id="rMax" type="text" maxlength="3" placeholder="max"
+                </button><input class="randInput" id="rMax" type="text" maxlength="4" placeholder="max"
                     value="20"><button class="addButton" onclick="addRandMax()"> + </button>
             </p>
             <p class="numbers">
@@ -111,9 +111,9 @@
 
         <div id="numbersQuiz" class="numberTabContent">
             <p>Min: <button class="subButton" onclick="minusQuizMin()"> - </button><input class="quizInput" id="qMin"
-                    type="text" maxlength="3" placeholder="min" value="0"><button class="addButton"
+                    type="text" maxlength="4" placeholder="min" value="0"><button class="addButton"
                     onclick="addQuizMin()"> + </button> Max: <button class="subButton" onclick="minusQuizMax()"> -
-                </button><input class="quizInput" id="qMax" type="text" maxlength="3" placeholder="max"
+                </button><input class="quizInput" id="qMax" type="text" maxlength="4" placeholder="max"
                     value="20"><button class="addButton" onclick="addQuizMax()"> + </button></p>
             <button id="prevRandNumber" onclick="setRandomNumber(false)">&#128078;</button>
             <span class="number" id="randNumber"></span>
