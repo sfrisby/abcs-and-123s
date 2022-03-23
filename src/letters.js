@@ -14,7 +14,7 @@ function setOrderedLetterContent() {
     let output = "";
     for (var i = 0; i < CAP_LETTERS.length; i++) {
         output += ("<div class='letter' id='char_" + LOW_LETTERS[i]);
-        output += ("' onclick='updateBackground(this)'> ");
+        output += ("' onclick='setRandomLinearBackground(this)'> ");
         output += (CAP_LETTERS[i] + " " + LOW_LETTERS[i] + " </div>");
     }
     $('#oabcs').html(output);
@@ -25,7 +25,7 @@ function setRandomLetterContent() {
     for (var i = 0; i < SUM_OF_RANDOM_LETTERS; i++) {
         let index = getRandomIndex(LETTERS);
         output += ("<div class='letter' id='random_" + LETTERS[index] + "_" + i);
-        output += ("' onclick='updateBackground(this)'>");
+        output += ("' onclick='setRandomLinearBackground(this)'>");
         output += (LETTERS[index] + "</div>");
     }
     $('#rabcs').html(output);

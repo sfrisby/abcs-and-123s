@@ -17,31 +17,33 @@
         <button onclick="openPage('Letters', this)" id="navbarLetters">Letters</button>
         <button onclick="openPage('Numbers', this)" id="navbarNumbers">Numbers</button>
         <button onclick="openPage('About',   this)" id="navbarAbout">About</button>
-        <button title="Change Background" onclick="setRandomLinearBackground()">&#9617;</button>
+        <button title="Change Background" onclick="setRandomLinearBackground('body')">&#9617;</button>
     </div>
 
-    <div id="Letters" class="tabcontent">
+    <div id="Letters" class="tabContent">
 
         <div id="letterTablinks">
-            <button class="tablink" id="alphabetLettersBtn" onclick="openTablink('allLetters', this)">Alphabet</button>
-            <button class="tablink" id="randLettersBtn" onclick="openTablink('randLetters', this)">Random</button>
-            <button class="tablink" id="stageOrdLetterBtn" onclick="openTablink('stageOrdLetter', this)">Cases</button>
-            <button class="tablink" id="letterQuizBtn" onclick="openTablink('letterQuiz', this)">Quiz</button>
-            <button class="tablink" id="letterGame" onclick="openTablink('stageLetterGame', this)">Game</button>
-            <button class="tablink" title="Change Background" onclick="setRandomHexBackgroundGradientForParent(this)">&#9617;</button>
+            <button class="tabLink" id="alphabetLettersBtn" onclick="openTabLink('allLetters', this)">Alphabet</button>
+            <button class="tabLink" id="stageOrdLetterBtn" onclick="openTabLink('stageOrdLetter', this)">Cases</button>
+            <button class="tabLink" id="randLettersBtn" onclick="openTabLink('randLetters', this)">Random</button>
+            <button class="tabLink" id="letterMatchBtn" onclick="openTabLink('letterMatchContent', this)">Case Matching</button>
+            <button class="tabLink" id="letterPhonicsBtn" onclick="openTabLink('letterPhonicsContent', this)">Phonics</button>
+            <button class="tabLink" id="letterQuizBtn" onclick="openTabLink('letterQuiz', this)">Quiz</button>
+            <button class="tabLink" id="letterGame" onclick="openTabLink('stageLetterGame', this)">Game</button>
+            <button class="tabLink" title="Change Background" onclick="setRandomLinearBackground($('#Letters'))">&#9617;</button>
         </div>
 
-        <div id="allLetters" class="subcontent">
+        <div id="allLetters" class="subContent">
             <span id="oabcs"></span><br />
             <button onclick="setOrderedLetterContent()">&olarr;</button>
         </div>
 
-        <div id="randLetters" class="subcontent">
+        <div id="randLetters" class="subContent">
             <span id="rabcs"></span><br />
             <button onclick="setRandomLetterContent()">&olarr;</button>
         </div>
 
-        <div id="stageOrdLetter" class="subcontent">
+        <div id="stageOrdLetter" class="subContent">
             <button id="firstCapOrdLetter" onclick="getFirstCapLetter()">&#11244;</button>
             <button id="prevCapOrdLetter" onclick="getPrevCapLetter()">&#11164;</button>
             <span class="letter" id="capOrdLetter"></span>
@@ -55,14 +57,14 @@
             <button id="lastLowOrdLetter" onclick="getLastLowLetter()">&#11246;</button>
         </div>
 
-        <div id="letterQuiz" class="subcontent">
+        <div id="letterQuiz" class="subContent">
             <button id="prevRandLetter" onclick="getRandomLetter(false)">&#128078;</button>
             <span class="letter" id="randLetter"></span>
             <button id="nextRandLetter" onclick="getRandomLetter(true)">&#x1F44D;</button>
             <p>Thumbs Up: <span id="letterCorrectCount">0</span></p>
         </div>
 
-        <div id="stageLetterGame" class="subcontent">
+        <div id="stageLetterGame" class="subContent">
             <!-- 
                 TODO: Create a letter game like bejeweled where letters are the jewels
                 * 26 rows?
@@ -78,14 +80,14 @@
 
     </div><!-- Letters -->
 
-    <div id="Numbers" class="tabcontent">
+    <div id="Numbers" class="tabContent">
 
         <div id="numberTablinks">
-            <button class="tablink" id="defaultNumberOpen" onclick="openTablink('orderedNumbers', this)">Ordered</button>
-            <button class="tablink" id="randNumbersBtn" onclick="openTablink('randNumbers', this)">Random</button>
-            <button class="tablink" id="numberQuizBtn" onclick="openTablink('numbersQuiz', this)">Quiz</button>
-            <button class="tablink" id="reloadNumbers" title="Reload Numbers">&#8635;</button><!-- TODO this is 1px taller than the others -->
-            <button class="tablink" title="Change Background" onclick="setRandomHexBackgroundGradientForParent(this)">&#9617;</button>
+            <button class="tabLink" id="defaultNumberOpen" onclick="openTabLink('orderedNumbers', this)">Ordered</button>
+            <button class="tabLink" id="randNumbersBtn" onclick="openTabLink('randNumbers', this)">Random</button>
+            <button class="tabLink" id="numberQuizBtn" onclick="openTabLink('numbersQuiz', this)">Quiz</button>
+            <button class="tabLink" id="reloadNumbers" title="Reload Numbers">&#8635;</button><!-- TODO this is 1px taller than the others -->
+            <button class="tabLink" title="Change Background" onclick="setRandomLinearBackground($('#Numbers'))">&#9617;</button>
         </div>
         
 
@@ -107,7 +109,7 @@
 
 
 
-        <div id="orderedNumbers" class="subcontent">
+        <div id="orderedNumbers" class="subContent">
             <p class="numbers">
                 Min: <button class="subButton" onclick="minusOrderedMin()"> - </button><input class="oInput" id="oMin" type="text" maxlength="4" placeholder="Min" onchange="setOrderedNumbers()" value="0"><button class="addButton" onclick="addOrderedMin()"> + </button> Max: <button class="subButton" onclick="minusOrderedMax()"> - </button><input class="oInput" id="oMax" type="text" maxlength="4" placeholder="Max" onchange="setOrderedNumbers()" value="20"><button class="addButton" onclick="addOrderedMax()"> + </button> Count By: <button class="subButton" onclick="minusCountBy()"> - </button><input class="oInput" id="oCountBy" type="text" maxlength="3" placeholder="#" onchange="setOrderedNumbers()" value="1"><button class="addButton" onclick="addCountBy()"> + </button><br />
                 <span id="o123s"></span><br />
@@ -115,7 +117,7 @@
             </p>
         </div>
 
-        <div id="randNumbers" class="subcontent">
+        <div id="randNumbers" class="subContent">
             <p>Min: <button class="subButton" onclick="minusRandMin()"> - </button><input class="randInput" id="rMin"
                     type="text" maxlength="4" placeholder="min" value="0"><button class="addButton"
                     onclick="addRandMin()"> + </button> Max: <button class="subButton" onclick="minusRandMax()"> -
@@ -128,7 +130,7 @@
             </p>
         </div>
 
-        <div id="numbersQuiz" class="subcontent">
+        <div id="numbersQuiz" class="subContent">
             <p>Min: <button class="subButton" onclick="minusQuizMin()"> - </button><input class="quizInput" id="qMin"
                     type="text" maxlength="4" placeholder="min" value="0"><button class="addButton"
                     onclick="addQuizMin()"> + </button> Max: <button class="subButton" onclick="minusQuizMax()"> -
@@ -143,7 +145,7 @@
 
 
 
-    <div id="About" class="tabcontent">
+    <div id="About" class="tabContent">
         <h3>About</h3>
         <p>A place for me to help my kids learn letters and numbers. Made for simple interaction and discussion
             together.</p>
@@ -156,7 +158,7 @@
         <p>Created by Spencer Frisby. Visit me on <a href="https://github.com/sfrisby" target="_blank">Github</a> or <a
                 href="https://www.linkedin.com/in/spencer-f-8246b527" target="_blank">LinkedIn</a>.
         </p>
-        <button onclick="setRandomHexBackgroundGradientForParent(this)">&#10051; Change Background &#10051;</button>
+        <button onclick="setRandomLinearBackground($('#About'))">&#10051; Change Background &#10051;</button>
     </div> <!-- About -->
 
 

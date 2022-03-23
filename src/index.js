@@ -8,7 +8,7 @@ const hexColors = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', '
 
 $(document).ready(function () {
 
-    setRandomLinearBackground();
+    setRandomLinearBackground('body');
 
     document.getElementById("navbarLetters").click();
     document.getElementById("alphabetLettersBtn").click();
@@ -34,11 +34,11 @@ $(document).ready(function () {
 
 function openPage(pageName, element) {
     var i, tabContent, tabLinks;
-    tabContent = document.getElementsByClassName("tabcontent");
+    tabContent = document.getElementsByClassName("tabContent");
     for (i = 0; i < tabContent.length; i++) {
         tabContent[i].style.display = "none";
     }
-    tabLinks = $("#leftNavBar").children();
+    tabLinks = $("#navbar").children();
     for (i = 0; i < tabLinks.length; i++) {
         tabLinks[i].style.backgroundColor = "";
         tabLinks[i].style.color = "white";
@@ -48,19 +48,19 @@ function openPage(pageName, element) {
     element.style.color = "black";
 }
 
-function openTablink(pageName, element) {
+function openTabLink(pageName, element) {
     var i, tabContent, tabLinks;
-    tabContent = document.getElementsByClassName("subcontent");
+    tabContent = document.getElementsByClassName("subContent");
     for (i = 0; i < tabContent.length; i++) {
         tabContent[i].style.display = "none";
     }
-    tabLinks = document.getElementsByClassName("tablink");
+    tabLinks = document.getElementsByClassName("tabLink");
     for (i = 0; i < tabLinks.length; i++) {
         tabLinks[i].style.background = "";
         tabLinks[i].style.color = "white";
     }
     document.getElementById(pageName).style.display = "block";
-    updateBackground(element.id);
+    setRandomLinearBackground(element);
 }
 
 function getRandomNumber(min, max) {
@@ -90,57 +90,22 @@ function getRandomHexBackgroundColor() {
     return color
 }
 
-/**
- * Set random gradient background given for the given ID.
- * <p>
- * Pre-pending '#' in front ID.
- * @param {*} id either a string or element object.
- */
-function setRandomHexBackgroundGradientById(id) {
-    if (typeof id === 'string' && id[0] != "#") {
-        id = ("#" + id);
-    } else if (typeof id === 'object') {
-        id = ("#" + id.id)
-    }
-    let color1 = getRandomHexBackgroundColor();
-    let color2 = getRandomHexBackgroundColor();
-    let b = "linear-gradient(45deg, " + color1 + ", " + color2 + ")";
-    $(id).css({ background: b });
-}
-
 function getRandomLinearGradient() {
     let color1 = getRandomHexBackgroundColor();
     let color2 = getRandomHexBackgroundColor();
-    return ("linear-gradient(45deg, " + color1 + ", " + color2 + ")");
+    return ("linear-gradient(" + getRandomNumber(0, 360) + "deg, " + color1 + ", " + color2 + ")");
 }
 
-function setRandomHexBackgroundGradientForParent(ele) {
-    setRandomHexBackgroundGradientById(ele.parentElement.id)
-}
-
-function setRandomLinearBackground() {
-    $('body').css({ background: getRandomLinearGradient() });
-}
-
-/**
- * Setting given ID to a random linear gradient background and dark font.
- * @param {} id 
- */
-function updateBackground(id) {
-    if (typeof id === 'string' && id[0] != "#") {
-        id = ("#" + id);
-    } else if (typeof id === 'object') {
-        id = ("#" + id.id)
-    }
-    let color1 = getRandomHexBackgroundColor();
-    let color2 = getRandomHexBackgroundColor();
-    let b = "linear-gradient(" + getRandomNumber(0, 360) + "deg, " + color1 + ", " + color2 + ")";
-    $(id).css({ background: b });
-    $(id).css("font-weight", "bolder");
-    if (isDark(color1) || isDark(color2)) {
-        $(id).css({ color: "#ddd" });
+function setRandomLinearBackground(ele) {
+    let b = getRandomLinearGradient()
+    $(ele).css({ background: b });
+    let colors = b.split(' ');
+    let color1 = colors[1].slice(0, -1)
+    let color2 = colors[2].slice(0, -1)
+    if (isDark(color1) && isDark(color2)) {
+        $(ele).css({ color: "#ddd" });
     } else {
-        $(id).css({ color: "#222" });
+        $(ele).css({ color: "#222" });
     }
 }
 
@@ -177,8 +142,8 @@ function isDark(color) {
  * @returns RGB color with 25% transparency.
  */
 function getRandRGB() {
-    let r = getRandomNumber(0,255);
-    let g = getRandomNumber(0,255);
-    let b = getRandomNumber(0,255);
-    return ('rgba('+r+','+g+','+b+', 0.6)')
+    let r = getRandomNumber(0, 255);
+    let g = getRandomNumber(0, 255);
+    let b = getRandomNumber(0, 255);
+    return ('rgba(' + r + ',' + g + ',' + b + ', 0.6)')
 }

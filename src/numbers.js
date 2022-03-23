@@ -39,7 +39,7 @@ function openNumberPage(pageName, element) {
         tabLinks[i].style.color = "white";
     }
     document.getElementById(pageName).style.display = "block";
-    updateBackground(element.id);
+    setRandomLinearBackground(element.id);
 }
 
 /**
@@ -56,10 +56,10 @@ function setOrderedNumbers(id = "#o123s") {
     }
     let output = "";
     for (var i = oMin; i < oMax; i = (i + c)) {
-        output += ("<div class='number' id='num_" + i + "' onclick='updateBackground(this)'> " + i + " </div>");
+        output += ("<div class='number' id='num_" + i + "' onclick='setRandomLinearBackground(this)'> " + i + " </div>");
     }
     if (oMax % c === 0) {
-        output += ("<div class='number' id='num_" + oMax + "' onclick='updateBackground(this)'> " + oMax + " </div>");
+        output += ("<div class='number' id='num_" + oMax + "' onclick='setRandomLinearBackground(this)'> " + oMax + " </div>");
     }
     $(String(id)).html(output);
 }
@@ -70,7 +70,7 @@ function setRandomNumbers(id = "#r123s") {
     let output = "";
     for (var i = 0; i < SUM_OF_RANDOM_NUMBERS; i++) {
         let tmp = getRandomNumber(oMinimum, oMaximum);
-        output += ("<div class='number' id='num_" + tmp + "_" + i + "' onclick='updateBackground(this)'><span class='coded'> " + tmp + " </span></div>");
+        output += ("<div class='number' id='num_" + tmp + "_" + i + "' onclick='setRandomLinearBackground(this)'><span class='coded'> " + tmp + " </span></div>");
     }
     $(String(id)).html(output);
 }
