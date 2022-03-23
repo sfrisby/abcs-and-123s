@@ -1,34 +1,3 @@
-.oInput {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 38px;
-    width: 5ch;
-    vertical-align: middle;
-}
-
-.randInput {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 38px;
-    width: 5ch;
-    vertical-align: middle;
-}
-
-.quizInput {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 38px;
-    width: 5ch;
-    vertical-align: middle;
-}
-
-p.numbers {
-    margin: 20px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-} p.numbers button {
-    font-size: 32px;
-}
-
 .numberTabLink {
     vertical-align: center;
     background-color: #555;
@@ -45,8 +14,9 @@ p.numbers {
 }
 
 .numberTabContent {
+    margin: 20px;
     font-size: 18px;
-    font-family: monospace;
+    font-family: 'Ubuntu Mono', monospace;
     display: inline-block;
     clear: both;
 } .numberTabContent span {
@@ -66,7 +36,7 @@ p.numbers {
     color: #eee;
 }
 
-.numberTabContent .addButton {
+.addButton {
     font-size: 32px;
     width: 50px;
     height: 50px;
@@ -77,8 +47,7 @@ p.numbers {
     border-bottom-right-radius: 15px;
     border: 2px solid #222;
 }
-.numberTabContent .subButton {
-    font-family: 'Courier New', Courier, monospace;
+.subButton {
     font-size: 32px;
     font-weight: bolder;
     width: 50px;
@@ -104,7 +73,6 @@ p.numbers {
     background-color: royalblue;
 } div.number {
     font-size: 72px;
-    font-family: cursive;
     font-weight: bold;
     text-align: center;
     margin: 3px;

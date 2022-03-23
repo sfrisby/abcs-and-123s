@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="numbers.css">
     <link rel="stylesheet" href="letters.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&family=Ubuntu+Mono:wght@700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -84,7 +87,27 @@
             onclick="openNumberPage('orderedNumbers', this)">Ordered</button><!-- orderedNumbers -->
         <button class="numberTabLink" id="randNumbersBtn" onclick="openNumberPage('randNumbers', this)">Random</button>
         <button class="numberTabLink" id="numberQuizBtn" onclick="openNumberPage('numbersQuiz', this)">Quiz</button>
+        <button class="numberTabLink" id="reloadNumbers" onclick="">&olarr;</button>
+
         <button class="numberTabLink" onclick="setRandomHexBackgroundGradientForParent(this)">&#9617;</button><br />
+
+        <p class="space"></p>
+
+        Min: <button class="subButton" onclick=""> - </button>
+        <input class="" id="minBtn" type="text" placeholder="min" onchange="" value="0">
+        <button class="addButton" onclick=""> + </button>
+
+        <p class="space"></p>
+
+        Max: <button class="subButton" onclick=""> - </button>
+        <input class="" id="maxBtn" type="text" placeholder="max" onchange="" value="10">
+        <button class="addButton" onclick=""> + </button>
+
+        <p class="space"></p>
+
+
+        Count By: <button class="" onclick=""> - </button><input class="" id="countBy" type="text" onchange="" value="1"><button class="" onclick=""> + </button><br />
+        Amount: <button class="" onclick=""> - </button><input class="" id="amount" type="text" onchange="" value="10"><button class="" onclick=""> + </button><br />
 
         <p class="space"></p>
 

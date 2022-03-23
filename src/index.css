@@ -42,7 +42,7 @@ a:hover {
     width: 100%;
 } .tab button:hover {
     background-color: #777;
-    color: black;
+    color: #222;
 }
 
 .tabcontent {
@@ -52,4 +52,9 @@ a:hover {
     padding: 20px;
     height: 100%;
     width: 85%;
+} .tabcontent input {
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 38px;
+    width: 5ch;
+    vertical-align: middle;
 }

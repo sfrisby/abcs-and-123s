@@ -34,7 +34,7 @@
 }
 
 .letter {
-    font-family: cursive;
+    font-family: 'Ubuntu', sans-serif;
     cursor: pointer;
     font-size: 72px;
     font-weight: bold;
@@ -60,7 +60,7 @@ span.letter {
 
 .gameLetter {
     cursor: pointer;
-    font-family: consolas;
+    font-family: 'Ubuntu Mono', monospace;
     font-size: 28px;
     font-weight: bolder;
     text-align: center;
