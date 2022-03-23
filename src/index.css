@@ -10,11 +10,6 @@ html {
     background: linear-gradient(225deg, #222, #323232);
 }
 
-.space {
-    padding: 30px 0px 0px 0px;
-    user-select: none;
-}
-
 a:link, a:visited {
     color: #8ebf42;
     font-weight: bold;
@@ -57,4 +52,40 @@ a:hover {
     font-size: 38px;
     width: 5ch;
     vertical-align: middle;
+}
+
+.tablink {
+    vertical-align: center;
+    background-color: #555;
+    color: white;
+    font-weight: bolder;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 1.5em 1.7em;
+    font-size: 1em;
+    margin: 0em 0em 1em 0em;
+} .tablink:hover {
+    background-color: #444;
+}
+
+.subcontent {
+    font-size: 18px;
+    display: inline-block;
+    clear: both;
+} .subcontent span {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+} .subcontent button {
+    font-size: 72px;
+    background: none;
+    font-weight: bolder;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+} .subcontent button:hover:enabled {
+    color: #eee;
 }

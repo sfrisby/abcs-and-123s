@@ -10,23 +10,6 @@ const LETTER_COLORS = new Array(26).fill(1).map((_, i) => getRandRGB());
 
 const TEST_LETTERS = LETTERS.slice(0, 4);
 
-
-function openLetterPage(pageName, element) {
-    var i, tabContent, tabLinks;
-    tabContent = document.getElementsByClassName("letterTabcontent");
-    for (i = 0; i < tabContent.length; i++) {
-        tabContent[i].style.display = "none";
-    }
-    tabLinks = document.getElementsByClassName("letterTablink");
-    for (i = 0; i < tabLinks.length; i++) {
-        tabLinks[i].style.background = "";
-        tabLinks[i].style.color = "white";
-    }
-    document.getElementById(pageName).style.display = "block";
-    updateBackground(element.id);
-}
-
-
 function setOrderedLetterContent() {
     let output = "";
     for (var i = 0; i < CAP_LETTERS.length; i++) {

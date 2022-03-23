@@ -7,9 +7,11 @@ const colors = ['indianred', 'salmon', 'coral', 'magenta', 'darkorange', 'orange
 const hexColors = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
 
 $(document).ready(function () {
-    document.getElementById("defaultOpen").click();
-    document.getElementById("defaultLetterOpen").click();
-    document.getElementById("defaultNumberOpen").click();
+
+    setRandomLinearBackground();
+
+    document.getElementById("navbarLetters").click();
+    document.getElementById("alphabetLettersBtn").click();
 
     setOrderedNumbers();
     setRandomNumbers();
@@ -17,12 +19,6 @@ $(document).ready(function () {
 
     setOrderedLetterContent();
     setRandomLetterContent();
-
-    // Set random gradient for each tab.
-    let tabs = ["Letters", "LettersCards", "Numbers", "About"];
-    tabs.forEach(element => {
-        setRandomHexBackgroundGradientById(element);
-    });
 
     // Setup ordered and random letter cards.
     // Set the game board.
@@ -34,7 +30,6 @@ $(document).ready(function () {
     $("#prevLowOrdLetter").prop('disabled', true);
     getRandomLetter();
     setGameBoard();
-
 });
 
 function openPage(pageName, element) {
@@ -43,7 +38,7 @@ function openPage(pageName, element) {
     for (i = 0; i < tabContent.length; i++) {
         tabContent[i].style.display = "none";
     }
-    tabLinks = document.getElementsByClassName("tablink");
+    tabLinks = $("#leftNavBar").children();
     for (i = 0; i < tabLinks.length; i++) {
         tabLinks[i].style.backgroundColor = "";
         tabLinks[i].style.color = "white";
@@ -51,6 +46,21 @@ function openPage(pageName, element) {
     document.getElementById(pageName).style.display = "block";
     element.style.backgroundColor = getRandomColor();
     element.style.color = "black";
+}
+
+function openTablink(pageName, element) {
+    var i, tabContent, tabLinks;
+    tabContent = document.getElementsByClassName("subcontent");
+    for (i = 0; i < tabContent.length; i++) {
+        tabContent[i].style.display = "none";
+    }
+    tabLinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].style.background = "";
+        tabLinks[i].style.color = "white";
+    }
+    document.getElementById(pageName).style.display = "block";
+    updateBackground(element.id);
 }
 
 function getRandomNumber(min, max) {
@@ -98,8 +108,18 @@ function setRandomHexBackgroundGradientById(id) {
     $(id).css({ background: b });
 }
 
+function getRandomLinearGradient() {
+    let color1 = getRandomHexBackgroundColor();
+    let color2 = getRandomHexBackgroundColor();
+    return ("linear-gradient(45deg, " + color1 + ", " + color2 + ")");
+}
+
 function setRandomHexBackgroundGradientForParent(ele) {
     setRandomHexBackgroundGradientById(ele.parentElement.id)
+}
+
+function setRandomLinearBackground() {
+    $('body').css({ background: getRandomLinearGradient() });
 }
 
 /**

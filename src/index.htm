@@ -13,38 +13,35 @@
 
 <body>
 
-    <div class="tab">
-        <button class="tablink" onclick="openPage('Letters', this)" id="defaultOpen">Letters</button>
-        <button class="tablink" onclick="openPage('Numbers', this)">Numbers</button>
-        <button class="tablink" onclick="openPage('About', this)">About</button>
+    <div class="tab" id="navbar">
+        <button onclick="openPage('Letters', this)" id="navbarLetters">Letters</button>
+        <button onclick="openPage('Numbers', this)" id="navbarNumbers">Numbers</button>
+        <button onclick="openPage('About',   this)" id="navbarAbout">About</button>
+        <button title="Change Background" onclick="setRandomLinearBackground()">&#9617;</button>
     </div>
 
     <div id="Letters" class="tabcontent">
 
-        <button class="letterTablink" id="alphabetLettersBtn"
-            onclick="openLetterPage('allLetters', this)">Alphabet</button>
-        <button class="letterTablink" id="randLettersBtn" onclick="openLetterPage('randLetters', this)">Random</button>
-        <button class="letterTablink" id="stageOrdLetterBtn"
-            onclick="openLetterPage('stageOrdLetter', this)">Cases</button>
-        <button class="letterTablink" id="letterQuizBtn" onclick="openLetterPage('letterQuiz', this)">Quiz</button>
-        <!-- id="stageLetterGameBtn" -->
-        <button class="letterTablink" id="defaultLetterOpen"
-            onclick="openLetterPage('stageLetterGame', this)">Game</button>
-        <button class="letterTablink" onclick="setRandomHexBackgroundGradientForParent(this)">&#9617;</button><br />
+        <div id="letterTablinks">
+            <button class="tablink" id="alphabetLettersBtn" onclick="openTablink('allLetters', this)">Alphabet</button>
+            <button class="tablink" id="randLettersBtn" onclick="openTablink('randLetters', this)">Random</button>
+            <button class="tablink" id="stageOrdLetterBtn" onclick="openTablink('stageOrdLetter', this)">Cases</button>
+            <button class="tablink" id="letterQuizBtn" onclick="openTablink('letterQuiz', this)">Quiz</button>
+            <button class="tablink" id="letterGame" onclick="openTablink('stageLetterGame', this)">Game</button>
+            <button class="tablink" title="Change Background" onclick="setRandomHexBackgroundGradientForParent(this)">&#9617;</button>
+        </div>
 
-        <p class="space"></p>
-
-        <div id="allLetters" class="letterTabcontent">
+        <div id="allLetters" class="subcontent">
             <span id="oabcs"></span><br />
             <button onclick="setOrderedLetterContent()">&olarr;</button>
         </div>
 
-        <div id="randLetters" class="letterTabcontent">
+        <div id="randLetters" class="subcontent">
             <span id="rabcs"></span><br />
             <button onclick="setRandomLetterContent()">&olarr;</button>
         </div>
 
-        <div id="stageOrdLetter" class="letterTabcontent">
+        <div id="stageOrdLetter" class="subcontent">
             <button id="firstCapOrdLetter" onclick="getFirstCapLetter()">&#11244;</button>
             <button id="prevCapOrdLetter" onclick="getPrevCapLetter()">&#11164;</button>
             <span class="letter" id="capOrdLetter"></span>
@@ -58,14 +55,14 @@
             <button id="lastLowOrdLetter" onclick="getLastLowLetter()">&#11246;</button>
         </div>
 
-        <div id="letterQuiz" class="letterTabcontent">
+        <div id="letterQuiz" class="subcontent">
             <button id="prevRandLetter" onclick="getRandomLetter(false)">&#128078;</button>
             <span class="letter" id="randLetter"></span>
             <button id="nextRandLetter" onclick="getRandomLetter(true)">&#x1F44D;</button>
             <p>Thumbs Up: <span id="letterCorrectCount">0</span></p>
         </div>
 
-        <div id="stageLetterGame" class="letterTabcontent">
+        <div id="stageLetterGame" class="subcontent">
             <!-- 
                 TODO: Create a letter game like bejeweled where letters are the jewels
                 * 26 rows?
@@ -83,35 +80,34 @@
 
     <div id="Numbers" class="tabcontent">
 
-        <button class="numberTabLink" id="defaultNumberOpen"
-            onclick="openNumberPage('orderedNumbers', this)">Ordered</button><!-- orderedNumbers -->
-        <button class="numberTabLink" id="randNumbersBtn" onclick="openNumberPage('randNumbers', this)">Random</button>
-        <button class="numberTabLink" id="numberQuizBtn" onclick="openNumberPage('numbersQuiz', this)">Quiz</button>
-        <button class="numberTabLink" id="reloadNumbers" onclick="">&olarr;</button>
-
-        <button class="numberTabLink" onclick="setRandomHexBackgroundGradientForParent(this)">&#9617;</button><br />
-
-        <p class="space"></p>
+        <div id="numberTablinks">
+            <button class="tablink" id="defaultNumberOpen" onclick="openTablink('orderedNumbers', this)">Ordered</button>
+            <button class="tablink" id="randNumbersBtn" onclick="openTablink('randNumbers', this)">Random</button>
+            <button class="tablink" id="numberQuizBtn" onclick="openTablink('numbersQuiz', this)">Quiz</button>
+            <button class="tablink" id="reloadNumbers" title="Reload Numbers">&#8635;</button><!-- TODO this is 1px taller than the others -->
+            <button class="tablink" title="Change Background" onclick="setRandomHexBackgroundGradientForParent(this)">&#9617;</button>
+        </div>
+        
 
         Min: <button class="subButton" onclick=""> - </button>
         <input class="" id="minBtn" type="text" placeholder="min" onchange="" value="0">
         <button class="addButton" onclick=""> + </button>
 
-        <p class="space"></p>
+
 
         Max: <button class="subButton" onclick=""> - </button>
         <input class="" id="maxBtn" type="text" placeholder="max" onchange="" value="10">
         <button class="addButton" onclick=""> + </button>
 
-        <p class="space"></p>
+
 
 
         Count By: <button class="" onclick=""> - </button><input class="" id="countBy" type="text" onchange="" value="1"><button class="" onclick=""> + </button><br />
         Amount: <button class="" onclick=""> - </button><input class="" id="amount" type="text" onchange="" value="10"><button class="" onclick=""> + </button><br />
 
-        <p class="space"></p>
 
-        <div id="orderedNumbers" class="numberTabContent">
+
+        <div id="orderedNumbers" class="subcontent">
             <p class="numbers">
                 Min: <button class="subButton" onclick="minusOrderedMin()"> - </button><input class="oInput" id="oMin" type="text" maxlength="4" placeholder="Min" onchange="setOrderedNumbers()" value="0"><button class="addButton" onclick="addOrderedMin()"> + </button> Max: <button class="subButton" onclick="minusOrderedMax()"> - </button><input class="oInput" id="oMax" type="text" maxlength="4" placeholder="Max" onchange="setOrderedNumbers()" value="20"><button class="addButton" onclick="addOrderedMax()"> + </button> Count By: <button class="subButton" onclick="minusCountBy()"> - </button><input class="oInput" id="oCountBy" type="text" maxlength="3" placeholder="#" onchange="setOrderedNumbers()" value="1"><button class="addButton" onclick="addCountBy()"> + </button><br />
                 <span id="o123s"></span><br />
@@ -119,7 +115,7 @@
             </p>
         </div>
 
-        <div id="randNumbers" class="numberTabContent">
+        <div id="randNumbers" class="subcontent">
             <p>Min: <button class="subButton" onclick="minusRandMin()"> - </button><input class="randInput" id="rMin"
                     type="text" maxlength="4" placeholder="min" value="0"><button class="addButton"
                     onclick="addRandMin()"> + </button> Max: <button class="subButton" onclick="minusRandMax()"> -
@@ -132,7 +128,7 @@
             </p>
         </div>
 
-        <div id="numbersQuiz" class="numberTabContent">
+        <div id="numbersQuiz" class="subcontent">
             <p>Min: <button class="subButton" onclick="minusQuizMin()"> - </button><input class="quizInput" id="qMin"
                     type="text" maxlength="4" placeholder="min" value="0"><button class="addButton"
                     onclick="addQuizMin()"> + </button> Max: <button class="subButton" onclick="minusQuizMax()"> -
