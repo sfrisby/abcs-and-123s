@@ -15,24 +15,23 @@
 
     <div class="tab" id="navbar">
         <button onclick="openPage('Letters', this)" id="navbarLetters">Letters</button>
+        <div class="subTab" id="letterTabs">
+            <button id="alphabetLettersBtn" onclick="openTabLink('allLetters', this)">Alphabet</button>
+            <button id="stageOrdLetterBtn" onclick="openTabLink('stageOrdLetter', this)">Cases</button>
+            <button id="randLettersBtn" onclick="openTabLink('randLetters', this)">Random</button>
+            <button id="letterMatchBtn" onclick="openTabLink('letterMatchContent', this)">Case Matching</button>
+            <button id="letterPhonicsBtn" onclick="openTabLink('letterPhonicsContent', this)">Phonics</button>
+            <button id="letterQuizBtn" onclick="openTabLink('letterQuiz', this)">Quiz</button>
+            <button id="letterGame" onclick="openTabLink('stageLetterGame', this)">Game</button>
+            <button title="Change Background" onclick="setRandomLinearBackground($('#Letters'))">&#9617;</button>
+        </div>
         <button onclick="openPage('Numbers', this)" id="navbarNumbers">Numbers</button>
         <button onclick="openPage('About',   this)" id="navbarAbout">About</button>
         <button title="Change Background" onclick="setRandomLinearBackground('body')">&#9617;</button>
     </div>
 
+    <!-- LETTERS -->
     <div id="Letters" class="tabContent">
-
-        <div id="letterTablinks">
-            <button class="tabLink" id="alphabetLettersBtn" onclick="openTabLink('allLetters', this)">Alphabet</button>
-            <button class="tabLink" id="stageOrdLetterBtn" onclick="openTabLink('stageOrdLetter', this)">Cases</button>
-            <button class="tabLink" id="randLettersBtn" onclick="openTabLink('randLetters', this)">Random</button>
-            <button class="tabLink" id="letterMatchBtn" onclick="openTabLink('letterMatchContent', this)">Case Matching</button>
-            <button class="tabLink" id="letterPhonicsBtn" onclick="openTabLink('letterPhonicsContent', this)">Phonics</button>
-            <button class="tabLink" id="letterQuizBtn" onclick="openTabLink('letterQuiz', this)">Quiz</button>
-            <button class="tabLink" id="letterGame" onclick="openTabLink('stageLetterGame', this)">Game</button>
-            <button class="tabLink" title="Change Background" onclick="setRandomLinearBackground($('#Letters'))">&#9617;</button>
-        </div>
-
         <div id="allLetters" class="subContent">
             <span id="oabcs"></span><br />
             <button onclick="setOrderedLetterContent()">&olarr;</button>
@@ -77,16 +76,18 @@
              -->
             <div id="letterGameBoard"></div>
         </div>
+    </div>
+    <!-- END OF Letters -->
 
-    </div><!-- Letters -->
+    <!-- NUMBERS -->
 
     <div id="Numbers" class="tabContent">
 
         <div id="numberTablinks">
-            <button class="tabLink" id="defaultNumberOpen" onclick="openTabLink('orderedNumbers', this)">Ordered</button>
+            <button class="tabLink" id="orderedNumbersBtn" onclick="openTabLink('orderedNumbers', this)">Ordered</button>
             <button class="tabLink" id="randNumbersBtn" onclick="openTabLink('randNumbers', this)">Random</button>
             <button class="tabLink" id="numberQuizBtn" onclick="openTabLink('numbersQuiz', this)">Quiz</button>
-            <button class="tabLink" id="reloadNumbers" title="Reload Numbers">&#8635;</button><!-- TODO this is 1px taller than the others -->
+            <button class="tabLink" id="resetNumbersBtn" title="Reset / Reload">&#x27F3;</button><!-- TODO this is 1px taller than the others -->
             <button class="tabLink" title="Change Background" onclick="setRandomLinearBackground($('#Numbers'))">&#9617;</button>
         </div>
         
@@ -141,7 +142,9 @@
             <button id="nextRandNumber" onclick="setRandomNumber(true)">&#x1F44D;</button>
             <p>Thumbs Up: <span id="numberCorrectCount">0</span></p>
         </div>
-    </div> <!-- Numbers -->
+    </div> 
+    
+    <!-- END OF NUMBERS -->
 
 
 

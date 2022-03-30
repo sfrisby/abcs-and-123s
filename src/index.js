@@ -32,23 +32,74 @@ $(document).ready(function () {
     setGameBoard();
 });
 
-function openPage(pageName, element) {
-    var i, tabContent, tabLinks;
-    tabContent = document.getElementsByClassName("tabContent");
-    for (i = 0; i < tabContent.length; i++) {
-        tabContent[i].style.display = "none";
+function clearNavbarSelection() {
+    let links = $("#navbar").children("button");
+    for (let i = 0; i < links.length; i++) {
+        links[i].style.backgroundColor = "";
+        links[i].style.fontWeight = "";
+        links[i].style.color = "white";
     }
-    tabLinks = $("#navbar").children();
-    for (i = 0; i < tabLinks.length; i++) {
-        tabLinks[i].style.backgroundColor = "";
-        tabLinks[i].style.color = "white";
+}
+
+function hideTabContent() {
+    hideClass("tabContent");
+}
+
+function hideLetterTabs() {
+    hide("letterTabs");
+}
+
+function hideClass(name) {
+    let e = document.getElementsByClassName(name);
+    for (let i = 0; i < e.length; i++) {
+        e[i].style.display = "none";
     }
-    document.getElementById(pageName).style.display = "block";
+}
+
+function toggle(id) {
+    if (document.getElementById(id).style.display === "none") {
+        show(id);
+    } else {
+        hide(id);
+    }
+}
+
+function hide(id) {
+    document.getElementById(id).style.display = "none";
+}
+function show(id) {
+    document.getElementById(id).style.display = "block";
+}
+
+function openPage(id, element) {
+    hideTabContent();
+    clearNavbarSelection();
+    // TODO force select the parent tab link, i.e. if a letter sub tab is selected then the parent letter tab should be selected - without toggling the sub menu
+    // if (toggleSubTabs) {
+    switch (id) {
+        case 'Letters':
+            toggle("letterTabs");
+            break;
+        case 'Numbers':
+            // show("numberTabs");
+            break;
+        default:
+            break;
+    }
+    // }
+    show(id);
     element.style.backgroundColor = getRandomColor();
+    element.style.fontWeight = "bold";
     element.style.color = "black";
 }
 
-function openTabLink(pageName, element) {
+function openTabLink(id, element) {
+    let letterTabs = $("#letterTabs").children("button");
+    for (let i = 0; i < letterTabs.length; i++) {
+        letterTabs[i].style.background = "";
+        letterTabs[i].style.color = "white";
+    }
+
     var i, tabContent, tabLinks;
     tabContent = document.getElementsByClassName("subContent");
     for (i = 0; i < tabContent.length; i++) {
@@ -59,7 +110,7 @@ function openTabLink(pageName, element) {
         tabLinks[i].style.background = "";
         tabLinks[i].style.color = "white";
     }
-    document.getElementById(pageName).style.display = "block";
+    document.getElementById(id).style.display = "block";
     setRandomLinearBackground(element);
 }
 
