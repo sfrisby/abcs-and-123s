@@ -42,6 +42,21 @@ a:hover {
     color: #222;
 }
 
+.expand {
+    font-size: large;
+    font-family: 'Ubuntu Mono', monospace;
+    font-weight: bolder;
+    color:#ddd;
+    vertical-align: middle;
+    border: 0.1rem solid #ddd;
+    padding: 0.5rem;
+    margin: 0 1rem;
+    background-color: #222;
+} .expand:hover {
+    cursor: pointer;
+    background-color: #666;
+}
+
 .subTab {
     display: none;
 } .subTab button {

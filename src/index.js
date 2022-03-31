@@ -10,7 +10,7 @@ $(document).ready(function () {
 
     setRandomLinearBackground('body');
 
-    document.getElementById("navbarLetters").click();
+    document.getElementById("navbarAbout").click();
     document.getElementById("alphabetLettersBtn").click();
 
     setOrderedNumbers();
@@ -56,8 +56,17 @@ function hideClass(name) {
     }
 }
 
+function expand(id, element) {
+    if (element.textContent === '+') {
+        element.textContent = '-'
+    } else {
+        element.textContent = '+'
+    }
+    toggle(id);
+}
+
 function toggle(id) {
-    if (document.getElementById(id).style.display === "none") {
+    if (document.getElementById(id).style.display === "") {
         show(id);
     } else {
         hide(id);
@@ -65,7 +74,7 @@ function toggle(id) {
 }
 
 function hide(id) {
-    document.getElementById(id).style.display = "none";
+    document.getElementById(id).style.display = "";
 }
 function show(id) {
     document.getElementById(id).style.display = "block";
@@ -74,19 +83,6 @@ function show(id) {
 function openPage(id, element) {
     hideTabContent();
     clearNavbarSelection();
-    // TODO force select the parent tab link, i.e. if a letter sub tab is selected then the parent letter tab should be selected - without toggling the sub menu
-    // if (toggleSubTabs) {
-    switch (id) {
-        case 'Letters':
-            toggle("letterTabs");
-            break;
-        case 'Numbers':
-            // show("numberTabs");
-            break;
-        default:
-            break;
-    }
-    // }
     show(id);
     element.style.backgroundColor = getRandomColor();
     element.style.fontWeight = "bold";
@@ -94,6 +90,8 @@ function openPage(id, element) {
 }
 
 function openTabLink(id, element) {
+    let foo = 1;
+
     let letterTabs = $("#letterTabs").children("button");
     for (let i = 0; i < letterTabs.length; i++) {
         letterTabs[i].style.background = "";

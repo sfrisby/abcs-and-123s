@@ -14,15 +14,15 @@
 <body>
 
     <div class="tab" id="navbar">
-        <button onclick="openPage('Letters', this)" id="navbarLetters">Letters</button>
+        <button id="navbarLetters"><span id="letterExpand" class="expand" onclick="expand('letterTabs',this)">+</span>Letters</button><!-- onclick="openPage('Letters', this)" -->
         <div class="subTab" id="letterTabs">
-            <button id="alphabetLettersBtn" onclick="openTabLink('allLetters', this)">Alphabet</button>
-            <button id="stageOrdLetterBtn" onclick="openTabLink('stageOrdLetter', this)">Cases</button>
-            <button id="randLettersBtn" onclick="openTabLink('randLetters', this)">Random</button>
-            <button id="letterMatchBtn" onclick="openTabLink('letterMatchContent', this)">Case Matching</button>
-            <button id="letterPhonicsBtn" onclick="openTabLink('letterPhonicsContent', this)">Phonics</button>
-            <button id="letterQuizBtn" onclick="openTabLink('letterQuiz', this)">Quiz</button>
-            <button id="letterGame" onclick="openTabLink('stageLetterGame', this)">Game</button>
+            <button id="alphabetLettersBtn" onclick="openPage('allLetters', this)">Alphabet</button>
+            <button id="stageOrdLetterBtn" onclick="openPage('stageOrdLetter', this)">Cases</button>
+            <button id="randLettersBtn" onclick="openPage('randLetters', this)">Random</button>
+            <button id="letterMatchBtn" onclick="openPage('letterMatchContent', this)">Case Matching</button>
+            <button id="letterPhonicsBtn" onclick="openPage('letterPhonicsContent', this)">Phonics</button>
+            <button id="letterQuizBtn" onclick="openPage('letterQuiz', this)">Quiz</button>
+            <button id="letterGame" onclick="openPage('stageLetterGame', this)">Game</button>
             <button title="Change Background" onclick="setRandomLinearBackground($('#Letters'))">&#9617;</button>
         </div>
         <button onclick="openPage('Numbers', this)" id="navbarNumbers">Numbers</button>
@@ -31,51 +31,49 @@
     </div>
 
     <!-- LETTERS -->
-    <div id="Letters" class="tabContent">
-        <div id="allLetters" class="subContent">
-            <span id="oabcs"></span><br />
-            <button onclick="setOrderedLetterContent()">&olarr;</button>
-        </div>
+    <div id="allLetters" class="tabContent">
+        <span id="oabcs"></span><br />
+        <button onclick="setOrderedLetterContent()">&olarr;</button>
+    </div>
 
-        <div id="randLetters" class="subContent">
-            <span id="rabcs"></span><br />
-            <button onclick="setRandomLetterContent()">&olarr;</button>
-        </div>
+    <div id="randLetters" class="tabContent">
+        <span id="rabcs"></span><br />
+        <button onclick="setRandomLetterContent()">&olarr;</button>
+    </div>
 
-        <div id="stageOrdLetter" class="subContent">
-            <button id="firstCapOrdLetter" onclick="getFirstCapLetter()">&#11244;</button>
-            <button id="prevCapOrdLetter" onclick="getPrevCapLetter()">&#11164;</button>
-            <span class="letter" id="capOrdLetter"></span>
-            <button id="nextCapOrdLetter" onclick="getNextCapLetter()">&#11166;</button>
-            <button id="lastCapOrdLetter" onclick="getLastCapLetter()">&#11246;</button>
-            <br />
-            <button id="firstLowOrdLetter" onclick="getFirstLowLetter()">&#11244;</button>
-            <button id="prevLowOrdLetter" onclick="getPrevLowLetter()">&#11164;</button>
-            <span class="letter" id="lowOrdLetter"></span>
-            <button id="nextLowOrdLetter" onclick="getNextLowLetter()">&#11166;</button>
-            <button id="lastLowOrdLetter" onclick="getLastLowLetter()">&#11246;</button>
-        </div>
+    <div id="stageOrdLetter" class="tabContent">
+        <button id="firstCapOrdLetter" onclick="getFirstCapLetter()">&#11244;</button>
+        <button id="prevCapOrdLetter" onclick="getPrevCapLetter()">&#11164;</button>
+        <span class="letter" id="capOrdLetter"></span>
+        <button id="nextCapOrdLetter" onclick="getNextCapLetter()">&#11166;</button>
+        <button id="lastCapOrdLetter" onclick="getLastCapLetter()">&#11246;</button>
+        <br />
+        <button id="firstLowOrdLetter" onclick="getFirstLowLetter()">&#11244;</button>
+        <button id="prevLowOrdLetter" onclick="getPrevLowLetter()">&#11164;</button>
+        <span class="letter" id="lowOrdLetter"></span>
+        <button id="nextLowOrdLetter" onclick="getNextLowLetter()">&#11166;</button>
+        <button id="lastLowOrdLetter" onclick="getLastLowLetter()">&#11246;</button>
+    </div>
 
-        <div id="letterQuiz" class="subContent">
-            <button id="prevRandLetter" onclick="getRandomLetter(false)">&#128078;</button>
-            <span class="letter" id="randLetter"></span>
-            <button id="nextRandLetter" onclick="getRandomLetter(true)">&#x1F44D;</button>
-            <p>Thumbs Up: <span id="letterCorrectCount">0</span></p>
-        </div>
+    <div id="letterQuiz" class="tabContent">
+        <button id="prevRandLetter" onclick="getRandomLetter(false)">&#128078;</button>
+        <span class="letter" id="randLetter"></span>
+        <button id="nextRandLetter" onclick="getRandomLetter(true)">&#x1F44D;</button>
+        <p>Thumbs Up: <span id="letterCorrectCount">0</span></p>
+    </div>
 
-        <div id="stageLetterGame" class="subContent">
-            <!-- 
-                TODO: Create a letter game like bejeweled where letters are the jewels
-                * 26 rows?
-                * 13 characters (cols) per row
-                Start out at selecting A then B etc. More points rewarded for the number
-                of alphabet characters touching each other - also combo with different
-                cases but just get half the points.
-                Game over after getting 3 characters wrong or the next letter needed
-                doesn't exist?
-             -->
-            <div id="letterGameBoard"></div>
-        </div>
+    <div id="stageLetterGame" class="tabContent">
+        <!-- 
+            TODO: Create a letter game like bejeweled where letters are the jewels
+            * 26 rows?
+            * 13 characters (cols) per row
+            Start out at selecting A then B etc. More points rewarded for the number
+            of alphabet characters touching each other - also combo with different
+            cases but just get half the points.
+            Game over after getting 3 characters wrong or the next letter needed
+            doesn't exist?
+            -->
+        <div id="letterGameBoard"></div>
     </div>
     <!-- END OF Letters -->
 
