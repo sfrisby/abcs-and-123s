@@ -16,32 +16,31 @@
     <div class="tab" id="navbar">
         <button id="navbarLetters"><span id="letterExpand" class="expand" onclick="expand('letterTabs',this)">+</span>Letters</button><!-- onclick="openPage('Letters', this)" -->
         <div class="subTab" id="letterTabs">
-            <button id="alphabetLettersBtn" onclick="openPage('allLetters', this)">Alphabet</button>
-            <button id="stageOrdLetterBtn" onclick="openPage('stageOrdLetter', this)">Cases</button>
-            <button id="randLettersBtn" onclick="openPage('randLetters', this)">Random</button>
-            <button id="letterMatchBtn" onclick="openPage('letterMatchContent', this)">Case Matching</button>
-            <button id="letterPhonicsBtn" onclick="openPage('letterPhonicsContent', this)">Phonics</button>
+            <button id="letterAlphabetBtn" onclick="openPage('letterAlphabet', this)">Alphabet</button>
+            <button id="letterCasesBtn" onclick="openPage('letterCases', this)">Cases</button>
+            <button id="letterRandomBtn" onclick="openPage('letterRandom', this)">Random</button>
+            <button id="letterMatchBtn" onclick="openPage('letterMatch', this)">Case Matching</button>
+            <button id="letterPhonicsBtn" onclick="openPage('letterPhonics', this)">Phonics</button>
             <button id="letterQuizBtn" onclick="openPage('letterQuiz', this)">Quiz</button>
-            <button id="letterGame" onclick="openPage('stageLetterGame', this)">Game</button>
-            <button title="Change Background" onclick="setRandomLinearBackground($('#Letters'))">&#9617;</button>
+            <button id="letterGameBtn" onclick="openPage('letterGame', this)">Game</button>
         </div>
-        <button onclick="openPage('Numbers', this)" id="navbarNumbers">Numbers</button>
+        <button id="navbarNumbers"><span id="letterExpand" class="expand" onclick="expand('numberTabs',this)">+</span>Numbers</button>
+        <div class="subTab" id="numberTabs">
+            <button id="numbersOrderedBtn" onclick="openPage('numbersOrdered', this)">Ordered</button>
+            <button id="randNumbersBtn" onclick="openPage('randNumbers', this)">Random</button>
+            <button id="numberQuizBtn" onclick="openPage('numbersQuiz', this)">Quiz</button>
+            <button id="resetNumbersBtn" title="Reset / Reload">&#x27F3;</button>
+        </div>
         <button onclick="openPage('About',   this)" id="navbarAbout">About</button>
         <button title="Change Background" onclick="setRandomLinearBackground('body')">&#9617;</button>
     </div>
 
     <!-- LETTERS -->
-    <div id="allLetters" class="tabContent">
-        <span id="oabcs"></span><br />
+    <div id="letterAlphabet" class="tabContent">
+        <span id="letterAlphabetStage"></span><br />
         <button onclick="setOrderedLetterContent()">&olarr;</button>
     </div>
-
-    <div id="randLetters" class="tabContent">
-        <span id="rabcs"></span><br />
-        <button onclick="setRandomLetterContent()">&olarr;</button>
-    </div>
-
-    <div id="stageOrdLetter" class="tabContent">
+    <div id="letterCases" class="tabContent">
         <button id="firstCapOrdLetter" onclick="getFirstCapLetter()">&#11244;</button>
         <button id="prevCapOrdLetter" onclick="getPrevCapLetter()">&#11164;</button>
         <span class="letter" id="capOrdLetter"></span>
@@ -54,15 +53,24 @@
         <button id="nextLowOrdLetter" onclick="getNextLowLetter()">&#11166;</button>
         <button id="lastLowOrdLetter" onclick="getLastLowLetter()">&#11246;</button>
     </div>
-
+    <div id="letterRandom" class="tabContent">
+        <span id="letterRandomStage"></span><br />
+        <button onclick="setRandomLetterContent()">&olarr;</button>
+    </div>
+    <div id="letterMatch" class="tabContent">
+        <p> TODO: Match the Upper and Lowercase letters. </p>
+    </div>
+    <div id="letterPhonics" class="tabContent">
+        <span id="letterPhonicsStage"></span><br />
+        <button onclick="setLetterPhonicsStage()">&olarr;</button>
+    </div>
     <div id="letterQuiz" class="tabContent">
         <button id="prevRandLetter" onclick="getRandomLetter(false)">&#128078;</button>
         <span class="letter" id="randLetter"></span>
         <button id="nextRandLetter" onclick="getRandomLetter(true)">&#x1F44D;</button>
         <p>Thumbs Up: <span id="letterCorrectCount">0</span></p>
     </div>
-
-    <div id="stageLetterGame" class="tabContent">
+    <div id="letterGame" class="tabContent">
         <!-- 
             TODO: Create a letter game like bejeweled where letters are the jewels
             * 26 rows?
@@ -78,73 +86,43 @@
     <!-- END OF Letters -->
 
     <!-- NUMBERS -->
-
-    <div id="Numbers" class="tabContent">
-
-        <div id="numberTablinks">
-            <button class="tabLink" id="orderedNumbersBtn" onclick="openTabLink('orderedNumbers', this)">Ordered</button>
-            <button class="tabLink" id="randNumbersBtn" onclick="openTabLink('randNumbers', this)">Random</button>
-            <button class="tabLink" id="numberQuizBtn" onclick="openTabLink('numbersQuiz', this)">Quiz</button>
-            <button class="tabLink" id="resetNumbersBtn" title="Reset / Reload">&#x27F3;</button><!-- TODO this is 1px taller than the others -->
-            <button class="tabLink" title="Change Background" onclick="setRandomLinearBackground($('#Numbers'))">&#9617;</button>
-        </div>
-        
-
-        Min: <button class="subButton" onclick=""> - </button>
-        <input class="" id="minBtn" type="text" placeholder="min" onchange="" value="0">
-        <button class="addButton" onclick=""> + </button>
-
-
-
-        Max: <button class="subButton" onclick=""> - </button>
-        <input class="" id="maxBtn" type="text" placeholder="max" onchange="" value="10">
-        <button class="addButton" onclick=""> + </button>
-
-
-
-
-        Count By: <button class="" onclick=""> - </button><input class="" id="countBy" type="text" onchange="" value="1"><button class="" onclick=""> + </button><br />
-        Amount: <button class="" onclick=""> - </button><input class="" id="amount" type="text" onchange="" value="10"><button class="" onclick=""> + </button><br />
-
-
-
-        <div id="orderedNumbers" class="subContent">
-            <p class="numbers">
-                Min: <button class="subButton" onclick="minusOrderedMin()"> - </button><input class="oInput" id="oMin" type="text" maxlength="4" placeholder="Min" onchange="setOrderedNumbers()" value="0"><button class="addButton" onclick="addOrderedMin()"> + </button> Max: <button class="subButton" onclick="minusOrderedMax()"> - </button><input class="oInput" id="oMax" type="text" maxlength="4" placeholder="Max" onchange="setOrderedNumbers()" value="20"><button class="addButton" onclick="addOrderedMax()"> + </button> Count By: <button class="subButton" onclick="minusCountBy()"> - </button><input class="oInput" id="oCountBy" type="text" maxlength="3" placeholder="#" onchange="setOrderedNumbers()" value="1"><button class="addButton" onclick="addCountBy()"> + </button><br />
-                <span id="o123s"></span><br />
-                <button onclick="setOrderedNumbers()">&olarr;</button>
-            </p>
-        </div>
-
-        <div id="randNumbers" class="subContent">
-            <p>Min: <button class="subButton" onclick="minusRandMin()"> - </button><input class="randInput" id="rMin"
-                    type="text" maxlength="4" placeholder="min" value="0"><button class="addButton"
-                    onclick="addRandMin()"> + </button> Max: <button class="subButton" onclick="minusRandMax()"> -
-                </button><input class="randInput" id="rMax" type="text" maxlength="4" placeholder="max"
-                    value="20"><button class="addButton" onclick="addRandMax()"> + </button>
-            </p>
-            <p class="numbers">
-                <span id="r123s"></span><br />
-                <button onclick="setRandomNumbers()">&olarr;</button>
-            </p>
-        </div>
-
-        <div id="numbersQuiz" class="subContent">
-            <p>Min: <button class="subButton" onclick="minusQuizMin()"> - </button><input class="quizInput" id="qMin"
-                    type="text" maxlength="4" placeholder="min" value="0"><button class="addButton"
-                    onclick="addQuizMin()"> + </button> Max: <button class="subButton" onclick="minusQuizMax()"> -
-                </button><input class="quizInput" id="qMax" type="text" maxlength="4" placeholder="max"
-                    value="20"><button class="addButton" onclick="addQuizMax()"> + </button></p>
-            <button id="prevRandNumber" onclick="setRandomNumber(false)">&#128078;</button>
-            <span class="number" id="randNumber"></span>
-            <button id="nextRandNumber" onclick="setRandomNumber(true)">&#x1F44D;</button>
-            <p>Thumbs Up: <span id="numberCorrectCount">0</span></p>
-        </div>
-    </div> 
-    
+    <div id="numbersOrdered" class="tabContent">
+        <p class="numbers">
+            Min: <button class="subButton" onclick="minusOrderedMin()"> - </button>
+            <input class="oInput" id="oMin" type="text" maxlength="4" placeholder="Min" onchange="setOrderedNumbers()" value="0">
+            <button class="addButton" onclick="addOrderedMin()"> + </button> Max: <button class="subButton" onclick="minusOrderedMax()"> - </button>
+            <input class="oInput" id="oMax" type="text" maxlength="4" placeholder="Max" onchange="setOrderedNumbers()" value="20">
+            <button class="addButton" onclick="addOrderedMax()"> + </button> Count By: <button class="subButton" onclick="minusCountBy()"> - </button>
+            <input class="oInput" id="oCountBy" type="text" maxlength="3" placeholder="#" onchange="setOrderedNumbers()" value="1">
+            <button class="addButton" onclick="addCountBy()"> + </button><br />
+            <span id="o123s"></span><br />
+            <button onclick="setOrderedNumbers()">&olarr;</button>
+        </p>
+    </div>
+    <div id="randNumbers" class="tabContent">
+        <p>Min: <button class="subButton" onclick="minusRandMin()"> - </button><input class="randInput" id="rMin"
+                type="text" maxlength="4" placeholder="min" value="0"><button class="addButton"
+                onclick="addRandMin()"> + </button> Max: <button class="subButton" onclick="minusRandMax()"> -
+            </button><input class="randInput" id="rMax" type="text" maxlength="4" placeholder="max"
+                value="20"><button class="addButton" onclick="addRandMax()"> + </button>
+        </p>
+        <p class="numbers">
+            <span id="r123s"></span><br />
+            <button onclick="setRandomNumbers()">&olarr;</button>
+        </p>
+    </div>
+    <div id="numbersQuiz" class="tabContent">
+        <p>Min: <button class="subButton" onclick="minusQuizMin()"> - </button><input class="quizInput" id="qMin"
+                type="text" maxlength="4" placeholder="min" value="0"><button class="addButton"
+                onclick="addQuizMin()"> + </button> Max: <button class="subButton" onclick="minusQuizMax()"> -
+            </button><input class="quizInput" id="qMax" type="text" maxlength="4" placeholder="max"
+                value="20"><button class="addButton" onclick="addQuizMax()"> + </button></p>
+        <button id="prevRandNumber" onclick="setRandomNumber(false)">&#128078;</button>
+        <span class="number" id="randNumber"></span>
+        <button id="nextRandNumber" onclick="setRandomNumber(true)">&#x1F44D;</button>
+        <p>Thumbs Up: <span id="numberCorrectCount">0</span></p>
+    </div>
     <!-- END OF NUMBERS -->
-
-
 
     <div id="About" class="tabContent">
         <h3>About</h3>

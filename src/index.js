@@ -11,7 +11,7 @@ $(document).ready(function () {
     setRandomLinearBackground('body');
 
     document.getElementById("navbarAbout").click();
-    document.getElementById("alphabetLettersBtn").click();
+    document.getElementById("letterAlphabet").click();
 
     setOrderedNumbers();
     setRandomNumbers();
@@ -19,6 +19,7 @@ $(document).ready(function () {
 
     setOrderedLetterContent();
     setRandomLetterContent();
+    setLetterPhonicsStage();
 
     // Setup ordered and random letter cards.
     // Set the game board.
@@ -31,6 +32,24 @@ $(document).ready(function () {
     getRandomLetter();
     setGameBoard();
 });
+
+function clearLetterTabSelection() {
+    let links = $("#letterTabs").children("button");
+    for (let i = 0; i < links.length; i++) {
+        links[i].style.backgroundColor = "";
+        links[i].style.fontWeight = "";
+        links[i].style.color = "white";
+    }
+}
+
+function clearNumberTabSelection() {
+    let links = $("#numberTabs").children("button");
+    for (let i = 0; i < links.length; i++) {
+        links[i].style.backgroundColor = "";
+        links[i].style.fontWeight = "";
+        links[i].style.color = "white";
+    }
+}
 
 function clearNavbarSelection() {
     let links = $("#navbar").children("button");
@@ -83,33 +102,12 @@ function show(id) {
 function openPage(id, element) {
     hideTabContent();
     clearNavbarSelection();
+    clearLetterTabSelection();
+    clearNumberTabSelection();
     show(id);
     element.style.backgroundColor = getRandomColor();
     element.style.fontWeight = "bold";
     element.style.color = "black";
-}
-
-function openTabLink(id, element) {
-    let foo = 1;
-
-    let letterTabs = $("#letterTabs").children("button");
-    for (let i = 0; i < letterTabs.length; i++) {
-        letterTabs[i].style.background = "";
-        letterTabs[i].style.color = "white";
-    }
-
-    var i, tabContent, tabLinks;
-    tabContent = document.getElementsByClassName("subContent");
-    for (i = 0; i < tabContent.length; i++) {
-        tabContent[i].style.display = "none";
-    }
-    tabLinks = document.getElementsByClassName("tabLink");
-    for (i = 0; i < tabLinks.length; i++) {
-        tabLinks[i].style.background = "";
-        tabLinks[i].style.color = "white";
-    }
-    document.getElementById(id).style.display = "block";
-    setRandomLinearBackground(element);
 }
 
 function getRandomNumber(min, max) {

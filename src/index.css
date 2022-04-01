@@ -48,6 +48,7 @@ a:hover {
     font-weight: bolder;
     color:#ddd;
     vertical-align: middle;
+    text-align: center;
     border: 0.1rem solid #ddd;
     padding: 0.5rem;
     margin: 0 1rem;
@@ -104,24 +105,4 @@ a:hover {
     margin: 0em 0em 1em 0em;
 } .tabLink:hover {
     background-color: #444;
-}
-
-.subContent {
-    font-size: 18px;
-    display: inline-block;
-    clear: both;
-} .subContent span {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-} .subContent button {
-    font-size: 72px;
-    background: none;
-    font-weight: bolder;
-    border: none;
-    cursor: pointer;
-    user-select: none;
-} .subContent button:hover:enabled {
-    color: #eee;
 }

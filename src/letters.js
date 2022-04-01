@@ -4,7 +4,17 @@ const ASCII_LOWERCASE_A = 97;
 const CAP_LETTERS = new Array(LETTERS_SUM).fill(1).map((_, i) => String.fromCharCode(ASCII_CAPITAL_A + i));
 const LOW_LETTERS = new Array(LETTERS_SUM).fill(1).map((_, i) => String.fromCharCode(ASCII_LOWERCASE_A + i));
 const LETTERS = [].concat(CAP_LETTERS, LOW_LETTERS);
-const SUM_OF_RANDOM_LETTERS = 50;
+const SUM_OF_RANDOM_LETTERS = 30;
+const SUM_OF_PHONICS_LETTERS = 30;
+
+const VOWELS = [
+    LETTERS[LETTERS.indexOf('A')], LETTERS[LETTERS.indexOf('a')],
+    LETTERS[LETTERS.indexOf('E')], LETTERS[LETTERS.indexOf('e')],
+    LETTERS[LETTERS.indexOf('I')], LETTERS[LETTERS.indexOf('i')],
+    LETTERS[LETTERS.indexOf('O')], LETTERS[LETTERS.indexOf('o')],
+    LETTERS[LETTERS.indexOf('U')], LETTERS[LETTERS.indexOf('u')]];
+
+const CONSONANTS = LETTERS.filter(function (item) { return VOWELS.indexOf(item) === -1; });
 
 const LETTER_COLORS = new Array(26).fill(1).map((_, i) => getRandRGB());
 
@@ -17,7 +27,7 @@ function setOrderedLetterContent() {
         output += ("' onclick='setRandomLinearBackground(this)'> ");
         output += (CAP_LETTERS[i] + " " + LOW_LETTERS[i] + " </div>");
     }
-    $('#oabcs').html(output);
+    $('#letterAlphabetStage').html(output);
 }
 
 function setRandomLetterContent() {
@@ -28,7 +38,21 @@ function setRandomLetterContent() {
         output += ("' onclick='setRandomLinearBackground(this)'>");
         output += (LETTERS[index] + "</div>");
     }
-    $('#rabcs').html(output);
+    $('#letterRandomStage').html(output);
+}
+
+function setLetterPhonicsStage() {
+    let output = "";
+    for (var i = 0; i < SUM_OF_PHONICS_LETTERS; i++) {
+        let c1 = getRandomIndex(CONSONANTS);
+        let c2 = getRandomIndex(CONSONANTS);
+        let v = getRandomIndex(VOWELS);
+        let w = CONSONANTS[c1].toUpperCase() + VOWELS[v].toLowerCase() + CONSONANTS[c2].toLowerCase()
+        output += ("<div class='letter' id='random_" + w +  "_" + i);
+        output += ("' onclick='setRandomLinearBackground(this)'>");
+        output += (w + "</div>");
+    }
+    $('#letterPhonicsStage').html(output);
 }
 
 function getRandomLetter(correct) {
@@ -320,7 +344,7 @@ function getGroupIds(group, selected) {
     let left = (row + "_" + leftCol + "_" + l);
 
     let neighbors = [topLeft, top, topRight, right, bottomRight, bottom, bottomLeft, left];
-    
+
     neighbors.forEach(element => {
         if ($("#" + element).length) { // Filtering edges.
             let [r, c, letter] = element.split("_");
