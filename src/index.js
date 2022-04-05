@@ -10,7 +10,7 @@ $(document).ready(function () {
 
     setRandomLinearBackground('body');
 
-    document.getElementById("navbarAbout").click();
+    document.getElementById("navbarAboutBtn").click();
     document.getElementById("letterAlphabet").click();
 
     setOrderedNumbers();
