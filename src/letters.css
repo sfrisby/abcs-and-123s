@@ -1,5 +1,4 @@
 .letter {
-    font-family: 'Ubuntu', sans-serif;
     cursor: pointer;
     font-size: 72px;
     font-weight: bold;
@@ -9,6 +8,7 @@
     color: #eee;
     background-color: #222;
     display: inline-block;
+    user-select: none;
 } .letter:hover {
     background-color: royalblue;
 }

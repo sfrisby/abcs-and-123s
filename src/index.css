@@ -1,108 +1,12 @@
-* {
-    box-sizing: border-box
-}
-
-body,
-html {
-    height: 100%;
-    margin: 0;
-    font-family: cursive;
-    background: linear-gradient(225deg, #222, #323232);
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-}
-
-a:link, a:visited {
-    color: #8ebf42;
-    font-weight: bold;
-}
-
-a:hover {
-    color: #aedf29;
-    font-weight: bold;
-}
-
-.tab {
-    float: left;
-    border: 0px none;
-    width: 15%;
-} .tab button {
-    float: left;
-    display: block;
-    background-color: #222;
-    color: #eee;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 1.2rem 1.6rem;
-    font-size: 2rem;
-    width: 100%;
-} .tab button:hover {
-    background-color: #444;
-    color: #222;
-}
-
-.expand {
-    font-size: large;
-    font-family: 'Ubuntu Mono', monospace;
-    font-weight: bolder;
-    color:#ddd;
-    vertical-align: middle;
-    text-align: center;
-    border: 0.1rem solid #ddd;
-    padding: 0.5rem;
-    margin: 0 1rem;
-    background-color: #222;
-} .expand:hover {
-    cursor: pointer;
-    background-color: #666;
-}
-
-.subTab {
-    display: none;
-} .subTab button {
-    width: 90%;
-    vertical-align: center;
-    background-color: #555;
-    color: white;
-    font-weight: bolder;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 0.5rem;
-    font-size: 1.2rem;
-} .subTab button:hover {
-    background-color: #aaa;
-    color: #333;
-}
 
 .tabContent {
-    float: left;
-    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    color: #eee;
     display: none;
-    padding: 20px;
-    height: 100%;
-    width: 85%;
+    padding: 2rem;
 } .tabContent input {
     font-family: 'Ubuntu Mono', monospace;
-    font-size: 38px;
+    font-size: 28px;
     width: 5ch;
     vertical-align: middle;
-}
-
-.tabLink {
-    vertical-align: center;
-    background-color: #555;
-    color: white;
-    font-weight: bolder;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 2rem;
-    font-size: 1.2rem;
-    margin: 0em 0em 1em 0em;
-} .tabLink:hover {
-    background-color: #444;
 }

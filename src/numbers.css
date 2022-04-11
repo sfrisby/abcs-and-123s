@@ -31,6 +31,7 @@
     color: #eee;
     background-color: #222;
     display: inline-block;
+    user-select: none;
 } .number:hover {
     background-color: royalblue;
 } div.number {

@@ -3,50 +3,185 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="sidebars.css">
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="numbers.css">
     <link rel="stylesheet" href="letters.css">
+    <link rel="stylesheet" href="numbers.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 
 <body>
 
-  <div class="row">
-    <div class="col-3">
-      <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" >COLLAPSE</a>
-        <div class="collapse" id="collapseExample">
-          <div class="list-group" id="list-tab" role="tablist">
-            <a class="list-group-item list-group-item-action" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">Home</a>
-            <a class="list-group-item list-group-item-action active" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile">Profile</a>
-            <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">Messages</a>
-            <a class="list-group-item list-group-item-action" id="list-settings-list" data-bs-toggle="list" href="#list-settings" role="tab" aria-controls="list-settings">Settings</a>
-          </div>
-        </div>
-      </div>
-    <div class="col-9">
-      <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list"> HOME STUFF </div>
-        <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list"> PROFILE </div>
-        <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list"> MESSAGE </div>
-        <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list"> SETTINGS </div>
-      </div>
-    </div>
-  </div>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 
+
+        <!-- TODO: symbol not showing? -->
+        <symbol id="apple" viewBox="0 0 16 16">
+            <path
+                d="M135.69124 118.54061 c 0 0 0.76015-0.22805 1.33028-0.87418 0.57011-0.64614 1.14023-1.97642 1.14023-1.97642 0 0 1.33028-2.47051 0.9502-4.96003 -0.38008-2.48952 -2.05243-3.57275 -2.05243-3.57275 0 0 -1.19725-0.72214 1.97641-0.68414 -0.1909 0.009 1.16255-0.008 1.78288-0.001 -0.12623 0.001 8e-5-0.2842 0.28685-0.6022 0.24938-0.27639 0.80234-0.49176 0.66022-0.73579 0 0 -0.19508-0.31954 -0.40623-0.0992 -0.24835 0.25913 -0.83378 0.85368 -0.95705 1.40232 -0.057 0.0167 -0.52836 0.23244 -0.93455-0.20364 -0.89622-0.96215 -0.0113-2.05101 -2.30895-3.06472 -0.67882-0.29949 -4.81028-0.384 -4.33753 0.40728 0.34193 0.57232 0.97758 1.72644 1.89836 2.07953 1.14269 0.43819 3.39568 0.50411 4.25693 0.59426 0.3664 0.0383 -0.0429 0.20434 -0.0429 0.20434 0 0 -0.83618 0.15203 -1.10223 0.13303 -0.26606 -0.019 -1.19725 0.17104 -1.19725 0.17104 0 0 -0.89319 0.32306 -1.69136 1.04521 -0.79816 0.72215 -1.65334 2.24247 -1.55832 3.95283 0.095 1.71036 0.70314 2.92661 0.70314 2.92661 0 0 1.04522 2.35649 1.78638 2.81259 0.74115 0.45609 1.72936 1.04522 1.72936 1.04522 0 0 0.98821 0.38008 3.07864 0.36107 2.09044-0.019 2.52753-0.36107 2.52753-0.36107z">
+            </path>
+        </symbol>
+
+
+        <symbol id="gear-fill" viewBox="0 0 16 16">
+            <path
+                d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z">
+            </path>
+        </symbol>
+        <symbol id="toggles2" viewBox="0 0 16 16">
+            <path d="M9.465 10H12a2 2 0 1 1 0 4H9.465c.34-.588.535-1.271.535-2 0-.729-.195-1.412-.535-2z"></path>
+            <path
+                d="M6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm.535-10a3.975 3.975 0 0 1-.409-1H4a1 1 0 0 1 0-2h2.126c.091-.355.23-.69.41-1H4a2 2 0 1 0 0 4h2.535z">
+            </path>
+            <path d="M14 4a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"></path>
+        </symbol>
+        <symbol id="tools" viewBox="0 0 16 16">
+            <path
+                d="M1 0L0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.356 3.356a1 1 0 0 0 1.414 0l1.586-1.586a1 1 0 0 0 0-1.414l-3.356-3.356a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0zm9.646 10.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708zM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11z">
+            </path>
+        </symbol>
+        <symbol id="chevron-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z">
+            </path>
+        </symbol>
+        <symbol id="geo-fill" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z">
+            </path>
+        </symbol>
+    </svg>
+
+    <div class="divider"></div>
+
+    <div class="flex-shrink-0 p-3" style="width: 280px; display: inline-block; vertical-align: top;">
+        <a href="#" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+            <svg class="bi me-2" width="30" height="24">
+                <use xlink:href="#defs4447"></use>
+            </svg>
+            <span class="fs-5 fw-semibold">ABCs and 123s</span>
+        </a>
+        <ul class="list-unstyled ps-0">
+            <li class="mb-1">
+                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#pre-k-collapse" aria-expanded="true">
+                    Pre-K
+                </button>
+                <div class="collapse show" id="pre-k-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li>
+                            <button class="btn btn-toggle align-items-center rounded collapsed"
+                                data-bs-toggle="collapse" data-bs-target="#pre-k-letters-collapse" aria-expanded="true">
+                                Letters
+                            </button>
+                            <div class="collapse" id="pre-k-letters-collapse">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                    <li>
+                                        <a href="#" class="link-dark rounded" onclick="openPage('letterAlphabet', this)"
+                                            id="letterAlphabetBtn">Alphabet</a>
+                                        <a href="#" class="link-dark rounded" onclick="openPage('letterCases', this)"
+                                            id="letterCasesBtn">Cases</a>
+                                        <a href="#" class="link-dark rounded" onclick="openPage('letterRandom', this)"
+                                            id="letterRandomBtn">Random</a>
+                                        <a href="#" class="link-dark rounded" onclick="openPage('letterMatch', this)"
+                                            id="letterMatchBtn">Match</a>
+                                        <a href="#" class="link-dark rounded" onclick="openPage('letterPhonics', this)"
+                                            id="letterPhonicsBtn">Phonics</a>
+                                        <a href="#" class="link-dark rounded" onclick="openPage('letterQuiz', this)"
+                                            id="letterQuizBtn">Quiz</a>
+                                        <a href="#" class="link-dark rounded" onclick="openPage('letterGame', this)"
+                                            id="letterGameBtn">Game</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <button class="btn btn-toggle align-items-center rounded collapsed"
+                                data-bs-toggle="collapse" data-bs-target="#pre-k-numbers-collapse" aria-expanded="true">
+                                Numbers
+                            </button>
+                            <div class="collapse" id="pre-k-numbers-collapse">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                    <li>
+                                        <a href="#" class="link-dark rounded" onclick="openPage('numbersOrdered', this)"
+                                            id="numbersOrderedBtn">Ordered</a>
+                                        <a href="#" class="link-dark rounded" onclick="openPage('randNumbers', this)"
+                                            id="randNumbersBtn">Random</a>
+                                        <a href="#" class="link-dark rounded" onclick="openPage('numbersQuiz', this)"
+                                            id="numberQuizBtn">Quiz</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="mb-1">
+                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#dashboard-collapse" aria-expanded="false">
+                    Dashboard
+                </button>
+                <div class="collapse" id="dashboard-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="#" class="link-dark rounded">Overview</a></li>
+                        <li><a href="#" class="link-dark rounded">Weekly</a></li>
+                        <li><a href="#" class="link-dark rounded">Monthly</a></li>
+                        <li><a href="#" class="link-dark rounded">Annually</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="mb-1">
+                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#orders-collapse" aria-expanded="false">
+                    Orders
+                </button>
+                <div class="collapse" id="orders-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="#" class="link-dark rounded">New</a></li>
+                        <li><a href="#" class="link-dark rounded">Processed</a></li>
+                        <li><a href="#" class="link-dark rounded">Shipped</a></li>
+                        <li><a href="#" class="link-dark rounded">Returned</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="border-top my-3"></li>
+            <li class="mb-1">
+                <button class="btn align-items-center rounded" onclick="openPage('About',   this)" id="navbarAboutBtn">
+                    About
+                </button>
+            </li>
+            <li class="border-top my-3"></li>
+            <li class="mb-1">
+                <button class="btn align-items-center rounded" onclick="setRandomLinearBackground('body')">
+                    Change Background
+                </button>
+            </li>
+        </ul>
+    </div>
+
+    <div class="divider"></div>
+
+
+
+
+    <!-- 
     <div class="tab" id="navbar">
-        <button id="navbarLetters"><span id="letterExpand" class="expand" onclick="expand('letterTabs',this)">+</span>Letters</button><!-- onclick="openPage('Letters', this)" -->
+        <button id="navbarLetters"><span id="letterExpand" class="expand"
+                onclick="expand('letterTabs',this)">+</span>Letters</button>
         <div class="subTab" id="letterTabs">
             <button id="letterAlphabetBtn" onclick="openPage('letterAlphabet', this)">Alphabet</button>
             <button id="letterCasesBtn" onclick="openPage('letterCases', this)">Cases</button>
-            <button id="letterRandomBtn" onclick="openPage('letterRandom', this)">Random</button>
-            <button id="letterMatchBtn" onclick="openPage('letterMatch', this)">Case Matching</button>
+            <button id="letterRandomBtn"  onclick="openPage('letterRandom', this)">Random</button>
+            <button id="letterMatchBtn"   onclick="openPage('letterMatch', this)">Case Matching</button>
             <button id="letterPhonicsBtn" onclick="openPage('letterPhonics', this)">Phonics</button>
-            <button id="letterQuizBtn" onclick="openPage('letterQuiz', this)">Quiz</button>
-            <button id="letterGameBtn" onclick="openPage('letterGame', this)">Game</button>
+            <button id="letterQuizBtn"    onclick="openPage('letterQuiz', this)">Quiz</button>
+            <button id="letterGameBtn"    onclick="openPage('letterGame', this)">Game</button>
         </div>
-        <button id="navbarNumbers"><span id="letterExpand" class="expand" onclick="expand('numberTabs',this)">+</span>Numbers</button>
+        <button id="navbarNumbers"><span id="letterExpand" class="expand"
+                onclick="expand('numberTabs',this)">+</span>Numbers</button>
         <div class="subTab" id="numberTabs">
             <button id="numbersOrderedBtn" onclick="openPage('numbersOrdered', this)">Ordered</button>
             <button id="randNumbersBtn" onclick="openPage('randNumbers', this)">Random</button>
@@ -54,8 +189,8 @@
             <button id="resetNumbersBtn" title="Reset / Reload">&#x27F3;</button>
         </div>
         <button onclick="openPage('About',   this)" id="navbarAboutBtn">About</button>
-        <button title="Change Background" onclick="setRandomLinearBackground('body')">&#9617;</button>
-    </div>
+        <button title="Change Background" onclick="setRandomLinearBackground('body')">&#9617;</button> 
+    </div> -->
 
     <!-- LETTERS -->
     <div id="letterAlphabet" class="tabContent">
@@ -63,6 +198,7 @@
         <button onclick="setOrderedLetterContent()">&olarr;</button>
     </div>
     <div id="letterCases" class="tabContent">
+        <!-- TODO add tabs between upper and lowercase -->
         <button id="firstCapOrdLetter" onclick="getFirstCapLetter()">&#11244;</button>
         <button id="prevCapOrdLetter" onclick="getPrevCapLetter()">&#11164;</button>
         <span class="letter" id="capOrdLetter"></span>
@@ -111,11 +247,16 @@
     <div id="numbersOrdered" class="tabContent">
         <p class="numbers">
             Min: <button class="subButton" onclick="minusOrderedMin()"> - </button>
-            <input class="oInput" id="oMin" type="text" maxlength="4" placeholder="Min" onchange="setOrderedNumbers()" value="0">
-            <button class="addButton" onclick="addOrderedMin()"> + </button> Max: <button class="subButton" onclick="minusOrderedMax()"> - </button>
-            <input class="oInput" id="oMax" type="text" maxlength="4" placeholder="Max" onchange="setOrderedNumbers()" value="20">
-            <button class="addButton" onclick="addOrderedMax()"> + </button> Count By: <button class="subButton" onclick="minusCountBy()"> - </button>
-            <input class="oInput" id="oCountBy" type="text" maxlength="3" placeholder="#" onchange="setOrderedNumbers()" value="1">
+            <input class="oInput" id="oMin" type="text" maxlength="4" placeholder="Min" onchange="setOrderedNumbers()"
+                value="0">
+            <button class="addButton" onclick="addOrderedMin()"> + </button> Max: <button class="subButton"
+                onclick="minusOrderedMax()"> - </button>
+            <input class="oInput" id="oMax" type="text" maxlength="4" placeholder="Max" onchange="setOrderedNumbers()"
+                value="20">
+            <button class="addButton" onclick="addOrderedMax()"> + </button> Count By: <button class="subButton"
+                onclick="minusCountBy()"> - </button>
+            <input class="oInput" id="oCountBy" type="text" maxlength="3" placeholder="#" onchange="setOrderedNumbers()"
+                value="1">
             <button class="addButton" onclick="addCountBy()"> + </button><br />
             <span id="o123s"></span><br />
             <button onclick="setOrderedNumbers()">&olarr;</button>
@@ -123,10 +264,10 @@
     </div>
     <div id="randNumbers" class="tabContent">
         <p>Min: <button class="subButton" onclick="minusRandMin()"> - </button><input class="randInput" id="rMin"
-                type="text" maxlength="4" placeholder="min" value="0"><button class="addButton"
-                onclick="addRandMin()"> + </button> Max: <button class="subButton" onclick="minusRandMax()"> -
-            </button><input class="randInput" id="rMax" type="text" maxlength="4" placeholder="max"
-                value="20"><button class="addButton" onclick="addRandMax()"> + </button>
+                type="text" maxlength="4" placeholder="min" value="0"><button class="addButton" onclick="addRandMin()">
+                + </button> Max: <button class="subButton" onclick="minusRandMax()"> -
+            </button><input class="randInput" id="rMax" type="text" maxlength="4" placeholder="max" value="20"><button
+                class="addButton" onclick="addRandMax()"> + </button>
         </p>
         <p class="numbers">
             <span id="r123s"></span><br />
@@ -135,10 +276,10 @@
     </div>
     <div id="numbersQuiz" class="tabContent">
         <p>Min: <button class="subButton" onclick="minusQuizMin()"> - </button><input class="quizInput" id="qMin"
-                type="text" maxlength="4" placeholder="min" value="0"><button class="addButton"
-                onclick="addQuizMin()"> + </button> Max: <button class="subButton" onclick="minusQuizMax()"> -
-            </button><input class="quizInput" id="qMax" type="text" maxlength="4" placeholder="max"
-                value="20"><button class="addButton" onclick="addQuizMax()"> + </button></p>
+                type="text" maxlength="4" placeholder="min" value="0"><button class="addButton" onclick="addQuizMin()">
+                + </button> Max: <button class="subButton" onclick="minusQuizMax()"> -
+            </button><input class="quizInput" id="qMax" type="text" maxlength="4" placeholder="max" value="20"><button
+                class="addButton" onclick="addQuizMax()"> + </button></p>
         <button id="prevRandNumber" onclick="setRandomNumber(false)">&#128078;</button>
         <span class="number" id="randNumber"></span>
         <button id="nextRandNumber" onclick="setRandomNumber(true)">&#x1F44D;</button>
@@ -148,23 +289,24 @@
 
     <div id="About" class="tabContent">
         <h3>About</h3>
-        <p>A place for me to help my kids learn letters and numbers. Made for simple interaction and discussion
-            together.</p>
-        <p>Page setup obtained from <a href="https://www.w3schools.com/" target="_blank">w3school's</a>
-            <a href="https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_full_page_tabs"
-                target="_blank">horizontal</a> and <a
-                href="https://www.w3schools.com/howto/howto_js_vertical_tabs.asp">vertical</a>
-            tab tutorials.
+        <p>ABCs and 123s is a place for me to help my children learn their letters and numbers while providing me with
+            an excuse to sharpen my skills. It was made and is intended for simple interaction and discussion together.
         </p>
-        <p>Created with <a href="https://jquery.com/" target="_blank">jQuery</a> and <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a> by Spencer Frisby. Visit me on <a href="https://github.com/sfrisby" target="_blank">Github</a> or <a
-                href="https://www.linkedin.com/in/spencer-f-8246b527" target="_blank">LinkedIn</a>.
+        <p>Created by Spencer Frisby with credit to <a href="https://www.w3schools.com/" target="_blank">W3Schools</a>, <a
+                href="https://jquery.com/" target="_blank">jQuery</a>, and <a href="https://getbootstrap.com/"
+                target="_blank">Bootstrap</a>. Visit me at <a href="https://github.com/sfrisby"
+                target="_blank">Github</a> or <a href="https://www.linkedin.com/in/spencer-f-8246b527"
+                target="_blank">LinkedIn</a>.
         </p>
         <button onclick="setRandomLinearBackground($('#About'))">&#10051; Change Background &#10051;</button>
     </div> <!-- About -->
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="sidebars.js" type="text/javascript"></script>
     <script src="index.js" type="text/javascript"></script>
     <script src="numbers.js" type="text/javascript"></script>
     <script src="letters.js" type="text/javascript"></script>

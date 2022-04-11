@@ -23,7 +23,7 @@ const TEST_LETTERS = LETTERS.slice(0, 4);
 function setOrderedLetterContent() {
     let output = "";
     for (var i = 0; i < CAP_LETTERS.length; i++) {
-        output += ("<div class='letter' id='char_" + LOW_LETTERS[i]);
+        output += ("<div class='letter rounded' id='char_" + LOW_LETTERS[i]);
         output += ("' onclick='setRandomLinearBackground(this)'> ");
         output += (CAP_LETTERS[i] + " " + LOW_LETTERS[i] + " </div>");
     }
@@ -34,7 +34,7 @@ function setRandomLetterContent() {
     let output = "";
     for (var i = 0; i < SUM_OF_RANDOM_LETTERS; i++) {
         let index = getRandomIndex(LETTERS);
-        output += ("<div class='letter' id='random_" + LETTERS[index] + "_" + i);
+        output += ("<div class='letter rounded' id='random_" + LETTERS[index] + "_" + i);
         output += ("' onclick='setRandomLinearBackground(this)'>");
         output += (LETTERS[index] + "</div>");
     }
@@ -48,7 +48,7 @@ function setLetterPhonicsStage() {
         let c2 = getRandomIndex(CONSONANTS);
         let v = getRandomIndex(VOWELS);
         let w = CONSONANTS[c1].toUpperCase() + VOWELS[v].toLowerCase() + CONSONANTS[c2].toLowerCase()
-        output += ("<div class='letter' id='random_" + w +  "_" + i);
+        output += ("<div class='letter rounded' id='random_" + w +  "_" + i);
         output += ("' onclick='setRandomLinearBackground(this)'>");
         output += (w + "</div>");
     }
@@ -157,7 +157,7 @@ function setGameBoard() {
             // let l = letters[getRandomIndex(letters)];
             let l = TEST_LETTERS[getRandomIndex(TEST_LETTERS)]
             let id = (r + "_" + c + "_" + l.toLowerCase());
-            output += ("<div class='gameLetter' id='" + id + "' style='background:");
+            output += ("<div class='gameLetter rounded' id='" + id + "' style='background:");
             output += (getColorForLetter(l) + ";' onclick='process(this)'>" + l + "</div>");
         }
         output += "<br />"
