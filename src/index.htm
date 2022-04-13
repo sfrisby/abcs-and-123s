@@ -79,7 +79,7 @@
                             </button>
                             <div class="collapse" id="pre-k-letters-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                    <li>
+                                    <li id="pre-k-letter-links">
                                         <a href="#" class="link-dark rounded" onclick="openPage('letterAlphabet', this)"
                                             id="letterAlphabetBtn">Alphabet</a>
                                         <a href="#" class="link-dark rounded" onclick="openPage('letterCases', this)"
@@ -105,7 +105,7 @@
                             </button>
                             <div class="collapse" id="pre-k-numbers-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                    <li>
+                                    <li id="pre-k-number-links">
                                         <a href="#" class="link-dark rounded" onclick="openPage('numbersOrdered', this)"
                                             id="numbersOrderedBtn">Ordered</a>
                                         <a href="#" class="link-dark rounded" onclick="openPage('randNumbers', this)"
@@ -116,34 +116,6 @@
                                 </ul>
                             </div>
                         </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="mb-1">
-                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                    data-bs-target="#dashboard-collapse" aria-expanded="false">
-                    Dashboard
-                </button>
-                <div class="collapse" id="dashboard-collapse">
-                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a href="#" class="link-dark rounded">Overview</a></li>
-                        <li><a href="#" class="link-dark rounded">Weekly</a></li>
-                        <li><a href="#" class="link-dark rounded">Monthly</a></li>
-                        <li><a href="#" class="link-dark rounded">Annually</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li class="mb-1">
-                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                    data-bs-target="#orders-collapse" aria-expanded="false">
-                    Orders
-                </button>
-                <div class="collapse" id="orders-collapse">
-                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a href="#" class="link-dark rounded">New</a></li>
-                        <li><a href="#" class="link-dark rounded">Processed</a></li>
-                        <li><a href="#" class="link-dark rounded">Shipped</a></li>
-                        <li><a href="#" class="link-dark rounded">Returned</a></li>
                     </ul>
                 </div>
             </li>
@@ -163,34 +135,6 @@
     </div>
 
     <div class="divider"></div>
-
-
-
-
-    <!-- 
-    <div class="tab" id="navbar">
-        <button id="navbarLetters"><span id="letterExpand" class="expand"
-                onclick="expand('letterTabs',this)">+</span>Letters</button>
-        <div class="subTab" id="letterTabs">
-            <button id="letterAlphabetBtn" onclick="openPage('letterAlphabet', this)">Alphabet</button>
-            <button id="letterCasesBtn" onclick="openPage('letterCases', this)">Cases</button>
-            <button id="letterRandomBtn"  onclick="openPage('letterRandom', this)">Random</button>
-            <button id="letterMatchBtn"   onclick="openPage('letterMatch', this)">Case Matching</button>
-            <button id="letterPhonicsBtn" onclick="openPage('letterPhonics', this)">Phonics</button>
-            <button id="letterQuizBtn"    onclick="openPage('letterQuiz', this)">Quiz</button>
-            <button id="letterGameBtn"    onclick="openPage('letterGame', this)">Game</button>
-        </div>
-        <button id="navbarNumbers"><span id="letterExpand" class="expand"
-                onclick="expand('numberTabs',this)">+</span>Numbers</button>
-        <div class="subTab" id="numberTabs">
-            <button id="numbersOrderedBtn" onclick="openPage('numbersOrdered', this)">Ordered</button>
-            <button id="randNumbersBtn" onclick="openPage('randNumbers', this)">Random</button>
-            <button id="numberQuizBtn" onclick="openPage('numbersQuiz', this)">Quiz</button>
-            <button id="resetNumbersBtn" title="Reset / Reload">&#x27F3;</button>
-        </div>
-        <button onclick="openPage('About',   this)" id="navbarAboutBtn">About</button>
-        <button title="Change Background" onclick="setRandomLinearBackground('body')">&#9617;</button> 
-    </div> -->
 
     <!-- LETTERS -->
     <div id="letterAlphabet" class="tabContent">

@@ -11,10 +11,8 @@ $(document).ready(function () {
     setRandomLinearBackground('body');
 
     document.getElementById("navbarAboutBtn").click();
-    document.getElementById("letterAlphabet").click();
 
     setOrderedNumbers();
-    setRandomNumbers();
     setRandomNumber(false);
 
     setOrderedLetterContent();
@@ -33,30 +31,19 @@ $(document).ready(function () {
     setGameBoard();
 });
 
-function clearLetterTabSelection() {
-    let links = $("#letterTabs").children("button");
-    for (let i = 0; i < links.length; i++) {
-        links[i].style.backgroundColor = "";
-        links[i].style.fontWeight = "";
-        links[i].style.color = "white";
-    }
-}
-
-function clearNumberTabSelection() {
-    let links = $("#numberTabs").children("button");
-    for (let i = 0; i < links.length; i++) {
-        links[i].style.backgroundColor = "";
-        links[i].style.fontWeight = "";
-        links[i].style.color = "white";
-    }
-}
-
 function clearNavbarSelection() {
-    let links = $("#navbar").children("button");
+    let links = [];
+    links.push($.makeArray($("#navbarAboutBtn"))[0]);
+    $.makeArray($("#pre-k-letter-links").children("a")).forEach(e => {
+        links.push(e);
+    });
+    $.makeArray($("#pre-k-number-links").children("a")).forEach(e => {
+        links.push(e);
+    });
     for (let i = 0; i < links.length; i++) {
         links[i].style.backgroundColor = "";
         links[i].style.fontWeight = "";
-        links[i].style.color = "white";
+        links[i].style.color = "";
     }
 }
 
@@ -75,23 +62,6 @@ function hideClass(name) {
     }
 }
 
-function expand(id, element) {
-    if (element.textContent === '+') {
-        element.textContent = '-'
-    } else {
-        element.textContent = '+'
-    }
-    toggle(id);
-}
-
-function toggle(id) {
-    if (document.getElementById(id).style.display === "") {
-        show(id);
-    } else {
-        hide(id);
-    }
-}
-
 function hide(id) {
     document.getElementById(id).style.display = "";
 }
@@ -102,11 +72,8 @@ function show(id) {
 function openPage(id, element) {
     hideTabContent();
     clearNavbarSelection();
-    clearLetterTabSelection();
-    clearNumberTabSelection();
     show(id);
     element.style.backgroundColor = getRandomColor();
-    element.style.fontWeight = "bold";
     element.style.color = "black";
 }
 
