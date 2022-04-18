@@ -38,7 +38,7 @@ function openNumberPage(pageName, element) {
         tabLinks[i].style.background = "";
         tabLinks[i].style.color = "white";
     }
-    document.getElementById(pageName).style.display = "block";
+    document.getElementById(pageName).style.display = "inline-block";
     setRandomLinearBackground(element.id);
 }
 

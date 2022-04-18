@@ -2,8 +2,9 @@
 .tabContent {
     font-family: 'Ubuntu', sans-serif;
     color: #eee;
-    display: none;
     padding: 2rem;
+    max-width: 84rem;
+    height: 100%;
 } .tabContent input {
     font-family: 'Ubuntu Mono', monospace;
     font-size: 28px;

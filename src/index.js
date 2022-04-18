@@ -34,10 +34,10 @@ $(document).ready(function () {
 function clearNavbarSelection() {
     let links = [];
     links.push($.makeArray($("#navbarAboutBtn"))[0]);
-    $.makeArray($("#pre-k-letter-links").children("a")).forEach(e => {
+    $.makeArray($("#pre-k-letter-links").children("li").children("a")).forEach(e => {
         links.push(e);
     });
-    $.makeArray($("#pre-k-number-links").children("a")).forEach(e => {
+    $.makeArray($("#pre-k-number-links").children("li").children("a")).forEach(e => {
         links.push(e);
     });
     for (let i = 0; i < links.length; i++) {
@@ -47,32 +47,11 @@ function clearNavbarSelection() {
     }
 }
 
-function hideTabContent() {
-    hideClass("tabContent");
-}
-
-function hideLetterTabs() {
-    hide("letterTabs");
-}
-
-function hideClass(name) {
-    let e = document.getElementsByClassName(name);
-    for (let i = 0; i < e.length; i++) {
-        e[i].style.display = "none";
-    }
-}
-
-function hide(id) {
-    document.getElementById(id).style.display = "";
-}
-function show(id) {
-    document.getElementById(id).style.display = "block";
-}
-
 function openPage(id, element) {
-    hideTabContent();
+    $(".tabContent").hide();
     clearNavbarSelection();
-    show(id);
+    if (id[0] != "#") { id = "#" + id; }
+    $(id).show();
     element.style.backgroundColor = getRandomColor();
     element.style.color = "black";
 }

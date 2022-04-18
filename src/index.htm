@@ -55,196 +55,278 @@
         </symbol>
     </svg>
 
-    <div class="divider"></div>
 
-    <div class="flex-shrink-0 p-3" style="width: 280px; display: inline-block; vertical-align: top;">
-        <a href="#" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+    <!-- <div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
+        <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
             <svg class="bi me-2" width="30" height="24">
-                <use xlink:href="#defs4447"></use>
+                <use xlink:href="#bootstrap"></use>
             </svg>
-            <span class="fs-5 fw-semibold">ABCs and 123s</span>
+            <span class="fs-5 fw-semibold">Collapsible</span>
         </a>
         <ul class="list-unstyled ps-0">
             <li class="mb-1">
                 <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                    data-bs-target="#pre-k-collapse" aria-expanded="true">
-                    Pre-K
+                    data-bs-target="#home-collapse" aria-expanded="true">
+                    Home
                 </button>
-                <div class="collapse show" id="pre-k-collapse">
+                <div class="collapse show" id="home-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li>
-                            <button class="btn btn-toggle align-items-center rounded collapsed"
-                                data-bs-toggle="collapse" data-bs-target="#pre-k-letters-collapse" aria-expanded="true">
-                                Letters
-                            </button>
-                            <div class="collapse" id="pre-k-letters-collapse">
-                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                    <li id="pre-k-letter-links">
-                                        <a href="#" class="link-dark rounded" onclick="openPage('letterAlphabet', this)"
-                                            id="letterAlphabetBtn">Alphabet</a>
-                                        <a href="#" class="link-dark rounded" onclick="openPage('letterCases', this)"
-                                            id="letterCasesBtn">Cases</a>
-                                        <a href="#" class="link-dark rounded" onclick="openPage('letterRandom', this)"
-                                            id="letterRandomBtn">Random</a>
-                                        <a href="#" class="link-dark rounded" onclick="openPage('letterMatch', this)"
-                                            id="letterMatchBtn">Match</a>
-                                        <a href="#" class="link-dark rounded" onclick="openPage('letterPhonics', this)"
-                                            id="letterPhonicsBtn">Phonics</a>
-                                        <a href="#" class="link-dark rounded" onclick="openPage('letterQuiz', this)"
-                                            id="letterQuizBtn">Quiz</a>
-                                        <a href="#" class="link-dark rounded" onclick="openPage('letterGame', this)"
-                                            id="letterGameBtn">Game</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <button class="btn btn-toggle align-items-center rounded collapsed"
-                                data-bs-toggle="collapse" data-bs-target="#pre-k-numbers-collapse" aria-expanded="true">
-                                Numbers
-                            </button>
-                            <div class="collapse" id="pre-k-numbers-collapse">
-                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                    <li id="pre-k-number-links">
-                                        <a href="#" class="link-dark rounded" onclick="openPage('numbersOrdered', this)"
-                                            id="numbersOrderedBtn">Ordered</a>
-                                        <a href="#" class="link-dark rounded" onclick="openPage('randNumbers', this)"
-                                            id="randNumbersBtn">Random</a>
-                                        <a href="#" class="link-dark rounded" onclick="openPage('numbersQuiz', this)"
-                                            id="numberQuizBtn">Quiz</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
+                        <li><a href="#" class="link-dark rounded">Overview</a></li>
+                        <li><a href="#" class="link-dark rounded">Updates</a></li>
+                        <li><a href="#" class="link-dark rounded">Reports</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="mb-1">
+                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#dashboard-collapse" aria-expanded="false">
+                    Dashboard
+                </button>
+                <div class="collapse" id="dashboard-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="#" class="link-dark rounded">Overview</a></li>
+                        <li><a href="#" class="link-dark rounded">Weekly</a></li>
+                        <li><a href="#" class="link-dark rounded">Monthly</a></li>
+                        <li><a href="#" class="link-dark rounded">Annually</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="mb-1">
+                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#orders-collapse" aria-expanded="false">
+                    Orders
+                </button>
+                <div class="collapse" id="orders-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="#" class="link-dark rounded">New</a></li>
+                        <li><a href="#" class="link-dark rounded">Processed</a></li>
+                        <li><a href="#" class="link-dark rounded">Shipped</a></li>
+                        <li><a href="#" class="link-dark rounded">Returned</a></li>
                     </ul>
                 </div>
             </li>
             <li class="border-top my-3"></li>
             <li class="mb-1">
-                <button class="btn align-items-center rounded" onclick="openPage('About',   this)" id="navbarAboutBtn">
-                    About
+                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#account-collapse" aria-expanded="false">
+                    Account
                 </button>
-            </li>
-            <li class="border-top my-3"></li>
-            <li class="mb-1">
-                <button class="btn align-items-center rounded" onclick="setRandomLinearBackground('body')">
-                    Change Background
-                </button>
+                <div class="collapse" id="account-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="#" class="link-dark rounded">New...</a></li>
+                        <li><a href="#" class="link-dark rounded">Profile</a></li>
+                        <li><a href="#" class="link-dark rounded">Settings</a></li>
+                        <li><a href="#" class="link-dark rounded">Sign out</a></li>
+                    </ul>
+                </div>
             </li>
         </ul>
-    </div>
+    </div> -->
 
-    <div class="divider"></div>
 
-    <!-- LETTERS -->
-    <div id="letterAlphabet" class="tabContent">
-        <span id="letterAlphabetStage"></span><br />
-        <button onclick="setOrderedLetterContent()">&olarr;</button>
-    </div>
-    <div id="letterCases" class="tabContent">
-        <!-- TODO add tabs between upper and lowercase -->
-        <button id="firstCapOrdLetter" onclick="getFirstCapLetter()">&#11244;</button>
-        <button id="prevCapOrdLetter" onclick="getPrevCapLetter()">&#11164;</button>
-        <span class="letter" id="capOrdLetter"></span>
-        <button id="nextCapOrdLetter" onclick="getNextCapLetter()">&#11166;</button>
-        <button id="lastCapOrdLetter" onclick="getLastCapLetter()">&#11246;</button>
-        <br />
-        <button id="firstLowOrdLetter" onclick="getFirstLowLetter()">&#11244;</button>
-        <button id="prevLowOrdLetter" onclick="getPrevLowLetter()">&#11164;</button>
-        <span class="letter" id="lowOrdLetter"></span>
-        <button id="nextLowOrdLetter" onclick="getNextLowLetter()">&#11166;</button>
-        <button id="lastLowOrdLetter" onclick="getLastLowLetter()">&#11246;</button>
-    </div>
-    <div id="letterRandom" class="tabContent">
-        <span id="letterRandomStage"></span><br />
-        <button onclick="setRandomLetterContent()">&olarr;</button>
-    </div>
-    <div id="letterMatch" class="tabContent">
-        <p> TODO: Match the Upper and Lowercase letters. </p>
-    </div>
-    <div id="letterPhonics" class="tabContent">
-        <span id="letterPhonicsStage"></span><br />
-        <button onclick="setLetterPhonicsStage()">&olarr;</button>
-    </div>
-    <div id="letterQuiz" class="tabContent">
-        <button id="prevRandLetter" onclick="getRandomLetter(false)">&#128078;</button>
-        <span class="letter" id="randLetter"></span>
-        <button id="nextRandLetter" onclick="getRandomLetter(true)">&#x1F44D;</button>
-        <p>Thumbs Up: <span id="letterCorrectCount">0</span></p>
-    </div>
-    <div id="letterGame" class="tabContent">
-        <!-- 
-            TODO: Create a letter game like bejeweled where letters are the jewels
-            * 26 rows?
-            * 13 characters (cols) per row
-            Start out at selecting A then B etc. More points rewarded for the number
-            of alphabet characters touching each other - also combo with different
-            cases but just get half the points.
-            Game over after getting 3 characters wrong or the next letter needed
-            doesn't exist?
-            -->
-        <div id="letterGameBoard"></div>
-    </div>
-    <!-- END OF Letters -->
 
-    <!-- NUMBERS -->
-    <div id="numbersOrdered" class="tabContent">
-        <p class="numbers">
-            Min: <button class="subButton" onclick="minusOrderedMin()"> - </button>
-            <input class="oInput" id="oMin" type="text" maxlength="4" placeholder="Min" onchange="setOrderedNumbers()"
-                value="0">
-            <button class="addButton" onclick="addOrderedMin()"> + </button> Max: <button class="subButton"
-                onclick="minusOrderedMax()"> - </button>
-            <input class="oInput" id="oMax" type="text" maxlength="4" placeholder="Max" onchange="setOrderedNumbers()"
-                value="20">
-            <button class="addButton" onclick="addOrderedMax()"> + </button> Count By: <button class="subButton"
-                onclick="minusCountBy()"> - </button>
-            <input class="oInput" id="oCountBy" type="text" maxlength="3" placeholder="#" onchange="setOrderedNumbers()"
-                value="1">
-            <button class="addButton" onclick="addCountBy()"> + </button><br />
-            <span id="o123s"></span><br />
-            <button onclick="setOrderedNumbers()">&olarr;</button>
-        </p>
-    </div>
-    <div id="randNumbers" class="tabContent">
-        <p>Min: <button class="subButton" onclick="minusRandMin()"> - </button><input class="randInput" id="rMin"
-                type="text" maxlength="4" placeholder="min" value="0"><button class="addButton" onclick="addRandMin()">
-                + </button> Max: <button class="subButton" onclick="minusRandMax()"> -
-            </button><input class="randInput" id="rMax" type="text" maxlength="4" placeholder="max" value="20"><button
-                class="addButton" onclick="addRandMax()"> + </button>
-        </p>
-        <p class="numbers">
-            <span id="r123s"></span><br />
-            <button onclick="setRandomNumbers()">&olarr;</button>
-        </p>
-    </div>
-    <div id="numbersQuiz" class="tabContent">
-        <p>Min: <button class="subButton" onclick="minusQuizMin()"> - </button><input class="quizInput" id="qMin"
-                type="text" maxlength="4" placeholder="min" value="0"><button class="addButton" onclick="addQuizMin()">
-                + </button> Max: <button class="subButton" onclick="minusQuizMax()"> -
-            </button><input class="quizInput" id="qMax" type="text" maxlength="4" placeholder="max" value="20"><button
-                class="addButton" onclick="addQuizMax()"> + </button></p>
-        <button id="prevRandNumber" onclick="setRandomNumber(false)">&#128078;</button>
-        <span class="number" id="randNumber"></span>
-        <button id="nextRandNumber" onclick="setRandomNumber(true)">&#x1F44D;</button>
-        <p>Thumbs Up: <span id="numberCorrectCount">0</span></p>
-    </div>
-    <!-- END OF NUMBERS -->
 
-    <div id="About" class="tabContent">
-        <h3>About</h3>
-        <p>ABCs and 123s is a place for me to help my children learn their letters and numbers while providing me with
-            an excuse to sharpen my skills. It was made and is intended for simple interaction and discussion together.
-        </p>
-        <p>Created by Spencer Frisby with credit to <a href="https://www.w3schools.com/" target="_blank">W3Schools</a>, <a
-                href="https://jquery.com/" target="_blank">jQuery</a>, and <a href="https://getbootstrap.com/"
-                target="_blank">Bootstrap</a>. Visit me at <a href="https://github.com/sfrisby"
-                target="_blank">Github</a> or <a href="https://www.linkedin.com/in/spencer-f-8246b527"
-                target="_blank">LinkedIn</a>.
-        </p>
-        <button onclick="setRandomLinearBackground($('#About'))">&#10051; Change Background &#10051;</button>
-    </div> <!-- About -->
+    <main>
 
+        <div class="divider"></div>
+
+        <div class="flex-shrink-0 p-3 align-self-start" style="width: 16rem;">
+            <a href="#" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+                <svg class="bi me-2" width="30" height="24">
+                    <use xlink:href="#defs4447"></use>
+                </svg>
+                <span class="fs-5 fw-semibold">ABCs and 123s</span>
+            </a>
+            <ul class="list-unstyled ps-0">
+                <li class="mb-1">
+                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#pre-k-collapse" aria-expanded="true" style="font-weight: bolder;">
+                        Pre-K
+                    </button>
+                    <div class="collapse show" id="pre-k-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li>
+                                <button class="btn btn-toggle align-items-center rounded collapsed"
+                                    data-bs-toggle="collapse" data-bs-target="#pre-k-letters-collapse"
+                                    aria-expanded="false">
+                                    Letters
+                                </button>
+                                <div class="collapse" id="pre-k-letters-collapse">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" li
+                                        id="pre-k-letter-links">
+                                        <li><a href="#" class="link-dark rounded" onclick="openPage('letterAlphabet', this)"
+                                                id="letterAlphabetBtn">Alphabet</a></li>
+                                        <li><a href="#" class="link-dark rounded" onclick="openPage('letterCases', this)"
+                                                id="letterCasesBtn">Cases</a></li>
+                                        <li><a href="#" class="link-dark rounded" onclick="openPage('letterRandom', this)"
+                                                id="letterRandomBtn">Random</a></li>
+                                        <li><a href="#" class="link-dark rounded" onclick="openPage('letterMatch', this)"
+                                                id="letterMatchBtn">Match</a></li>
+                                        <li><a href="#" class="link-dark rounded" onclick="openPage('letterPhonics', this)"
+                                                id="letterPhonicsBtn">Phonics</a></li>
+                                        <li><a href="#" class="link-dark rounded" onclick="openPage('letterQuiz', this)"
+                                                id="letterQuizBtn">Quiz</a></li>
+                                        <li><a href="#" class="link-dark rounded" onclick="openPage('letterGame', this)"
+                                                id="letterGameBtn">Game</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="btn btn-toggle align-items-center rounded collapsed"
+                                    data-bs-toggle="collapse" data-bs-target="#pre-k-numbers-collapse"
+                                    aria-expanded="false">
+                                    Numbers
+                                </button>
+                                <div class="collapse" id="pre-k-numbers-collapse">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" id="pre-k-number-links">
+                                        <li><a href="#" class="link-dark rounded" onclick="openPage('numbersOrdered', this)"
+                                                id="numbersOrderedBtn">Ordered</a></li>
+                                        <li><a href="#" class="link-dark rounded" onclick="openPage('randNumbers', this)"
+                                                id="randNumbersBtn">Random</a></li>
+                                        <li><a href="#" class="link-dark rounded" onclick="openPage('numbersQuiz', this)"
+                                                id="numberQuizBtn">Quiz</a></li>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        </li>
+        <li class="border-top my-3"></li>
+        <li class="mb-1">
+            <button class="btn align-items-center rounded" onclick="openPage('About',   this)" id="navbarAboutBtn">
+                About
+            </button>
+        </li>
+        <li class="border-top my-3"></li>
+        <li class="mb-1">
+            <button class="btn align-items-center rounded" onclick="setRandomLinearBackground('body')">
+                Change Background
+            </button>
+        </li>
+        </ul>
+        </div>
+    
+        <div class="divider"></div>
+    
+        <div class="flex-shrink-0">
+    
+            <!-- LETTERS -->
+            <div id="letterAlphabet" class="tabContent">
+                <span id="letterAlphabetStage"></span><br />
+                <button onclick="setOrderedLetterContent()">&olarr;</button>
+            </div>
+            <div id="letterCases" class="tabContent">
+                <!-- TODO add tabs between upper and lowercase -->
+                <button id="firstCapOrdLetter" onclick="getFirstCapLetter()">&#11244;</button>
+                <button id="prevCapOrdLetter" onclick="getPrevCapLetter()">&#11164;</button>
+                <span class="letter" id="capOrdLetter"></span>
+                <button id="nextCapOrdLetter" onclick="getNextCapLetter()">&#11166;</button>
+                <button id="lastCapOrdLetter" onclick="getLastCapLetter()">&#11246;</button>
+                <br />
+                <button id="firstLowOrdLetter" onclick="getFirstLowLetter()">&#11244;</button>
+                <button id="prevLowOrdLetter" onclick="getPrevLowLetter()">&#11164;</button>
+                <span class="letter" id="lowOrdLetter"></span>
+                <button id="nextLowOrdLetter" onclick="getNextLowLetter()">&#11166;</button>
+                <button id="lastLowOrdLetter" onclick="getLastLowLetter()">&#11246;</button>
+            </div>
+            <div id="letterRandom" class="tabContent">
+                <span id="letterRandomStage"></span><br />
+                <button onclick="setRandomLetterContent()">&olarr;</button>
+            </div>
+            <div id="letterMatch" class="tabContent">
+                <p> TODO: Match the Upper and Lowercase letters. </p>
+            </div>
+            <div id="letterPhonics" class="tabContent">
+                <span id="letterPhonicsStage"></span><br />
+                <button onclick="setLetterPhonicsStage()">&olarr;</button>
+            </div>
+            <div id="letterQuiz" class="tabContent">
+                <button id="prevRandLetter" onclick="getRandomLetter(false)">&#128078;</button>
+                <span class="letter" id="randLetter"></span>
+                <button id="nextRandLetter" onclick="getRandomLetter(true)">&#x1F44D;</button>
+                <p>Thumbs Up: <span id="letterCorrectCount">0</span></p>
+            </div>
+            <div id="letterGame" class="tabContent">
+                <!-- 
+                TODO: Create a letter game like bejeweled where letters are the jewels
+                * 26 rows?
+                * 13 characters (cols) per row
+                Start out at selecting A then B etc. More points rewarded for the number
+                of alphabet characters touching each other - also combo with different
+                cases but just get half the points.
+                Game over after getting 3 characters wrong or the next letter needed
+                doesn't exist?
+                -->
+                <div id="letterGameBoard"></div>
+            </div>
+            <!-- END OF Letters -->
+    
+            <!-- NUMBERS -->
+            <div id="numbersOrdered" class="tabContent">
+                <p class="numbers">
+                    Min: <button class="subButton" onclick="minusOrderedMin()"> - </button>
+                    <input class="oInput" id="oMin" type="text" maxlength="4" placeholder="Min"
+                        onchange="setOrderedNumbers()" value="0">
+                    <button class="addButton" onclick="addOrderedMin()"> + </button> Max: <button class="subButton"
+                        onclick="minusOrderedMax()"> - </button>
+                    <input class="oInput" id="oMax" type="text" maxlength="4" placeholder="Max"
+                        onchange="setOrderedNumbers()" value="20">
+                    <button class="addButton" onclick="addOrderedMax()"> + </button> Count By: <button class="subButton"
+                        onclick="minusCountBy()"> - </button>
+                    <input class="oInput" id="oCountBy" type="text" maxlength="3" placeholder="#"
+                        onchange="setOrderedNumbers()" value="1">
+                    <button class="addButton" onclick="addCountBy()"> + </button><br />
+                    <span id="o123s"></span><br />
+                    <button onclick="setOrderedNumbers()">&olarr;</button>
+                </p>
+            </div>
+            <div id="randNumbers" class="tabContent">
+                <p>Min: <button class="subButton" onclick="minusRandMin()"> - </button><input class="randInput" id="rMin"
+                        type="text" maxlength="4" placeholder="min" value="0"><button class="addButton"
+                        onclick="addRandMin()">
+                        + </button> Max: <button class="subButton" onclick="minusRandMax()"> -
+                    </button><input class="randInput" id="rMax" type="text" maxlength="4" placeholder="max"
+                        value="20"><button class="addButton" onclick="addRandMax()"> + </button>
+                </p>
+                <p class="numbers">
+                    <span id="r123s"></span><br />
+                    <button onclick="setRandomNumbers()">&olarr;</button>
+                </p>
+            </div>
+            <div id="numbersQuiz" class="tabContent">
+                <p>Min: <button class="subButton" onclick="minusQuizMin()"> - </button><input class="quizInput" id="qMin"
+                        type="text" maxlength="4" placeholder="min" value="0"><button class="addButton"
+                        onclick="addQuizMin()">
+                        + </button> Max: <button class="subButton" onclick="minusQuizMax()"> -
+                    </button><input class="quizInput" id="qMax" type="text" maxlength="4" placeholder="max"
+                        value="20"><button class="addButton" onclick="addQuizMax()"> + </button></p>
+                <button id="prevRandNumber" onclick="setRandomNumber(false)">&#128078;</button>
+                <span class="number" id="randNumber"></span>
+                <button id="nextRandNumber" onclick="setRandomNumber(true)">&#x1F44D;</button>
+                <p>Thumbs Up: <span id="numberCorrectCount">0</span></p>
+            </div>
+            <!-- END OF NUMBERS -->
+    
+            <div id="About" class="tabContent">
+                <h3>About</h3>
+                <p>ABCs and 123s is a place for me to help my children learn their letters and numbers while providing me
+                    with
+                    an excuse to sharpen my skills. It was made and is intended for simple interaction and discussion
+                    together.
+                </p>
+                <p>Created by Spencer Frisby with credit to <a href="https://www.w3schools.com/"
+                        target="_blank">W3Schools</a>, <a href="https://jquery.com/" target="_blank">jQuery</a>, and <a
+                        href="https://getbootstrap.com/" target="_blank">Bootstrap</a>. Visit me at <a
+                        href="https://github.com/sfrisby" target="_blank">Github</a> or <a
+                        href="https://www.linkedin.com/in/spencer-f-8246b527" target="_blank">LinkedIn</a>.
+                </p>
+                <button onclick="setRandomLinearBackground($('#About'))">&#10051; Change Background &#10051;</button>
+            </div> <!-- About -->
+    
+        </div>
+
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
