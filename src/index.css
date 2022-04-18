@@ -1,6 +1,6 @@
 
 .tabContent {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Averia Serif Libre', cursive;
     color: #eee;
     padding: 2rem;
     max-width: 84rem;
@@ -10,4 +10,9 @@
     font-size: 28px;
     width: 5ch;
     vertical-align: middle;
+}
+
+.nav-link-dark {
+    color: #222;
+    font-weight: bolder;
 }
