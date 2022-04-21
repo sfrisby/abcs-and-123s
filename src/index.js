@@ -10,7 +10,9 @@ $(document).ready(function () {
 
     setRandomLinearBackground('body');
 
-    document.getElementById("navbarAboutBtn").click();
+    // document.getElementById("navbarAboutBtn").click();
+    document.getElementById("navbarPreKNumberBtn").click();
+    document.getElementById("numbersOrderedBtn").click();
 
     setOrderedNumbers();
     setRandomNumber(false);
@@ -30,6 +32,10 @@ $(document).ready(function () {
     getRandomLetter();
     setGameBoard();
 });
+
+function removeStyle(element) {
+    $("#" + element.id).removeAttr("style");
+}
 
 function clearNavbarSelection() {
     let links = [];

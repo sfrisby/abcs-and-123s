@@ -98,6 +98,7 @@ function addOrderedMax() {
 function minusCountBy() {
     let v = getOrderedCountBy();
     v = v - 1;
+    if (v <= 1) v = 1;
     $("#oCountBy").val(v);
 }
 function addCountBy() {

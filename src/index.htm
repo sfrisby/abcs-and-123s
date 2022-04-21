@@ -182,7 +182,7 @@
                             <li>
                                 <button class="btn btn-toggle align-items-center rounded collapsed"
                                     data-bs-toggle="collapse" data-bs-target="#pre-k-numbers-collapse"
-                                    aria-expanded="false">
+                                    aria-expanded="false" id="navbarPreKNumberBtn">
                                     Numbers
                                 </button>
                                 <div class="collapse" id="pre-k-numbers-collapse">
@@ -235,8 +235,9 @@
                             aria-selected="true">Upper Case</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link nav-link-dark" id="lowercase-tab" data-bs-toggle="tab" data-bs-target="#lowercase"
-                            type="button" role="tab" aria-controls="profile" aria-selected="false">Lower Case</button>
+                        <button class="nav-link nav-link-dark" id="lowercase-tab" data-bs-toggle="tab"
+                            data-bs-target="#lowercase" type="button" role="tab" aria-controls="profile"
+                            aria-selected="false">Lower Case</button>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -291,15 +292,36 @@
 
             <!-- NUMBERS -->
             <div id="numbersOrdered" class="tabContent">
+
+                <div class="input-group">
+                    <span class="input-group-text bg-dark btn-outline-info text-light">Min</span>
+                    <button class="btn btn-outline-info bg-dark" type="button" id="ordered-min-sub-btn" onclick="minusOrderedMin()"> - </button>
+                    <button class="btn btn-outline-info bg-dark" type="button" id="ordered-min-add-btn" onclick="addOrderedMin()"> + </button>
+                    <input type="text" class="form-control btn-outline-info bg-dark" placeholder="minimum" aria-label="Minimum value." id="oMin" value="0">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text bg-dark btn-outline-info text-light">Max</span>
+                    <button class="btn btn-outline-info bg-dark" type="button" id="ordered-max-sub-btn" onclick="minusOrderedMax()"> - </button>
+                    <button class="btn btn-outline-info bg-dark" type="button" id="ordered-max-add-btn" onclick="addOrderedMax()"> + </button>
+                    <input type="text" class="form-control btn-outline-info bg-dark" placeholder="maximum" aria-label="Maximum value." id="oMax" value="20">
+                </div>
+
+
                 <p class="numbers">
-                    Min: <button class="subButton" onclick="minusOrderedMin()"> - </button>
-                    <input class="oInput" id="oMin" type="text" maxlength="4" placeholder="Min"
+
+                    <!--Min:
+                    <button class="subButton" onclick="minusOrderedMin()"> - </button>
+                     <input class="oInput" id="oMin" type="text" maxlength="4" placeholder="Min"
                         onchange="setOrderedNumbers()" value="0">
-                    <button class="addButton" onclick="addOrderedMin()"> + </button> Max: <button class="subButton"
+                    <button class="addButton" onclick="addOrderedMin()"> + </button>  
+                    Max: <button class="subButton"
                         onclick="minusOrderedMax()"> - </button>
                     <input class="oInput" id="oMax" type="text" maxlength="4" placeholder="Max"
                         onchange="setOrderedNumbers()" value="20">
-                    <button class="addButton" onclick="addOrderedMax()"> + </button> Count By: <button class="subButton"
+                    <button class="addButton" onclick="addOrderedMax()"> + </button> -->
+                    
+                    
+                    Count By: <button class="subButton"
                         onclick="minusCountBy()"> - </button>
                     <input class="oInput" id="oCountBy" type="text" maxlength="3" placeholder="#"
                         onchange="setOrderedNumbers()" value="1">
