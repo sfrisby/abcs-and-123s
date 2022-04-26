@@ -49,7 +49,7 @@ function setLetterPhonicsStage() {
         let v = getRandomIndex(VOWELS);
         let w = CONSONANTS[c1].toUpperCase() + VOWELS[v].toLowerCase() + CONSONANTS[c2].toLowerCase()
         output += ("<div class='letter rounded' id='random_" + w +  "_" + i);
-        output += ("' onclick='setRandomLinearBackground(this)'>");
+        output += ("' onclick='setRandomLinearBackground(this)' oncontextmenu='removeStyle(this); return false;'>");
         output += (w + "</div>");
     }
     $('#letterPhonicsStage').html(output);

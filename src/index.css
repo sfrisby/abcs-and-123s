@@ -1,6 +1,5 @@
-
 .tabContent {
-    font-family: 'Averia Serif Libre', cursive;
+    font-family: 'Ubuntu', sans-serif;
     color: #eee;
     padding: 2rem;
     max-width: 84rem;
@@ -8,7 +7,18 @@
     overflow: auto;
 }
 
-.nav-link-dark {
-    color: #222;
-    font-weight: bolder;
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+    background-color: #0dcaf0;
+    border-color: #222, #111, #333 !important;
+    border: 1px solid #444;
+}
+
+.border-bottom-dark {
+    border-bottom: solid #222 !important;
+}
+
+.border-top-dark {
+    border-top: 1px solid #222 !important;
 }
