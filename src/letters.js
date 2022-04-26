@@ -24,7 +24,7 @@ function setOrderedLetterContent() {
     let output = "";
     for (var i = 0; i < CAP_LETTERS.length; i++) {
         output += ("<div class='letter rounded' id='char_" + LOW_LETTERS[i]);
-        output += ("' onclick='setRandomLinearBackground(this)' oncontextmenu='resetLetterClass(this); return false;'> ");
+        output += ("' onclick='setRandomLinearBackground(this)' oncontextmenu='removeStyle(this); return false;'> ");
         output += (CAP_LETTERS[i] + " " + LOW_LETTERS[i] + " </div>");
     }
     $('#letterAlphabetStage').html(output);
@@ -35,7 +35,7 @@ function setRandomLetterContent() {
     for (var i = 0; i < SUM_OF_RANDOM_LETTERS; i++) {
         let index = getRandomIndex(LETTERS);
         output += ("<div class='letter rounded' id='random_" + LETTERS[index] + "_" + i);
-        output += ("' onclick='setRandomLinearBackground(this)' oncontextmenu='resetLetterClass(this); return false;'>");
+        output += ("' onclick='setRandomLinearBackground(this)' oncontextmenu='removeStyle(this); return false;'>");
         output += (LETTERS[index] + "</div>");
     }
     $('#letterRandomStage').html(output);

@@ -16,6 +16,7 @@ $(document).ready(function () {
 
     setOrderedNumbers();
     setRandomNumber(false);
+    setRandomNumbers();
 
     setOrderedLetterContent();
     setRandomLetterContent();
@@ -145,4 +146,18 @@ function getRandRGB() {
     let g = getRandomNumber(0, 255);
     let b = getRandomNumber(0, 255);
     return ('rgba(' + r + ',' + g + ',' + b + ', 0.6)')
+}
+
+function increment(id) {
+    let v = Number($("#"+id).val());
+    $("#"+id).val(v + 1);
+}
+
+function decrement(id) {
+    let v = Number($("#"+id).val());
+    if (v <= 1) {
+        $("#"+id).val(1);
+    } else {
+        $("#"+id).val(v - 1);
+    }
 }

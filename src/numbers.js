@@ -1,4 +1,3 @@
-const SUM_OF_RANDOM_NUMBERS = 50;
 
 function getOrderedMax() {
     return Number($("#oMax").val());
@@ -18,6 +17,9 @@ function getRandMax() {
 }
 function getRandMin() {
     return Number($("#rMin").val());
+}
+function getRandAmount() {
+    return Number($("#rAmount").val());
 }
 
 function getQuizMax() {
@@ -56,10 +58,10 @@ function setOrderedNumbers(id = "#o123s") {
     }
     let output = "";
     for (var i = oMin; i < oMax; i = (i + c)) {
-        output += ("<div class='number' id='num_" + i + "' onclick='setRandomLinearBackground(this)'> " + i + " </div>");
+        output += ("<div class='number' id='num_" + i + "' onclick='setRandomLinearBackground(this)' oncontextmenu='removeStyle(this); return false;'> " + i + " </div>");
     }
     if (oMax % c === 0) {
-        output += ("<div class='number' id='num_" + oMax + "' onclick='setRandomLinearBackground(this)'> " + oMax + " </div>");
+        output += ("<div class='number' id='num_" + oMax + "' onclick='setRandomLinearBackground(this)' oncontextmenu='removeStyle(this); return false;'> " + oMax + " </div>");
     }
     $(String(id)).html(output);
 }
@@ -68,9 +70,9 @@ function setRandomNumbers(id = "#r123s") {
     let oMinimum = getRandMin();
     let oMaximum = getRandMax() + 1;
     let output = "";
-    for (var i = 0; i < SUM_OF_RANDOM_NUMBERS; i++) {
+    for (var i = 0; i < getRandAmount(); i++) {
         let tmp = getRandomNumber(oMinimum, oMaximum);
-        output += ("<div class='number' id='num_" + tmp + "_" + i + "' onclick='setRandomLinearBackground(this)'><span class='coded'> " + tmp + " </span></div>");
+        output += ("<div class='number' id='num_" + tmp + "_" + i + "' onclick='setRandomLinearBackground(this)' oncontextmenu='removeStyle(this); return false;'><span class='coded'> " + tmp + " </span></div>");
     }
     $(String(id)).html(output);
 }
