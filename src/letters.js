@@ -23,7 +23,7 @@ const TEST_LETTERS = LETTERS.slice(0, 4);
 function setOrderedLetterContent() {
     let output = "";
     for (var i = 0; i < CAP_LETTERS.length; i++) {
-        output += ("<div class='letter rounded' id='char_" + LOW_LETTERS[i]);
+        output += ("<div class='click-me rounded' id='char_" + LOW_LETTERS[i]);
         output += ("' onclick='setRandomLinearBackground(this)' oncontextmenu='removeStyle(this); return false;'> ");
         output += (CAP_LETTERS[i] + " " + LOW_LETTERS[i] + " </div>");
     }
@@ -34,7 +34,7 @@ function setRandomLetterContent() {
     let output = "";
     for (var i = 0; i < SUM_OF_RANDOM_LETTERS; i++) {
         let index = getRandomIndex(LETTERS);
-        output += ("<div class='letter rounded' id='random_" + LETTERS[index] + "_" + i);
+        output += ("<div class='click-me rounded' id='random_" + LETTERS[index] + "_" + i);
         output += ("' onclick='setRandomLinearBackground(this)' oncontextmenu='removeStyle(this); return false;'>");
         output += (LETTERS[index] + "</div>");
     }
@@ -48,7 +48,7 @@ function setLetterPhonicsStage() {
         let c2 = getRandomIndex(CONSONANTS);
         let v = getRandomIndex(VOWELS);
         let w = CONSONANTS[c1].toUpperCase() + VOWELS[v].toLowerCase() + CONSONANTS[c2].toLowerCase()
-        output += ("<div class='letter rounded' id='random_" + w +  "_" + i);
+        output += ("<div class='click-me rounded' id='random_" + w +  "_" + i);
         output += ("' onclick='setRandomLinearBackground(this)' oncontextmenu='removeStyle(this); return false;'>");
         output += (w + "</div>");
     }

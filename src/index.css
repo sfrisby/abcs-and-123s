@@ -7,7 +7,6 @@
     overflow: auto;
 }
 
-
 .nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
     background-color: #0dcaf0;
@@ -21,4 +20,36 @@
 
 .border-top-dark {
     border-top: 1px solid #222 !important;
+}
+
+.click-me {
+    font-size: 8rem;
+    font-weight: normal;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0.5rem;
+    padding: 0 2rem;
+    color: #eee;
+    background-color: #222;
+    display: inline-block;
+    user-select: none;
+} .click-me:hover {
+    background-color: royalblue;
+    outline: rgba(175, 243, 15, 0.7) dashed 0.25rem;
+}
+
+.display-me {
+    font-size: 12rem;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    margin: 1rem;
+    padding: 0 4rem;
+    color: rgb(238, 238, 238);
+    cursor: cell;
+    background: none;
+    display: inline-block;
+    user-select: none;
+    min-width: 24rem;
 }

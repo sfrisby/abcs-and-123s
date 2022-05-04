@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="sidebars.css">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="letters.css">
-    <link rel="stylesheet" href="numbers.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
@@ -140,8 +139,9 @@
         </li>
         <li class="border-top-dark my-3"></li>
         <li class="mb-1">
-            <button class="btn align-items-center rounded" onclick="setRandomLinearBackground('body')">
-                Change Background
+            <button type="button" class="btn btn-info align-items-center rounded"
+                onclick="setRandomLinearBackground('body')">
+                &olarr; Background
             </button>
         </li>
         </ul>
@@ -152,7 +152,7 @@
         <div class="flex-shrink-0">
 
             <!-- LETTERS -->
-            <div id="letterAlphabet" class="tabContent">                
+            <div id="letterAlphabet" class="tabContent">
                 <span id="letterAlphabetStage"></span><br />
                 <button type="button" class="btn btn-info btn-lg" onclick="setOrderedLetterContent()">&olarr;</button>
             </div>
@@ -172,18 +172,26 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="uppercase" role="tabpanel"
                         aria-labelledby="uppercase-tab">
-                        <button type="button" class="btn btn-info btn-lg" id="firstCapOrdLetter" onclick="getFirstCapLetter()">&#11244;</button>
-                        <button type="button" class="btn btn-info btn-lg" id="prevCapOrdLetter" onclick="getPrevCapLetter()">&#11164;</button>
-                        <span class="letter" id="capOrdLetter"></span>
-                        <button type="button" class="btn btn-info btn-lg" id="nextCapOrdLetter" onclick="getNextCapLetter()">&#11166;</button>
-                        <button type="button" class="btn btn-info btn-lg" id="lastCapOrdLetter" onclick="getLastCapLetter()">&#11246;</button>
+                        <button type="button" class="btn btn-info btn-lg" id="firstCapOrdLetter"
+                            onclick="getFirstCapLetter()">&#11244;</button>
+                        <button type="button" class="btn btn-info btn-lg" id="prevCapOrdLetter"
+                            onclick="getPrevCapLetter()">&#11164;</button>
+                        <span class="display-me" id="capOrdLetter"></span>
+                        <button type="button" class="btn btn-info btn-lg" id="nextCapOrdLetter"
+                            onclick="getNextCapLetter()">&#11166;</button>
+                        <button type="button" class="btn btn-info btn-lg" id="lastCapOrdLetter"
+                            onclick="getLastCapLetter()">&#11246;</button>
                     </div>
                     <div class="tab-pane fade" id="lowercase" role="tabpanel" aria-labelledby="lowercase-tab">
-                        <button type="button" class="btn btn-info btn-lg" id="firstLowOrdLetter" onclick="getFirstLowLetter()">&#11244;</button>
-                        <button type="button" class="btn btn-info btn-lg" id="prevLowOrdLetter" onclick="getPrevLowLetter()">&#11164;</button>
-                        <span class="letter" id="lowOrdLetter"></span>
-                        <button type="button" class="btn btn-info btn-lg" id="nextLowOrdLetter" onclick="getNextLowLetter()">&#11166;</button>
-                        <button type="button" class="btn btn-info btn-lg" id="lastLowOrdLetter" onclick="getLastLowLetter()">&#11246;</button>
+                        <button type="button" class="btn btn-info btn-lg" id="firstLowOrdLetter"
+                            onclick="getFirstLowLetter()">&#11244;</button>
+                        <button type="button" class="btn btn-info btn-lg" id="prevLowOrdLetter"
+                            onclick="getPrevLowLetter()">&#11164;</button>
+                        <span class="display-me" id="lowOrdLetter"></span>
+                        <button type="button" class="btn btn-info btn-lg" id="nextLowOrdLetter"
+                            onclick="getNextLowLetter()">&#11166;</button>
+                        <button type="button" class="btn btn-info btn-lg" id="lastLowOrdLetter"
+                            onclick="getLastLowLetter()">&#11246;</button>
                     </div>
                 </div>
             </div>
@@ -199,12 +207,12 @@
                 <button type="button" class="btn btn-info btn-lg" onclick="setLetterPhonicsStage()">&olarr;</button>
             </div>
             <div id="letterQuiz" class="tabContent">
-                <button class="btn btn-danger btn-lg" type="button" id="prevRandLetter"
+                <button class="btn btn-danger btn-lg fs-1" type="button" id="prevRandLetter"
                     onclick="getRandomLetter(false)">&#128078;</button>
-                <span class="letter" id="randLetter"></span>
-                <button class="btn btn-success btn-lg" type="button" id="nextRandLetter"
+                <span class="display-me" id="randLetter"></span>
+                <button class="btn btn-success btn-lg fs-1" type="button" id="nextRandLetter"
                     onclick="getRandomLetter(true)">&#x1F44D;</button>
-                <p>Thumbs Up: <span id="letterCorrectCount">0</span></p>
+                <p style="user-select: none;">Thumbs Up: <span id="letterCorrectCount">0</span></p>
             </div>
             <div id="letterGame" class="tabContent">
                 <!-- 
@@ -326,12 +334,18 @@
                 </div>
             </div>
             <div id="numbersQuiz" class="tabContent">
-
-
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col">
-                            <div class="input-group">
+                        <div class="col-2">
+                            <div class="flex-column">
+                                <button class="btn btn-success btn-lg fs-1" type="button" id="nextRandNumber"
+                                    onclick="setRandomNumber(true)">&#x1F44D;</button>
+                                <button class="btn btn-danger btn-lg fs-1" type="button" id="prevRandNumber"
+                                    onclick="setRandomNumber(false)">&#128078;</button>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="input-group input-group-lg flex-fill">
                                 <span class="input-group-text bg-dark btn-outline-info text-light">Min</span>
                                 <button class="btn btn-outline-info bg-dark fs-2" type="button"
                                     onclick="minusQuizMin()"> - </button>
@@ -342,8 +356,8 @@
                                     oninput="setRandomNumbers()" maxlength="4">
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="input-group">
+                        <div class="col-3">
+                            <div class="input-group input-group-lg">
                                 <span class="input-group-text bg-dark btn-outline-info text-light">Max</span>
                                 <button class="btn btn-outline-info bg-dark fs-2" type="button"
                                     onclick="minusQuizMax()"> - </button>
@@ -357,12 +371,8 @@
                     </div>
                     <div class="row">
                         <div class="col m-2">
-                            <button class="btn btn-danger btn-lg" type="button" id="prevRandNumber"
-                                onclick="setRandomNumber(false)">&#128078;</button>
-                            <span class="number" id="randNumber"></span>
-                            <button class="btn btn-success btn-lg" type="button" id="nextRandNumber"
-                                onclick="setRandomNumber(true)">&#x1F44D;</button>
-                            <p>Thumbs Up: <span id="numberCorrectCount">0</span></p>
+                            <span class="display-me" id="randNumber"></span>
+                            <p style="user-select: none;">Thumbs Up: <span id="numberCorrectCount">0</span></p>
                         </div>
                     </div>
                 </div>

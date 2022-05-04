@@ -12,7 +12,8 @@ $(document).ready(function () {
 
     // document.getElementById("navbarAboutBtn").click();
     document.getElementById("navbarPreKNumberBtn").click();
-    document.getElementById("numbersOrderedBtn").click();
+    //document.getElementById("numbersOrderedBtn").click();
+    document.getElementById("numberQuizBtn").click();
 
     setOrderedNumbers();
     setRandomNumber(false);
