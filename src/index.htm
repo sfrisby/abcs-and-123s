@@ -77,7 +77,7 @@
                     <div class="collapse show" id="pre-k-collapse">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                             <li>
-                                <button class="btn btn-toggle align-items-center rounded collapsed ms-1"
+                                <button class="btn btn-toggle align-items-center rounded collapsed ms-2"
                                     data-bs-toggle="collapse" data-bs-target="#pre-k-letters-collapse"
                                     aria-expanded="false" id="navbarPreKLetterBtn">
                                     Letters
@@ -108,7 +108,7 @@
                                 </div>
                             </li>
                             <li>
-                                <button class="btn btn-toggle align-items-center rounded collapsed ms-1"
+                                <button class="btn btn-toggle align-items-center rounded collapsed ms-2"
                                     data-bs-toggle="collapse" data-bs-target="#pre-k-numbers-collapse"
                                     aria-expanded="false" id="navbarPreKNumberBtn">
                                     Numbers
@@ -156,7 +156,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col">
-                            <button type="button" class="btn btn-info btn-lg fs-1 fw-bold" data-bs-toggle="tooltip"
+                            <button type="button" class="btn btn-info btn-lg fs-1" data-bs-toggle="tooltip"
                                 data-bs-placement="top" title="Reset"
                                 onclick="setOrderedLetterContent()">&olarr;</button>
                         </div>
@@ -184,42 +184,75 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="uppercase" role="tabpanel"
                         aria-labelledby="uppercase-tab">
-                        <button type="button" class="btn btn-info btn-lg" id="firstCapOrdLetter"
+                        <button type="button" class="btn btn-info btn-lg fs-1" id="firstCapOrdLetter"
                             onclick="getFirstCapLetter()">&#11244;</button>
-                        <button type="button" class="btn btn-info btn-lg" id="prevCapOrdLetter"
+                        <button type="button" class="btn btn-info btn-lg fs-1" id="prevCapOrdLetter"
                             onclick="getPrevCapLetter()">&#11164;</button>
-                        <span class="display-me" id="capOrdLetter"></span>
-                        <button type="button" class="btn btn-info btn-lg" id="nextCapOrdLetter"
+                        <div class="display-me min-width-for-cases" id="capOrdLetter"></div>
+                        <button type="button" class="btn btn-info btn-lg fs-1" id="nextCapOrdLetter"
                             onclick="getNextCapLetter()">&#11166;</button>
-                        <button type="button" class="btn btn-info btn-lg" id="lastCapOrdLetter"
+                        <button type="button" class="btn btn-info btn-lg fs-1" id="lastCapOrdLetter"
                             onclick="getLastCapLetter()">&#11246;</button>
                     </div>
                     <div class="tab-pane fade" id="lowercase" role="tabpanel" aria-labelledby="lowercase-tab">
-                        <button type="button" class="btn btn-info btn-lg" id="firstLowOrdLetter"
+                        <button type="button" class="btn btn-info btn-lg fs-1" id="firstLowOrdLetter"
                             onclick="getFirstLowLetter()">&#11244;</button>
-                        <button type="button" class="btn btn-info btn-lg" id="prevLowOrdLetter"
+                        <button type="button" class="btn btn-info btn-lg fs-1" id="prevLowOrdLetter"
                             onclick="getPrevLowLetter()">&#11164;</button>
-                        <span class="display-me" id="lowOrdLetter"></span>
-                        <button type="button" class="btn btn-info btn-lg" id="nextLowOrdLetter"
+                        <span class="display-me min-width-for-cases" id="lowOrdLetter"></span>
+                        <button type="button" class="btn btn-info btn-lg fs-1" id="nextLowOrdLetter"
                             onclick="getNextLowLetter()">&#11166;</button>
-                        <button type="button" class="btn btn-info btn-lg" id="lastLowOrdLetter"
+                        <button type="button" class="btn btn-info btn-lg fs-1" id="lastLowOrdLetter"
                             onclick="getLastLowLetter()">&#11246;</button>
                     </div>
                 </div>
             </div>
             <div id="letterRandom" class="tabContent">
-                <span id="letterRandomStage"></span><br />
-                <button type="button" class="btn btn-info btn-lg" onclick="setRandomLetterContent()">&olarr;</button>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-1">
+                            <button type="button" class="btn btn-info btn-lg fs-1"
+                                onclick="setRandomLetterContent()">&olarr;</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div id="letterRandomStage"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="letterMatch" class="tabContent">
-                <p> TODO: Match the Upper and Lowercase letters. </p>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-1">
+                            <button type="button" class="btn btn-info btn-lg fs-1" onclick="">&olarr;</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div id="matchLetterStage">
+                                TODO
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="letterPhonics" class="tabContent">
-                <span id="letterPhonicsStage"></span><br />
-                <button type="button" class="btn btn-info btn-lg" onclick="setLetterPhonicsStage()">&olarr;</button>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-1">
+                            <button type="button" class="btn btn-info btn-lg fs-1"
+                                onclick="setLetterPhonicsStage()">&olarr;</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div id="letterPhonicsStage"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <!-- letter quiz -->
             <div id="letterQuiz" class="tabContent">
                 <div class="container-fluid">
                     <div class="row">
@@ -238,8 +271,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- letter game -->
             <div id="letterGame" class="tabContent">
                 <!-- 
                 TODO: Create a letter game like bejeweled where letters are the jewels
@@ -274,7 +305,8 @@
                                     onclick="minusOrderedMin()"> - </button>
                                 <button class="btn btn-outline-info bg-dark fs-2" type="button" id="ordered-min-add-btn"
                                     onclick="addOrderedMin()"> + </button>
-                                <input type="text" class="form-control btn-outline-info bg-dark text-light fs-3"
+                                <input type="text"
+                                    class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
                                     placeholder="minimum" aria-label="Minimum value." id="oMin" value="0"
                                     oninput="setOrderedNumbers()" maxlength="4">
                             </div>
@@ -286,7 +318,8 @@
                                     onclick="minusOrderedMax()"> - </button>
                                 <button class="btn btn-outline-info bg-dark fs-2" type="button" id="ordered-max-add-btn"
                                     onclick="addOrderedMax()"> + </button>
-                                <input type="text" class="form-control btn-outline-info bg-dark text-light fs-3"
+                                <input type="text"
+                                    class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
                                     placeholder="maximum" aria-label="Maximum value." id="oMax" value="20"
                                     oninput="setOrderedNumbers()" maxlength="4">
                             </div>
@@ -298,14 +331,15 @@
                                     onclick="minusCountBy()"> - </button>
                                 <button class="btn btn-outline-info bg-dark fs-2" type="button" id="ordered-max-add-btn"
                                     onclick="addCountBy()"> + </button>
-                                <input type="text" class="form-control btn-outline-info bg-dark text-light fs-3"
-                                    placeholder="count by" aria-label="Count bettwen min and max value." id="oCountBy"
+                                <input type="text"
+                                    class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
+                                    placeholder="count by" aria-label="Count between min and max value." id="oCountBy"
                                     value="1" on oninput="setOrderedNumbers()" maxlength="4">
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col m-2">
+                        <div class="col">
                             <span class="" id="o123s"></span>
                         </div>
                     </div>
@@ -314,51 +348,42 @@
             <div id="randNumbers" class="tabContent">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-1">
-                            <div class="flex-column">
+                        <div class="col">
+                            <div class="input-group">
                                 <button type="button" class="btn btn-info btn-lg fs-2"
                                     onclick="setRandomNumbers()">&olarr;</button>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="input-group">
                                 <span class="input-group-text bg-dark btn-outline-info text-light">Min</span>
                                 <button class="btn btn-outline-info bg-dark fs-2" type="button" id="ordered-min-sub-btn"
                                     onclick="minusRandMin()"> - </button>
                                 <button class="btn btn-outline-info bg-dark fs-2" type="button" id="ordered-min-add-btn"
                                     onclick="addRandMin()"> + </button>
-                                <input type="text" class="form-control btn-outline-info bg-dark text-light fs-3"
+                                <input type="text"
+                                    class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
                                     placeholder="minimum" aria-label="Minimum value." id="rMin" value="0"
                                     oninput="setRandomNumbers()" maxlength="4">
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="input-group">
                                 <span class="input-group-text bg-dark btn-outline-info text-light">Max</span>
                                 <button class="btn btn-outline-info bg-dark fs-2" type="button" id="ordered-max-sub-btn"
                                     onclick="minusRandMax()"> - </button>
                                 <button class="btn btn-outline-info bg-dark fs-2" type="button" id="ordered-max-add-btn"
                                     onclick="addRandMax()"> + </button>
-                                <input type="text" class="form-control btn-outline-info bg-dark text-light fs-3"
+                                <input type="text"
+                                    class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
                                     placeholder="maximum" aria-label="Maximum value." id="rMax" value="20"
                                     oninput="setRandomNumbers()" maxlength="4">
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="input-group">
                                 <span class="input-group-text bg-dark btn-outline-info text-light">Amount</span>
                                 <button class="btn btn-outline-info bg-dark fs-2" type="button" id="ordered-max-sub-btn"
                                     onclick="decrement('rAmount')"> - </button>
                                 <button class="btn btn-outline-info bg-dark fs-2" type="button" id="ordered-max-add-btn"
                                     onclick="increment('rAmount')"> + </button>
-                                <input type="text" class="form-control btn-outline-info bg-dark text-light fs-3"
+                                <input type="text"
+                                    class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
                                     placeholder="count by" aria-label="The number of random numbers to generate."
-                                    id="rAmount" value="15" oninput="setRandomNumbers()" maxlength="4">
+                                    id="rAmount" value="5" oninput="setRandomNumbers()" maxlength="4">
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col m-2">
+                        <div class="col">
                             <span id="r123s"></span>
                         </div>
                     </div>
@@ -367,43 +392,47 @@
             <div id="numbersQuiz" class="tabContent">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-3">
-                            <div class="flex-column">
+                        <div class="col">
+                            <div class="input-group input-group-lg flex-fill">
                                 <button class="btn btn-success btn-lg fs-1" type="button" id="nextRandNumber"
                                     onclick="setRandomNumber(true)">&#x1F44D; <span
                                         id="numberCorrectCount">0</span></button>
                                 <button class="btn btn-danger btn-lg fs-1" type="button" id="prevRandNumber"
                                     onclick="setRandomNumber(false)">&#128078;</button>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="input-group input-group-lg flex-fill">
-                                <span class="input-group-text bg-dark btn-outline-info text-light">Min</span>
-                                <button class="btn btn-outline-info bg-dark fs-2" type="button"
-                                    onclick="minusQuizMin()"> - </button>
-                                <button class="btn btn-outline-info bg-dark fs-2" type="button" onclick="addQuizMin()">
-                                    + </button>
-                                <input type="text" class="form-control btn-outline-info bg-dark text-light fs-3"
-                                    placeholder="minimum" aria-label="Minimum value." id="qMin" value="0"
-                                    oninput="setRandomNumbers()" maxlength="4">
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="input-group input-group-lg">
-                                <span class="input-group-text bg-dark btn-outline-info text-light">Max</span>
-                                <button class="btn btn-outline-info bg-dark fs-2" type="button"
-                                    onclick="minusQuizMax()"> - </button>
-                                <button class="btn btn-outline-info bg-dark fs-2" type="button" onclick="addQuizMax()">
-                                    + </button>
-                                <input type="text" class="form-control btn-outline-info bg-dark text-light fs-3"
-                                    placeholder="maximum" aria-label="Maximum value." id="qMax" value="20"
-                                    oninput="setRandomNumbers()" maxlength="4">
+                                <span class="input-group-text bg-dark btn-outline-dark text-light">
+                                    <div style="margin-right: 0.5rem;">Min</div>
+                                    <div class="input-group input-group-lg flex-fill">
+                                        <button class="btn btn-outline-info bg-dark fs-2" type="button"
+                                            onclick="minusQuizMin()"> - </button>
+                                        <input type="text"
+                                            class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
+                                            placeholder="minimum" aria-label="Minimum value." id="qMin" value="0"
+                                            oninput="setRandomNumbers()" maxlength="4">
+                                        <button class="btn btn-outline-info bg-dark fs-2" type="button"
+                                            onclick="addQuizMin()">
+                                            + </button>
+                                    </div>
+                                </span>
+                                <span class="input-group-text bg-dark btn-outline-dark text-light">
+                                    <div style="margin-right: 0.5rem;">Max</div>
+                                    <div class="input-group input-group-lg flex-fill">
+                                        <button class="btn btn-outline-info bg-dark fs-2" type="button"
+                                            onclick="minusQuizMax()"> - </button>
+                                        <input type="text"
+                                            class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
+                                            placeholder="maximum" aria-label="Maximum value." id="qMax" value="20"
+                                            oninput="setRandomNumbers()" maxlength="4">
+                                        <button class="btn btn-outline-info bg-dark fs-2" type="button"
+                                            onclick="addQuizMax()">
+                                            + </button>
+                                    </div>
+                                </span>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col m-2">
-                            <span class="display-me" id="randNumber"></span>
+                        <div class="col">
+                            <div class="display-me" id="randNumber"></div>
                         </div>
                     </div>
                 </div>

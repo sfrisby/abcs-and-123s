@@ -130,25 +130,46 @@ function addRandMax() {
     $("#rMax").val(v);
 }
 
+
+const QUIZ_MAX = 9999;
+const QUIZ_MIN = -999;
+
 function minusQuizMin() {
     let v = getQuizMin();
     v = v - 1;
-    $("#qMin").val(v);
+    if (v < QUIZ_MIN) {
+        $("#qMin").val(QUIZ_MIN);
+    } else {
+        $("#qMin").val(v);
+    }
+    
 }
 function addQuizMin() {
     let v = getQuizMin();
     v = v + 1;
-    $("#qMin").val(v);
+    if (v > QUIZ_MAX) {
+        $("#qMin").val(QUIZ_MAX);
+    } else {
+        $("#qMin").val(v);
+    }
 }
 function minusQuizMax() {
     let v = getQuizMax();
     v = v - 1;
-    $("#qMax").val(v);
+    if (v < QUIZ_MIN) {
+        $("#qMax").val(QUIZ_MIN);
+    } else {
+        $("#qMax").val(v);
+    }
 }
 function addQuizMax() {
     let v = getQuizMax();
     v = v + 1;
-    $("#qMax").val(v);
+    if (v > QUIZ_MAX) {
+        $("#qMax").val(QUIZ_MAX);
+    } else {
+        $("#qMax").val(v);
+    }
 }
 
 function setRandomNumber(increment) {

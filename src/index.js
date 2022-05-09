@@ -11,14 +11,14 @@ $(document).ready(function () {
     setRandomLinearBackground('body');
 
     // document.getElementById("navbarAboutBtn").click();
-    // document.getElementById("navbarPreKNumberBtn").click();
+    document.getElementById("navbarPreKNumberBtn").click();
     // document.getElementById("numberOrderedBtn").click();
-    // document.getElementById("numberQuizBtn").click();
+    document.getElementById("numberQuizBtn").click();
     // document.getElementById("numberRandBtn").click();
     
-    document.getElementById("navbarPreKLetterBtn").click();
+    // document.getElementById("navbarPreKLetterBtn").click();
     // document.getElementById("letterQuizBtn").click();
-    document.getElementById("letterAlphabetBtn").click();
+    // document.getElementById("letterAlphabetBtn").click();
     
 
     setOrderedNumbers();

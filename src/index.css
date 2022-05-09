@@ -29,28 +29,44 @@
     cursor: pointer;
     text-align: center;
     vertical-align: middle;
-    margin: 0.5rem;
+    margin: 0.25rem 0.5rem 0.25rem 0;
     padding: 0 2rem;
     color: #eee;
     background-color: #222;
     display: inline-block;
     user-select: none;
-} .click-me:hover {
+}
+
+.click-me:hover {
     background-color: royalblue;
     outline: rgba(175, 243, 15, 0.7) dashed 0.25rem;
 }
 
 .display-me {
-    font-size: 12rem;
+    line-height: 37rem;
+    font-size: 38rem;
     font-weight: normal;
     text-align: center;
     vertical-align: middle;
-    margin: 1rem;
-    padding: 0 4rem;
+    margin: 0;
+    padding: 0;
     color: rgb(238, 238, 238);
     cursor: cell;
     background: none;
     display: inline-block;
     user-select: none;
-    min-width: 24rem;
+    z-index: -100;
+    text-shadow:
+        -0.1rem -0.1rem 0 #000,
+        0.1rem -0.1rem 0 #000,
+        -0.1rem 0.1rem 0 #000,
+        0.1rem 0.1rem 0 #000;
+}
+
+.max-width-6rem {
+    max-width: 6rem;
+}
+
+.min-width-for-cases {
+    min-width: 48rem;
 }
