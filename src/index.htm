@@ -79,7 +79,7 @@
                             <li>
                                 <button class="btn btn-toggle align-items-center rounded collapsed ms-1"
                                     data-bs-toggle="collapse" data-bs-target="#pre-k-letters-collapse"
-                                    aria-expanded="false">
+                                    aria-expanded="false" id="navbarPreKLetterBtn">
                                     Letters
                                 </button>
                                 <div class="collapse" id="pre-k-letters-collapse">
@@ -100,10 +100,10 @@
                                         <li><a href="#" class="link-dark rounded"
                                                 onclick="openPage('letterPhonics', this)"
                                                 id="letterPhonicsBtn">Phonics</a></li>
-                                        <li><a href="#" class="link-dark rounded" onclick="openPage('letterQuiz', this)"
-                                                id="letterQuizBtn">Quiz</a></li>
                                         <li><a href="#" class="link-dark rounded" onclick="openPage('letterGame', this)"
                                                 id="letterGameBtn">Game</a></li>
+                                        <li><a href="#" class="link-dark rounded" onclick="openPage('letterQuiz', this)"
+                                                id="letterQuizBtn">Quiz</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -118,9 +118,9 @@
                                         id="pre-k-number-links">
                                         <li><a href="#" class="link-dark rounded"
                                                 onclick="openPage('numbersOrdered', this)"
-                                                id="numbersOrderedBtn">Ordered</a></li>
+                                                id="numberOrderedBtn">Ordered</a></li>
                                         <li><a href="#" class="link-dark rounded"
-                                                onclick="openPage('randNumbers', this)" id="randNumbersBtn">Random</a>
+                                                onclick="openPage('randNumbers', this)" id="numberRandBtn">Random</a>
                                         </li>
                                         <li><a href="#" class="link-dark rounded"
                                                 onclick="openPage('numbersQuiz', this)" id="numberQuizBtn">Quiz</a></li>
@@ -153,18 +153,30 @@
 
             <!-- LETTERS -->
             <div id="letterAlphabet" class="tabContent">
-                <span id="letterAlphabetStage"></span><br />
-                <button type="button" class="btn btn-info btn-lg" onclick="setOrderedLetterContent()">&olarr;</button>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col">
+                            <button type="button" class="btn btn-info btn-lg fs-1 fw-bold" data-bs-toggle="tooltip"
+                                data-bs-placement="top" title="Reset"
+                                onclick="setOrderedLetterContent()">&olarr;</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div id="letterAlphabetStage"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="letterCases" class="tabContent">
                 <ul class="nav nav-tabs border-bottom-dark" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link text-dark active" id="uppercase-tab" data-bs-toggle="tab"
+                        <button class="nav-link text-dark active fw-bold" id="uppercase-tab" data-bs-toggle="tab"
                             data-bs-target="#uppercase" type="button" role="tab" aria-controls="home"
                             aria-selected="true">Upper Case</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link text-dark" id="lowercase-tab" data-bs-toggle="tab"
+                        <button class="nav-link text-dark fw-bold" id="lowercase-tab" data-bs-toggle="tab"
                             data-bs-target="#lowercase" type="button" role="tab" aria-controls="profile"
                             aria-selected="false">Lower Case</button>
                     </li>
@@ -206,14 +218,28 @@
                 <span id="letterPhonicsStage"></span><br />
                 <button type="button" class="btn btn-info btn-lg" onclick="setLetterPhonicsStage()">&olarr;</button>
             </div>
+
+            <!-- letter quiz -->
             <div id="letterQuiz" class="tabContent">
-                <button class="btn btn-danger btn-lg fs-1" type="button" id="prevRandLetter"
-                    onclick="getRandomLetter(false)">&#128078;</button>
-                <span class="display-me" id="randLetter"></span>
-                <button class="btn btn-success btn-lg fs-1" type="button" id="nextRandLetter"
-                    onclick="getRandomLetter(true)">&#x1F44D;</button>
-                <p style="user-select: none;">Thumbs Up: <span id="letterCorrectCount">0</span></p>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col">
+                            <div class="flex-column">
+                                <button class="btn btn-success btn-lg fs-1" type="button" id="nextRandLetter"
+                                    onclick="getRandomLetter(true)">&#x1F44D; <span
+                                        id="letterCorrectCount">0</span></button>
+                                <button class="btn btn-danger btn-lg fs-1" type="button" id="prevRandLetter"
+                                    onclick="getRandomLetter(false)">&#128078;</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <span class="display-me" id="randLetter"></span>
+                    </div>
+                </div>
             </div>
+
+            <!-- letter game -->
             <div id="letterGame" class="tabContent">
                 <!-- 
                 TODO: Create a letter game like bejeweled where letters are the jewels
@@ -232,9 +258,16 @@
             <!-- NUMBERS -->
             <div id="numbersOrdered" class="tabContent">
 
+                <!-- pre-k ordered numbers -->
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col">
+                        <div class="col-1">
+                            <div class="flex-column">
+                                <button type="button" class="btn btn-info btn-lg fs-2"
+                                    onclick="setOrderedNumbers()">&olarr;</button>
+                            </div>
+                        </div>
+                        <div class="col-3">
                             <div class="input-group">
                                 <span class="input-group-text bg-dark btn-outline-info text-light">Min</span>
                                 <button class="btn btn-outline-info bg-dark fs-2" type="button" id="ordered-min-sub-btn"
@@ -246,7 +279,7 @@
                                     oninput="setOrderedNumbers()" maxlength="4">
                             </div>
                         </div>
-                        <div class="col">
+                        <div class="col-3">
                             <div class="input-group">
                                 <span class="input-group-text bg-dark btn-outline-info text-light">Max</span>
                                 <button class="btn btn-outline-info bg-dark fs-2" type="button" id="ordered-max-sub-btn"
@@ -258,7 +291,7 @@
                                     oninput="setOrderedNumbers()" maxlength="4">
                             </div>
                         </div>
-                        <div class="col">
+                        <div class="col-3">
                             <div class="input-group">
                                 <span class="input-group-text bg-dark btn-outline-info text-light">Count By</span>
                                 <button class="btn btn-outline-info bg-dark fs-2" type="button" id="ordered-max-sub-btn"
@@ -269,10 +302,6 @@
                                     placeholder="count by" aria-label="Count bettwen min and max value." id="oCountBy"
                                     value="1" on oninput="setOrderedNumbers()" maxlength="4">
                             </div>
-                        </div>
-                        <div class="col">
-                            <button type="button" class="btn btn-info fs-3"
-                                onclick="setOrderedNumbers()">&olarr;</button>
                         </div>
                     </div>
                     <div class="row">
@@ -285,7 +314,13 @@
             <div id="randNumbers" class="tabContent">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col">
+                        <div class="col-1">
+                            <div class="flex-column">
+                                <button type="button" class="btn btn-info btn-lg fs-2"
+                                    onclick="setRandomNumbers()">&olarr;</button>
+                            </div>
+                        </div>
+                        <div class="col-3">
                             <div class="input-group">
                                 <span class="input-group-text bg-dark btn-outline-info text-light">Min</span>
                                 <button class="btn btn-outline-info bg-dark fs-2" type="button" id="ordered-min-sub-btn"
@@ -297,7 +332,7 @@
                                     oninput="setRandomNumbers()" maxlength="4">
                             </div>
                         </div>
-                        <div class="col">
+                        <div class="col-3">
                             <div class="input-group">
                                 <span class="input-group-text bg-dark btn-outline-info text-light">Max</span>
                                 <button class="btn btn-outline-info bg-dark fs-2" type="button" id="ordered-max-sub-btn"
@@ -309,7 +344,7 @@
                                     oninput="setRandomNumbers()" maxlength="4">
                             </div>
                         </div>
-                        <div class="col">
+                        <div class="col-3">
                             <div class="input-group">
                                 <span class="input-group-text bg-dark btn-outline-info text-light">Amount</span>
                                 <button class="btn btn-outline-info bg-dark fs-2" type="button" id="ordered-max-sub-btn"
@@ -320,10 +355,6 @@
                                     placeholder="count by" aria-label="The number of random numbers to generate."
                                     id="rAmount" value="15" oninput="setRandomNumbers()" maxlength="4">
                             </div>
-                        </div>
-                        <div class="col">
-                            <button type="button" class="btn btn-info fs-3"
-                                onclick="setRandomNumbers()">&olarr;</button>
                         </div>
                     </div>
                     <div class="row">
@@ -336,10 +367,11 @@
             <div id="numbersQuiz" class="tabContent">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-2">
+                        <div class="col-3">
                             <div class="flex-column">
                                 <button class="btn btn-success btn-lg fs-1" type="button" id="nextRandNumber"
-                                    onclick="setRandomNumber(true)">&#x1F44D;</button>
+                                    onclick="setRandomNumber(true)">&#x1F44D; <span
+                                        id="numberCorrectCount">0</span></button>
                                 <button class="btn btn-danger btn-lg fs-1" type="button" id="prevRandNumber"
                                     onclick="setRandomNumber(false)">&#128078;</button>
                             </div>
@@ -372,7 +404,6 @@
                     <div class="row">
                         <div class="col m-2">
                             <span class="display-me" id="randNumber"></span>
-                            <p style="user-select: none;">Thumbs Up: <span id="numberCorrectCount">0</span></p>
                         </div>
                     </div>
                 </div>

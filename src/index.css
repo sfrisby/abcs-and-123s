@@ -2,9 +2,10 @@
     font-family: 'Ubuntu', sans-serif;
     color: #eee;
     padding: 2rem;
-    max-width: 84rem;
     height: 100%;
     overflow: auto;
+    min-width: 800px;
+    max-width: 1600px;
 }
 
 .nav-tabs .nav-item.show .nav-link,
