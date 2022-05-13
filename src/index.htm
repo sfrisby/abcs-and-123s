@@ -205,9 +205,9 @@
                     <div class="row">
                         <div class="col">
                             <div class="input-group">
-                                <span class="input-group-text bg-dark btn-outline-dark text-light">
-                                    <button type="button" class="btn btn-info btn-lg fs-1"
+                                <button type="button" class="btn btn-info btn-lg fs-1"
                                         onclick="setRandomLetterContent()">&olarr;</button>
+                                <span class="input-group-text bg-dark btn-outline-dark text-light">
                                     <span class="input-group-text bg-dark btn-outline-dark text-light">
                                         <div class="half-rem-right">Amount</div>
                                         <div class="input-group">
@@ -218,8 +218,9 @@
                                             <input type="text"
                                                 class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
                                                 placeholder="count by"
-                                                aria-label="The number of random numbers to generate." id="randLetterAmount"
-                                                value="10" oninput="setRandomLetterContent()" maxlength="4">
+                                                aria-label="The number of random numbers to generate."
+                                                id="randLetterAmount" value="10" oninput="setRandomLetterContent()"
+                                                maxlength="4">
                                             <button class="btn btn-outline-info bg-dark fs-2" type="button"
                                                 id="ordered-max-add-btn"
                                                 onclick="increment('randLetterAmount'); setRandomLetterContent()">
@@ -228,8 +229,6 @@
                                     </span>
                                 </span>
                             </div>
-
-
                         </div>
                     </div>
                     <div class="row">
@@ -258,9 +257,30 @@
             <div id="letterPhonics" class="tabContent">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-1">
+                        <div class="input-group">
                             <button type="button" class="btn btn-info btn-lg fs-1"
-                                onclick="setLetterPhonicsStage()">&olarr;</button>
+                                    onclick="setLetterPhonicsStage()">&olarr;</button>
+                            <span class="input-group-text bg-dark btn-outline-dark text-light">
+                                <span class="input-group-text bg-dark btn-outline-dark text-light">
+                                    <div class="half-rem-right">Amount</div>
+                                    <div class="input-group">
+                                        <button class="btn btn-outline-info bg-dark fs-2" type="button"
+                                            id="ordered-max-sub-btn"
+                                            onclick="decrement('phonicLetterAmount'); setLetterPhonicsStage()">
+                                            - </button>
+                                        <input type="text"
+                                            class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
+                                            placeholder="count by"
+                                            aria-label="The number of random numbers to generate."
+                                            id="phonicLetterAmount" value="5" oninput="setLetterPhonicsStage()"
+                                            maxlength="4">
+                                        <button class="btn btn-outline-info bg-dark fs-2" type="button"
+                                            id="ordered-max-add-btn"
+                                            onclick="increment('phonicLetterAmount'); setLetterPhonicsStage()">
+                                            + </button>
+                                    </div>
+                                </span>
+                            </span>
                         </div>
                     </div>
                     <div class="row">

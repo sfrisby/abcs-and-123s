@@ -4,8 +4,6 @@ const ASCII_LOWERCASE_A = 97;
 const CAP_LETTERS = new Array(LETTERS_SUM).fill(1).map((_, i) => String.fromCharCode(ASCII_CAPITAL_A + i));
 const LOW_LETTERS = new Array(LETTERS_SUM).fill(1).map((_, i) => String.fromCharCode(ASCII_LOWERCASE_A + i));
 const LETTERS = [].concat(CAP_LETTERS, LOW_LETTERS);
-const SUM_OF_RANDOM_LETTERS = 10;
-const SUM_OF_PHONICS_LETTERS = 5;
 
 const VOWELS = [
     LETTERS[LETTERS.indexOf('A')], LETTERS[LETTERS.indexOf('a')],
@@ -45,9 +43,13 @@ function setRandomLetterContent() {
     $('#letterRandomStage').html(output);
 }
 
+function getPhonicLetterAmount() {
+    return Number($("#phonicLetterAmount").val());
+}
+
 function setLetterPhonicsStage() {
     let output = "";
-    for (var i = 0; i < SUM_OF_PHONICS_LETTERS; i++) {
+    for (var i = 0; i < getPhonicLetterAmount(); i++) {
         let c1 = getRandomIndex(CONSONANTS);
         let c2 = getRandomIndex(CONSONANTS);
         let v = getRandomIndex(VOWELS);
