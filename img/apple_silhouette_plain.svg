@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="13.914832mm"
+   height="15.94834mm"
+   viewBox="0 0 13.914832 15.94834"
+   version="1.1"
+   id="svg4450"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   sodipodi:docname="apple_silhouette_plain.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview4452"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="8.3755251"
+     inkscape:cx="32.89346"
+     inkscape:cy="30.684643"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs4447">
+    <linearGradient
+       id="linearGradient5295"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop5293" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient5163"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop5161" />
+    </linearGradient>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-125.26541,-102.95422)">
+    <path
+       style="fill-opacity:1;fill-rule:nonzero;fill:#000000;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 135.69124,118.54061 c 0,0 0.76015,-0.22805 1.33028,-0.87418 0.57011,-0.64614 1.14023,-1.97642 1.14023,-1.97642 0,0 1.33028,-2.47051 0.9502,-4.96003 -0.38008,-2.48952 -2.05243,-3.57275 -2.05243,-3.57275 0,0 -1.19725,-0.72214 -1.97641,-0.68414 -0.1909,0.009 -1.16255,-0.008 -1.78288,-0.001 -0.12623,0.001 -8e-5,-0.2842 0.28685,-0.6022 0.24938,-0.27639 0.80234,-0.49176 0.66022,-0.73579 0,0 -0.19508,-0.31954 -0.40623,-0.0992 -0.24835,0.25913 -0.83378,0.85368 -0.95705,1.40232 -0.057,0.0167 -0.52836,0.23244 -0.93455,-0.20364 -0.89622,-0.96215 -0.0113,-2.05101 -2.30895,-3.06472 -0.67882,-0.29949 -4.81028,-0.384 -4.33753,0.40728 0.34193,0.57232 0.97758,1.72644 1.89836,2.07953 1.14269,0.43819 3.39568,0.50411 4.25693,0.59426 0.3664,0.0383 -0.0429,0.20434 -0.0429,0.20434 0,0 -0.83618,0.15203 -1.10223,0.13303 -0.26606,-0.019 -1.19725,0.17104 -1.19725,0.17104 0,0 -0.89319,0.32306 -1.69136,1.04521 -0.79816,0.72215 -1.65334,2.24247 -1.55832,3.95283 0.095,1.71036 0.70314,2.92661 0.70314,2.92661 0,0 1.04522,2.35649 1.78638,2.81259 0.74115,0.45609 1.72936,1.04522 1.72936,1.04522 0,0 0.98821,0.38008 3.07864,0.36107 2.09044,-0.019 2.52753,-0.36107 2.52753,-0.36107 z"
+       id="path1363"
+       sodipodi:nodetypes="cscscssscscssssscscsscscscc" />
+  </g>
+</svg>

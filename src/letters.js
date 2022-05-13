@@ -30,9 +30,13 @@ function setOrderedLetterContent() {
     $('#letterAlphabetStage').html(output);
 }
 
+function getRandomLetterAmount() {
+    return Number($("#randLetterAmount").val());
+}
+
 function setRandomLetterContent() {
     let output = "";
-    for (var i = 0; i < SUM_OF_RANDOM_LETTERS; i++) {
+    for (var i = 0; i < getRandomLetterAmount(); i++) {
         let index = getRandomIndex(LETTERS);
         output += ("<div class='click-me rounded' id='random_" + LETTERS[index] + "_" + i);
         output += ("' onclick='setRandomLinearBackground(this)' oncontextmenu='removeStyle(this); return false;'>");

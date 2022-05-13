@@ -63,6 +63,10 @@
         0.1rem 0.1rem 0 #000;
 }
 
+.half-rem-right {
+    margin-right: 0.5rem;
+}
+
 .max-width-6rem {
     max-width: 6rem;
 }

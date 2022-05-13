@@ -156,13 +156,6 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col">
-                            <button type="button" class="btn btn-info btn-lg fs-1" data-bs-toggle="tooltip"
-                                data-bs-placement="top" title="Reset"
-                                onclick="setOrderedLetterContent()">&olarr;</button>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
                             <div id="letterAlphabetStage"></div>
                         </div>
                     </div>
@@ -210,9 +203,33 @@
             <div id="letterRandom" class="tabContent">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-1">
-                            <button type="button" class="btn btn-info btn-lg fs-1"
-                                onclick="setRandomLetterContent()">&olarr;</button>
+                        <div class="col">
+                            <div class="input-group">
+                                <span class="input-group-text bg-dark btn-outline-dark text-light">
+                                    <button type="button" class="btn btn-info btn-lg fs-1"
+                                        onclick="setRandomLetterContent()">&olarr;</button>
+                                    <span class="input-group-text bg-dark btn-outline-dark text-light">
+                                        <div class="half-rem-right">Amount</div>
+                                        <div class="input-group">
+                                            <button class="btn btn-outline-info bg-dark fs-2" type="button"
+                                                id="ordered-max-sub-btn"
+                                                onclick="decrement('randLetterAmount'); setRandomLetterContent()">
+                                                - </button>
+                                            <input type="text"
+                                                class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
+                                                placeholder="count by"
+                                                aria-label="The number of random numbers to generate." id="randLetterAmount"
+                                                value="10" oninput="setRandomLetterContent()" maxlength="4">
+                                            <button class="btn btn-outline-info bg-dark fs-2" type="button"
+                                                id="ordered-max-add-btn"
+                                                onclick="increment('randLetterAmount'); setRandomLetterContent()">
+                                                + </button>
+                                        </div>
+                                    </span>
+                                </span>
+                            </div>
+
+
                         </div>
                     </div>
                     <div class="row">
@@ -258,11 +275,13 @@
                     <div class="row">
                         <div class="col">
                             <div class="flex-column">
-                                <button class="btn btn-success btn-lg fs-1" type="button" id="nextRandLetter"
-                                    onclick="getRandomLetter(true)">&#x1F44D; <span
-                                        id="letterCorrectCount">0</span></button>
-                                <button class="btn btn-danger btn-lg fs-1" type="button" id="prevRandLetter"
-                                    onclick="getRandomLetter(false)">&#128078;</button>
+                                <div class="input-group">
+                                    <button class="btn btn-success btn-lg fs-1" type="button" id="nextRandLetter"
+                                        onclick="getRandomLetter(true)">&#x1F44D; <span
+                                            id="letterCorrectCount">0</span></button>
+                                    <button class="btn btn-danger btn-lg fs-1" type="button" id="prevRandLetter"
+                                        onclick="getRandomLetter(false)">&#128078;</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -288,53 +307,60 @@
 
             <!-- NUMBERS -->
             <div id="numbersOrdered" class="tabContent">
-
-                <!-- pre-k ordered numbers -->
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-1">
-                            <div class="flex-column">
+                        <div class="col">
+                            <div class="input-group">
                                 <button type="button" class="btn btn-info btn-lg fs-2"
                                     onclick="setOrderedNumbers()">&olarr;</button>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="input-group">
-                                <span class="input-group-text bg-dark btn-outline-info text-light">Min</span>
-                                <button class="btn btn-outline-info bg-dark fs-2" type="button" id="ordered-min-sub-btn"
-                                    onclick="minusOrderedMin()"> - </button>
-                                <button class="btn btn-outline-info bg-dark fs-2" type="button" id="ordered-min-add-btn"
-                                    onclick="addOrderedMin()"> + </button>
-                                <input type="text"
-                                    class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
-                                    placeholder="minimum" aria-label="Minimum value." id="oMin" value="0"
-                                    oninput="setOrderedNumbers()" maxlength="4">
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="input-group">
-                                <span class="input-group-text bg-dark btn-outline-info text-light">Max</span>
-                                <button class="btn btn-outline-info bg-dark fs-2" type="button" id="ordered-max-sub-btn"
-                                    onclick="minusOrderedMax()"> - </button>
-                                <button class="btn btn-outline-info bg-dark fs-2" type="button" id="ordered-max-add-btn"
-                                    onclick="addOrderedMax()"> + </button>
-                                <input type="text"
-                                    class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
-                                    placeholder="maximum" aria-label="Maximum value." id="oMax" value="20"
-                                    oninput="setOrderedNumbers()" maxlength="4">
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="input-group">
-                                <span class="input-group-text bg-dark btn-outline-info text-light">Count By</span>
-                                <button class="btn btn-outline-info bg-dark fs-2" type="button" id="ordered-max-sub-btn"
-                                    onclick="minusCountBy()"> - </button>
-                                <button class="btn btn-outline-info bg-dark fs-2" type="button" id="ordered-max-add-btn"
-                                    onclick="addCountBy()"> + </button>
-                                <input type="text"
-                                    class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
-                                    placeholder="count by" aria-label="Count between min and max value." id="oCountBy"
-                                    value="1" on oninput="setOrderedNumbers()" maxlength="4">
+
+                                <span class="input-group-text bg-dark btn-outline-dark text-light">
+                                    <div class="half-rem-right">Min</div>
+                                    <div class="input-group">
+                                        <button class="btn btn-outline-info bg-dark fs-2" type="button"
+                                            id="ordered-min-sub-btn" onclick="minusOrderedMin(); setOrderedNumbers()"> -
+                                        </button>
+                                        <input type="text"
+                                            class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
+                                            placeholder="minimum" aria-label="Minimum value." id="oMin" value="0"
+                                            oninput="setOrderedNumbers()" maxlength="4">
+                                        <button class="btn btn-outline-info bg-dark fs-2" type="button"
+                                            id="ordered-min-add-btn" onclick="addOrderedMin(); setOrderedNumbers()"> +
+                                        </button>
+                                    </div>
+                                </span>
+
+                                <span class="input-group-text bg-dark btn-outline-dark text-light">
+                                    <div class="half-rem-right">Max</div>
+                                    <div class="input-group">
+                                        <button class="btn btn-outline-info bg-dark fs-2" type="button"
+                                            id="ordered-max-sub-btn" onclick="minusOrderedMax(); setOrderedNumbers()"> -
+                                        </button>
+                                        <input type="text"
+                                            class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
+                                            placeholder="maximum" aria-label="Maximum value." id="oMax" value="20"
+                                            oninput="setOrderedNumbers()" maxlength="4">
+                                        <button class="btn btn-outline-info bg-dark fs-2" type="button"
+                                            id="ordered-max-add-btn" onclick="addOrderedMax(); setOrderedNumbers()"> +
+                                        </button>
+                                    </div>
+                                </span>
+
+                                <span class="input-group-text bg-dark btn-outline-dark text-light">
+                                    <div class="half-rem-right">Counter</div>
+                                    <div class="input-group">
+                                        <button class="btn btn-outline-info bg-dark fs-2" type="button"
+                                            id="ordered-max-sub-btn" onclick="minusCountBy(); setOrderedNumbers()"> -
+                                        </button>
+                                        <input type="text"
+                                            class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
+                                            placeholder="count by" aria-label="Count between min and max value."
+                                            id="oCountBy" value="1" on oninput="setOrderedNumbers()" maxlength="4">
+                                        <button class="btn btn-outline-info bg-dark fs-2" type="button"
+                                            id="ordered-max-add-btn" onclick="addCountBy(); setOrderedNumbers()"> +
+                                        </button>
+                                    </div>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -352,33 +378,55 @@
                             <div class="input-group">
                                 <button type="button" class="btn btn-info btn-lg fs-2"
                                     onclick="setRandomNumbers()">&olarr;</button>
-                                <span class="input-group-text bg-dark btn-outline-info text-light">Min</span>
-                                <button class="btn btn-outline-info bg-dark fs-2" type="button" id="ordered-min-sub-btn"
-                                    onclick="minusRandMin()"> - </button>
-                                <button class="btn btn-outline-info bg-dark fs-2" type="button" id="ordered-min-add-btn"
-                                    onclick="addRandMin()"> + </button>
-                                <input type="text"
-                                    class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
-                                    placeholder="minimum" aria-label="Minimum value." id="rMin" value="0"
-                                    oninput="setRandomNumbers()" maxlength="4">
-                                <span class="input-group-text bg-dark btn-outline-info text-light">Max</span>
-                                <button class="btn btn-outline-info bg-dark fs-2" type="button" id="ordered-max-sub-btn"
-                                    onclick="minusRandMax()"> - </button>
-                                <button class="btn btn-outline-info bg-dark fs-2" type="button" id="ordered-max-add-btn"
-                                    onclick="addRandMax()"> + </button>
-                                <input type="text"
-                                    class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
-                                    placeholder="maximum" aria-label="Maximum value." id="rMax" value="20"
-                                    oninput="setRandomNumbers()" maxlength="4">
-                                <span class="input-group-text bg-dark btn-outline-info text-light">Amount</span>
-                                <button class="btn btn-outline-info bg-dark fs-2" type="button" id="ordered-max-sub-btn"
-                                    onclick="decrement('rAmount')"> - </button>
-                                <button class="btn btn-outline-info bg-dark fs-2" type="button" id="ordered-max-add-btn"
-                                    onclick="increment('rAmount')"> + </button>
-                                <input type="text"
-                                    class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
-                                    placeholder="count by" aria-label="The number of random numbers to generate."
-                                    id="rAmount" value="5" oninput="setRandomNumbers()" maxlength="4">
+
+                                <span class="input-group-text bg-dark btn-outline-dark text-light">
+                                    <div class="half-rem-right">Min</div>
+                                    <div class="input-group">
+                                        <button class="btn btn-outline-info bg-dark fs-2" type="button"
+                                            id="ordered-min-sub-btn" onclick="minusRandMin(); setRandomNumbers()"> -
+                                        </button>
+                                        <input type="text"
+                                            class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
+                                            placeholder="minimum" aria-label="Minimum value." id="rMin" value="0"
+                                            oninput="setRandomNumbers()" maxlength="4">
+                                        <button class="btn btn-outline-info bg-dark fs-2" type="button"
+                                            id="ordered-min-add-btn" onclick="addRandMin(); setRandomNumbers()"> +
+                                        </button>
+                                    </div>
+                                </span>
+
+                                <span class="input-group-text bg-dark btn-outline-dark text-light">
+                                    <div class="half-rem-right">Max</div>
+                                    <div class="input-group">
+                                        <button class="btn btn-outline-info bg-dark fs-2" type="button"
+                                            id="ordered-max-sub-btn" onclick="minusRandMax(); setRandomNumbers()"> -
+                                        </button>
+                                        <input type="text"
+                                            class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
+                                            placeholder="maximum" aria-label="Maximum value." id="rMax" value="20"
+                                            oninput="setRandomNumbers()" maxlength="4">
+                                        <button class="btn btn-outline-info bg-dark fs-2" type="button"
+                                            id="ordered-max-add-btn" onclick="addRandMax(); setRandomNumbers()"> +
+                                        </button>
+                                    </div>
+                                </span>
+
+                                <span class="input-group-text bg-dark btn-outline-dark text-light">
+                                    <div class="half-rem-right">Amount</div>
+                                    <div class="input-group">
+                                        <button class="btn btn-outline-info bg-dark fs-2" type="button"
+                                            id="ordered-max-sub-btn" onclick="decrement('rAmount'); setRandomNumbers()">
+                                            - </button>
+                                        <input type="text"
+                                            class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
+                                            placeholder="count by"
+                                            aria-label="The number of random numbers to generate." id="rAmount"
+                                            value="5" oninput="setRandomNumbers()" maxlength="4">
+                                        <button class="btn btn-outline-info bg-dark fs-2" type="button"
+                                            id="ordered-max-add-btn" onclick="increment('rAmount'); setRandomNumbers()">
+                                            + </button>
+                                    </div>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -400,7 +448,7 @@
                                 <button class="btn btn-danger btn-lg fs-1" type="button" id="prevRandNumber"
                                     onclick="setRandomNumber(false)">&#128078;</button>
                                 <span class="input-group-text bg-dark btn-outline-dark text-light">
-                                    <div style="margin-right: 0.5rem;">Min</div>
+                                    <div class="half-rem-right">Min</div>
                                     <div class="input-group input-group-lg flex-fill">
                                         <button class="btn btn-outline-info bg-dark fs-2" type="button"
                                             onclick="minusQuizMin()"> - </button>
@@ -414,7 +462,7 @@
                                     </div>
                                 </span>
                                 <span class="input-group-text bg-dark btn-outline-dark text-light">
-                                    <div style="margin-right: 0.5rem;">Max</div>
+                                    <div class="half-rem-right">Max</div>
                                     <div class="input-group input-group-lg flex-fill">
                                         <button class="btn btn-outline-info bg-dark fs-2" type="button"
                                             onclick="minusQuizMax()"> - </button>
