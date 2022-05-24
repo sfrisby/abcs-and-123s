@@ -35,12 +35,28 @@
     background-color: #222;
     display: inline-block;
     user-select: none;
-}
-
-.click-me:hover {
+} .click-me:hover {
     background-color: royalblue;
     outline: rgba(175, 243, 15, 0.7) dashed 0.25rem;
 }
+
+.click-me-container {
+    padding: 0 0 2rem 0;
+    margin: 0.25rem 0.5rem;
+    display: inline-block;
+    background-color: #282828;
+} .click-me-container:hover {
+    background-color: royalblue;
+    outline: rgba(175, 243, 15, 0.7) dashed 0.25rem;
+} .click-me-container .click-me {
+    background-color: #383838;
+    padding: 0 0.5rem;
+    margin: 0;
+} .click-me-container .click-me:hover {
+    color: #222;
+    background-color: lightskyblue;
+    outline: none;
+} 
 
 .display-me {
     line-height: 37rem;
