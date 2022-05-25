@@ -57,7 +57,7 @@ function setLetterPhonicsStage() {
         let vowel1 = VOWELS[v].toLowerCase();
         let con2 = CONSONANTS[c2].toLowerCase();
         let w = con1 + vowel1 + con2;
-        output += ("<div class='click-me-container rounded' id='random_" + w +  "_" + i + "' onclick='setRandomLinearBackground(this)' oncontextmenu='removeStyle(this); return false;'>");
+        output += ("<div class='click-me-container rounded' id='random_" + w +  "_" + i + "' onclick='setRandomLinearBackgroundAndChildren(this)' oncontextmenu='removeStyle(this); return false;'>");
         output += ("<div class='click-me' id='random_" + w + con1 +  "_" + i + "' onclick='setRandomLinearBackground(this); event.cancelBubble=true;' oncontextmenu='removeStyle(this); return false;'>" + con1 + "</div>")
         output += ("<div class='click-me' id='random_" + w + vowel1 +  "_" + i + "' onclick='setRandomLinearBackground(this); event.cancelBubble=true;' oncontextmenu='removeStyle(this); return false;'>" + vowel1 + "</div>")
         output += ("<div class='click-me' id='random_" + w + con2 +  "_" + i + "' onclick='setRandomLinearBackground(this); event.cancelBubble=true;' oncontextmenu='removeStyle(this); return false;'>" + con2 + "</div>")

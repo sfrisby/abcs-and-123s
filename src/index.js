@@ -104,6 +104,12 @@ function getRandomLinearGradient() {
     return ("linear-gradient(" + getRandomNumber(0, 360) + "deg, " + color1 + ", " + color2 + ")");
 }
 
+function getVerticalGradient() {
+    let color1 = getRandomHexBackgroundColor();
+    let color2 = getRandomHexBackgroundColor();
+    return ("linear-gradient(" + 0 + "deg, " + color1 + ", " + color2 + ")");
+}
+
 function setRandomLinearBackground(ele) {
     let b = getRandomLinearGradient()
     $(ele).css({ background: b });
@@ -114,6 +120,28 @@ function setRandomLinearBackground(ele) {
         $(ele).css({ color: "#ddd" });
     } else {
         $(ele).css({ color: "#222" });
+    }
+}
+
+function setRandomLinearBackgroundAndChildren(ele) {
+    var c = ele.childNodes
+    let b = getVerticalGradient()
+    let colors = b.split(' ');
+    let color1 = colors[1].slice(0, -1)
+    let color2 = colors[2].slice(0, -1)
+    if (isDark(color1) && isDark(color2)) {
+        $(ele).css({ color: "#ddd" });
+    } else {
+        $(ele).css({ color: "#222" });
+    }
+    $(ele).css({ background: b });
+    for (var i = 0; i < c.length; i++) {
+        $("#"+c[i].id).css({ background: b });
+        if (isDark(color1) && isDark(color2)) {
+            $("#"+c[i].id).css({ color: "#ddd" });
+        } else {
+            $("#"+c[i].id).css({ color: "#222" });
+        }
     }
 }
 
