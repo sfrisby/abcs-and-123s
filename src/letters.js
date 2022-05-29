@@ -57,10 +57,10 @@ function setLetterPhonicsStage() {
         let vowel1 = VOWELS[v].toLowerCase();
         let con2 = CONSONANTS[c2].toLowerCase();
         let w = con1 + vowel1 + con2;
-        output += ("<div class='click-me-container rounded' id='random_" + w +  "_" + i + "' onclick='setRandomLinearBackgroundAndChildren(this)' oncontextmenu='removeStyle(this); return false;'>");
-        output += ("<div class='click-me' id='random_" + w + con1 +  "_" + i + "' onclick='setRandomLinearBackground(this); event.cancelBubble=true;' oncontextmenu='removeStyle(this); return false;'>" + con1 + "</div>")
-        output += ("<div class='click-me' id='random_" + w + vowel1 +  "_" + i + "' onclick='setRandomLinearBackground(this); event.cancelBubble=true;' oncontextmenu='removeStyle(this); return false;'>" + vowel1 + "</div>")
-        output += ("<div class='click-me' id='random_" + w + con2 +  "_" + i + "' onclick='setRandomLinearBackground(this); event.cancelBubble=true;' oncontextmenu='removeStyle(this); return false;'>" + con2 + "</div>")
+        output += ("<div class='click-me-container rounded' id='random_" + w + "_" + i + "' onclick='setRandomLinearBackgroundAndChildren(this)' oncontextmenu='removeStyle(this); return false;'>");
+        output += ("<div class='click-me' id='random_" + w + con1 + "_" + i + "' onclick='setRandomLinearBackground(this); event.cancelBubble=true;' oncontextmenu='removeStyle(this); return false;'>" + con1 + "</div>")
+        output += ("<div class='click-me' id='random_" + w + vowel1 + "_" + i + "' onclick='setRandomLinearBackground(this); event.cancelBubble=true;' oncontextmenu='removeStyle(this); return false;'>" + vowel1 + "</div>")
+        output += ("<div class='click-me' id='random_" + w + con2 + "_" + i + "' onclick='setRandomLinearBackground(this); event.cancelBubble=true;' oncontextmenu='removeStyle(this); return false;'>" + con2 + "</div>")
         output += ("</div>");
     }
     $('#letterPhonicsStage').html(output);
@@ -379,4 +379,33 @@ function getGroupIds(group, selected) {
 
 function getNeighborWithoutParent(pRow, pCol) {
 
+}
+
+const minPhonicLetters = 3;
+function removePhonicsLetter() {
+    var s = $("#phonic-letter-checkboxes").children("span").length;
+    if (s > minPhonicLetters) {
+        $("#phonic-letter-checkboxes").children("span")[s - 1].remove();
+    }
+}
+
+function addPhonicsLetter() {
+    var s = $("#phonic-letter-checkboxes").children().children().children().children().length;
+    var vowelIndex = s - 2;
+    var i = $("#phonic-letter-checkboxes").children().children().children().children()[vowelIndex].id;
+    var current = i.split("-")[1];
+    var next = String(Number(current) + 1); // obtaining number of vowel, i.e. # of [vowel, #]
+
+    var phonicName = "phonic-letter-" + next;
+    var consonantId = "consonant-" + next;
+    var vowelId = "vowel-" + next;
+
+    var newLetter = "<span class='input-group-text bg-dark btn-outline-dark text-light'>" +
+        "<div class='p-3 border bg-dark'><div class='form-check'>" +
+        "<input class='form-check-input' type='radio' name='" + phonicName + "' id='" + consonantId + "' title='Consonant' checked>" +
+        "<label class='form-check-label' for='" + consonantId + "'>C</label></div><div class='form-check'>" +
+        "<input class='form-check-input' type='radio' name='" + phonicName + "' id='" + vowelId + "' title='Vowel'>" +
+        "<label class='form-check-label' for='" + vowelId + "'>V</label></div></div></span>";
+
+    $("#add-phonics-letter-btn").before(newLetter);
 }

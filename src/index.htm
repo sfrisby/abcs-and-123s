@@ -206,7 +206,7 @@
                         <div class="col">
                             <div class="input-group">
                                 <button type="button" class="btn btn-info btn-lg fs-1"
-                                        onclick="setRandomLetterContent()">&olarr;</button>
+                                    onclick="setRandomLetterContent()">&olarr;</button>
                                 <span class="input-group-text bg-dark btn-outline-dark text-light">
                                     <span class="input-group-text bg-dark btn-outline-dark text-light">
                                         <div class="half-rem-right">Amount</div>
@@ -257,10 +257,10 @@
             <div id="letterPhonics" class="tabContent">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="input-group">
-                            <button type="button" class="btn btn-info btn-lg fs-1"
+                        <div class="col">
+                            <div class="input-group">
+                                <button type="button" class="btn btn-info btn-lg fs-1"
                                     onclick="setLetterPhonicsStage()">&olarr;</button>
-                            <span class="input-group-text bg-dark btn-outline-dark text-light">
                                 <span class="input-group-text bg-dark btn-outline-dark text-light">
                                     <div class="half-rem-right">Amount</div>
                                     <div class="input-group">
@@ -280,7 +280,70 @@
                                             + </button>
                                     </div>
                                 </span>
-                            </span>
+                                <span class="input-group-text bg-dark btn-outline-dark text-light" id="phonic-letter-checkboxes">
+                                    <div class="half-rem-right">Pattern</div>
+                                    <button class="btn btn-outline-info bg-dark fs-2" type="button"
+                                        id="remove-phonics-letter-btn" onclick="removePhonicsLetter()" title="Remove last letter (minimum of 3).">
+                                        - </button>
+                                    <span class="input-group-text bg-dark btn-outline-dark text-light">
+                                        <div class="p-3 border bg-dark">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="phonic-letter-1"
+                                                    id="consonant-1" title="Consonant" checked>
+                                                <label class="form-check-label" for="consonant-1">
+                                                    C
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="phonic-letter-1"
+                                                    id="vowel-1" title="Vowel">
+                                                <label class="form-check-label" for="vowel-1">
+                                                    V
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </span>
+                                    <span class="input-group-text bg-dark btn-outline-dark text-light">
+                                        <div class="p-3 border bg-dark">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="phonic-letter-2"
+                                                    id="consonant-2" title="Consonant">
+                                                <label class="form-check-label" for="consonant-2">
+                                                    C
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="phonic-letter-2"
+                                                    id="vowel-2" title="Vowel" checked>
+                                                <label class="form-check-label" for="vowel-2">
+                                                    V
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </span>
+                                    <span class="input-group-text bg-dark btn-outline-dark text-light">
+                                        <div class="p-3 border bg-dark">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="phonic-letter-3"
+                                                    id="consonant-3" title="Consonant" checked>
+                                                <label class="form-check-label" for="consonant-3">
+                                                    C
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="phonic-letter-3"
+                                                    id="vowel-3" title="Vowel">
+                                                <label class="form-check-label" for="vowel-3">
+                                                    V
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </span>
+                                    <button class="btn btn-outline-info bg-dark fs-2" type="button"
+                                        id="add-phonics-letter-btn" onclick="addPhonicsLetter()">
+                                        + </button>
+                                </span>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
