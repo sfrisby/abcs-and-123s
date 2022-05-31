@@ -43,27 +43,8 @@ function setRandomLetterContent() {
     $('#letterRandomStage').html(output);
 }
 
-function getPhonicLetterAmount() {
-    return Number($("#phonicLetterAmount").val());
-}
-
-function setLetterPhonicsStage() {
-    let output = "";
-    for (var i = 0; i < getPhonicLetterAmount(); i++) {
-        let c1 = getRandomIndex(CONSONANTS);
-        let c2 = getRandomIndex(CONSONANTS);
-        let v = getRandomIndex(VOWELS);
-        let con1 = CONSONANTS[c1].toUpperCase();
-        let vowel1 = VOWELS[v].toLowerCase();
-        let con2 = CONSONANTS[c2].toLowerCase();
-        let w = con1 + vowel1 + con2;
-        output += ("<div class='click-me-container rounded' id='random_" + w + "_" + i + "' onclick='setRandomLinearBackgroundAndChildren(this)' oncontextmenu='removeStyle(this); return false;'>");
-        output += ("<div class='click-me' id='random_" + w + con1 + "_" + i + "' onclick='setRandomLinearBackground(this); event.cancelBubble=true;' oncontextmenu='removeStyle(this); return false;'>" + con1 + "</div>")
-        output += ("<div class='click-me' id='random_" + w + vowel1 + "_" + i + "' onclick='setRandomLinearBackground(this); event.cancelBubble=true;' oncontextmenu='removeStyle(this); return false;'>" + vowel1 + "</div>")
-        output += ("<div class='click-me' id='random_" + w + con2 + "_" + i + "' onclick='setRandomLinearBackground(this); event.cancelBubble=true;' oncontextmenu='removeStyle(this); return false;'>" + con2 + "</div>")
-        output += ("</div>");
-    }
-    $('#letterPhonicsStage').html(output);
+function getPhonicWordAmount() {
+    return Number($("#phonicWordAmount").val());
 }
 
 function getRandomLetter(correct) {
@@ -402,10 +383,56 @@ function addPhonicsLetter() {
 
     var newLetter = "<span class='input-group-text bg-dark btn-outline-dark text-light'>" +
         "<div class='p-3 border bg-dark'><div class='form-check'>" +
-        "<input class='form-check-input' type='radio' name='" + phonicName + "' id='" + consonantId + "' title='Consonant' checked>" +
+        "<input class='form-check-input' type='radio' name='" + phonicName + "' id='" + consonantId +
+        "' title='Consonant' checked onchange='setLetterPhonicsStage()'>" +
         "<label class='form-check-label' for='" + consonantId + "'>C</label></div><div class='form-check'>" +
-        "<input class='form-check-input' type='radio' name='" + phonicName + "' id='" + vowelId + "' title='Vowel'>" +
+        "<input class='form-check-input' type='radio' name='" + phonicName + "' id='" + vowelId +
+        "' title='Vowel' onchange='setLetterPhonicsStage()'>" +
         "<label class='form-check-label' for='" + vowelId + "'>V</label></div></div></span>";
 
     $("#add-phonics-letter-btn").before(newLetter);
+}
+
+function getRandomConsonant() {
+    return CONSONANTS[getRandomIndex(CONSONANTS)];
+}
+
+function getRandomVowel() {
+    return VOWELS[getRandomIndex(VOWELS)];
+}
+
+function setLetterPhonicsStage() {
+    let output = "";
+    for (var i = 0; i < getPhonicWordAmount(); i++) {
+        let w = getPhonicWord()
+        output += ("<div class='click-me-container rounded' id='rand_word_" + w + "_" + i + "' onclick='setRandomLinearBackgroundAndChildren(this)' oncontextmenu='removeStyle(this); return false;'>");
+        output += getPhonicWordHtml(w);
+        output += ("</div>");
+    }
+    $('#letterPhonicsStage').html(output);
+}
+
+function getPhonicWordHtml(word) {
+    let output = "";
+    for (var l = 0; l < word.length; l++) {
+        output += ("<div class='click-me' id='rand_letter_" + word + "_" + word[l] + "_" + l + "' onclick='setRandomLinearBackground(this); event.cancelBubble=true;' oncontextmenu='removeStyle(this); return false;'>" + word[l] + "</div>")
+    }
+    return output;
+}
+
+function getPhonicWord() {
+    let firstLetter = true;
+    let letters = $("[id^=consonant-]")
+    let output = "";
+    for (var l = 0; l < letters.length; l++) {
+        let c = "";
+        if (letters[l].checked) { // consonant
+            c = firstLetter ? getRandomConsonant().toUpperCase() : getRandomConsonant().toLowerCase();
+        } else { // vowel
+            c = firstLetter ? getRandomVowel().toUpperCase() : getRandomVowel().toLowerCase();
+        }
+        output += c;
+        if (firstLetter) firstLetter = !firstLetter;
+    }
+    return output;
 }
