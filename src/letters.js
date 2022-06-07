@@ -381,7 +381,7 @@ function addPhonicsLetter() {
     var consonantId = "consonant-" + next;
     var vowelId = "vowel-" + next;
 
-    var newLetter = "<span class='input-group-text bg-dark btn-outline-dark text-light'>" +
+    var newLetter = "<span class='input-group-text bg-dark btn-outline-dark text-light p-0'>" +
         "<div class='p-3 border bg-dark'><div class='form-check'>" +
         "<input class='form-check-input' type='radio' name='" + phonicName + "' id='" + consonantId +
         "' title='Consonant' checked onchange='setLetterPhonicsStage()'>" +
