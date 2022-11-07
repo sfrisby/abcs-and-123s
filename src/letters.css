@@ -15,3 +15,14 @@
     outline: rgba(175, 243, 15, 0.7) dashed 0.25rem;
     color: rgba(50, 32, 218, 0.753);
 }
+
+.phonic-letter-container {
+    padding: 2rem 0 0 0;
+    margin: 0;
+    display: inline-block;
+    background-color: #383838;
+} .phonic-letter-container:hover {
+    background-color: rgb(175, 175, 175);
+} .phonic-letter-container .click-me {
+    min-width: 10rem;
+}

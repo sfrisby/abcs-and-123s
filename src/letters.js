@@ -415,7 +415,10 @@ function setLetterPhonicsStage() {
 function getPhonicWordHtml(word) {
     let output = "";
     for (var l = 0; l < word.length; l++) {
-        output += ("<div class='click-me' id='rand_letter_" + word + "_" + word[l] + "_" + l + "' onclick='setRandomLinearBackground(this); event.cancelBubble=true;' oncontextmenu='removeStyle(this); return false;'>" + word[l] + "</div>")
+        let tmpId = ("rand_letter_" + word + "_" + word[l] + "_" + l)
+        output += ("<div class='phonic-letter-container text-light' onclick='changePhonicLetter(\"" + tmpId + "\"); event.cancelBubble=true; removeStyle(\"" + tmpId + "\"); return false;'>" +
+            "<div class='click-me' id='" + tmpId + "' onclick='setRandomLinearBackground(this); event.cancelBubble=true;' oncontextmenu='removeStyle(this); return false;'>" + word[l] + "</div>" +
+            "</div>");
     }
     return output;
 }
@@ -435,4 +438,39 @@ function getPhonicWord() {
         if (firstLetter) firstLetter = !firstLetter;
     }
     return output;
+}
+
+function isVowel(l) {
+    return l.length === 1 && l.match(/[a-z]/i) && VOWELS.includes(l);
+}
+
+function changePhonicLetter(letter) {
+    let l = $("#" + letter).text();
+    let isUpperCase = (l === l.toUpperCase());
+    let tmp = isVowel(l) ? getRandomVowel() : getRandomConsonant();
+    tmp = (isUpperCase) ? tmp.toUpperCase() : tmp.toLowerCase();
+    $("#" + letter).text(tmp);
+}
+
+function setRandomLinearBackgroundAndChildren(ele) {
+    var c = ele.childNodes
+    let b = getVerticalGradient()
+    let colors = b.split(' ');
+    let color1 = colors[1].slice(0, -1)
+    let color2 = colors[2].slice(0, -1)
+    if (isDark(color1) && isDark(color2)) {
+        $(ele).css({ color: "#ddd" });
+    } else {
+        $(ele).css({ color: "#222" });
+    }
+    $(ele).css({ background: b });
+    for (var i = 0; i < c.length; i++) {
+        let tmpId = c[i].childNodes[0].id
+        $("#"+tmpId).css({ background: b });
+        if (isDark(color1) && isDark(color2)) {
+            $("#"+tmpId).css({ color: "#ddd" });
+        } else {
+            $("#"+tmpId).css({ color: "#222" });
+        }
+    }
 }

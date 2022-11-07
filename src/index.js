@@ -43,7 +43,11 @@ $(document).ready(function () {
 });
 
 function removeStyle(element) {
-    $("#" + element.id).removeAttr("style");
+    if (element.id != null) {
+        $("#" + element.id).removeAttr("style");
+    } else {
+        $("#" + element).removeAttr("style");
+    }
 }
 
 function clearNavbarSelection() {
@@ -120,28 +124,6 @@ function setRandomLinearBackground(ele) {
         $(ele).css({ color: "#ddd" });
     } else {
         $(ele).css({ color: "#222" });
-    }
-}
-
-function setRandomLinearBackgroundAndChildren(ele) {
-    var c = ele.childNodes
-    let b = getVerticalGradient()
-    let colors = b.split(' ');
-    let color1 = colors[1].slice(0, -1)
-    let color2 = colors[2].slice(0, -1)
-    if (isDark(color1) && isDark(color2)) {
-        $(ele).css({ color: "#ddd" });
-    } else {
-        $(ele).css({ color: "#222" });
-    }
-    $(ele).css({ background: b });
-    for (var i = 0; i < c.length; i++) {
-        $("#"+c[i].id).css({ background: b });
-        if (isDark(color1) && isDark(color2)) {
-            $("#"+c[i].id).css({ color: "#ddd" });
-        } else {
-            $("#"+c[i].id).css({ color: "#222" });
-        }
     }
 }
 
