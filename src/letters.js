@@ -5,6 +5,8 @@ const CAP_LETTERS = new Array(LETTERS_SUM).fill(1).map((_, i) => String.fromChar
 const LOW_LETTERS = new Array(LETTERS_SUM).fill(1).map((_, i) => String.fromCharCode(ASCII_LOWERCASE_A + i));
 const LETTERS = [].concat(CAP_LETTERS, LOW_LETTERS);
 
+const MIN_NUM_OF_PHONIC_LETTER = 1;
+
 const VOWELS = [
     LETTERS[LETTERS.indexOf('A')], LETTERS[LETTERS.indexOf('a')],
     LETTERS[LETTERS.indexOf('E')], LETTERS[LETTERS.indexOf('e')],
@@ -12,7 +14,15 @@ const VOWELS = [
     LETTERS[LETTERS.indexOf('O')], LETTERS[LETTERS.indexOf('o')],
     LETTERS[LETTERS.indexOf('U')], LETTERS[LETTERS.indexOf('u')]];
 
+// TODO add phonics with double/mixed vowels
+// https://iconpng.pages.dev/double-letter-sounds-in-english/
+const DOUBLE_VOWEL = ['ai', 'ar', 'ay', 'au', 'ea', 'ee', 'oa', 'oi', 'oo', 'ou'];
+const MIXED_VOWEL = ['aw', 'ay', 'ar', 'er', 'igh', 'ir', 'or', 'ow', 'ure', 'ur'];
+
 const CONSONANTS = LETTERS.filter(function (item) { return VOWELS.indexOf(item) === -1; });
+const DOUBLE_CONSONANT = ['ch', 'ck', 'ph', 'sh', 'th', 'wh'];
+
+const ALL_DOUBLES = DOUBLE_VOWEL.concat(MIXED_VOWEL).concat(DOUBLE_CONSONANT);
 
 const LETTER_COLORS = new Array(26).fill(1).map((_, i) => getRandRGB());
 
@@ -137,9 +147,8 @@ function getLastCapLetter() {
 }
 
 /**
- * <p>
- * TODO: add in more letters after testing is complete.
- */
+ * Just an idea for now...
+ * /
 function setGameBoard() {
     let output = "";
     let rows = 5;//26;
@@ -156,14 +165,13 @@ function setGameBoard() {
     }
     $('#letterGameBoard').html(output);
 }
-
 /**
  * Get the color for the provided letter from the letter color index.
  * <p>
  * A is index 0 and B is 1, etc. The colors are generated randomly.
  * @param {*} l letter
  * @returns 
- */
+ * /
 function getColorForLetter(l) {
     l = l.toLowerCase();
     let color = 'rgba(225, 225, 225, 0.25)';
@@ -289,9 +297,7 @@ function process(ele) {
  *              _ _ _ _ A a _
  *              _ _ _ a _ _ _
  *              _ _ _ _ _ _ _ 
- */
-
-
+ * /
 /**
  * 
  * <p>
@@ -307,7 +313,7 @@ function process(ele) {
  * @param {*} group set of elements already added.
  * @param {*} selected element; containing the row, col, and letter.
  * @returns IDs of all the elements with the same letter touching each other.
- */
+ * /
 function getGroupIds(group, selected) {
     let tmpSet = new Set();
 
@@ -361,16 +367,16 @@ function getGroupIds(group, selected) {
 function getNeighborWithoutParent(pRow, pCol) {
 
 }
+*/
 
-const minPhonicLetters = 3;
-function removePhonicsLetter() {
+function removeRandomPhonicsLetter() {
     var s = $("#phonic-letter-checkboxes").children("span").length;
-    if (s > minPhonicLetters) {
+    if (s > MIN_NUM_OF_PHONIC_LETTER) {
         $("#phonic-letter-checkboxes").children("span")[s - 1].remove();
     }
 }
 
-function addPhonicsLetter() {
+function addRandomPhonicsLetter() {
     var s = $("#phonic-letter-checkboxes").children().children().children().children().length;
     var vowelIndex = s - 2;
     var i = $("#phonic-letter-checkboxes").children().children().children().children()[vowelIndex].id;
@@ -384,10 +390,10 @@ function addPhonicsLetter() {
     var newLetter = "<span class='input-group-text bg-dark btn-outline-dark text-light p-0'>" +
         "<div class='p-3 border bg-dark'><div class='form-check'>" +
         "<input class='form-check-input' type='radio' name='" + phonicName + "' id='" + consonantId +
-        "' title='Consonant' checked onchange='setLetterPhonicsStage()'>" +
+        "' title='Consonant' checked onchange='setRandomLetterPhonicsStage()'>" +
         "<label class='form-check-label' for='" + consonantId + "'>C</label></div><div class='form-check'>" +
         "<input class='form-check-input' type='radio' name='" + phonicName + "' id='" + vowelId +
-        "' title='Vowel' onchange='setLetterPhonicsStage()'>" +
+        "' title='Vowel' onchange='setRandomLetterPhonicsStage()'>" +
         "<label class='form-check-label' for='" + vowelId + "'>V</label></div></div></span>";
 
     $("#add-phonics-letter-btn").before(newLetter);
@@ -401,26 +407,51 @@ function getRandomVowel() {
     return VOWELS[getRandomIndex(VOWELS)];
 }
 
-function setLetterPhonicsStage() {
-    let output = "";
-    for (var i = 0; i < getPhonicWordAmount(); i++) {
-        let w = getPhonicWord()
-        output += ("<div class='click-me-container rounded' id='rand_word_" + w + "_" + i + "' onclick='setRandomLinearBackgroundAndChildren(this)' oncontextmenu='removeStyle(this); return false;'>");
-        output += getPhonicWordHtml(w);
-        output += ("</div>");
-    }
-    $('#letterPhonicsStage').html(output);
+function letterPhonicStageIsEmpty() {
+    return ($('#letterPhonicsStage').text().length === 0);
 }
 
-function getPhonicWordHtml(word) {
-    let output = "";
-    for (var l = 0; l < word.length; l++) {
-        let tmpId = ("rand_letter_" + word + "_" + word[l] + "_" + l)
-        output += ("<div class='phonic-letter-container text-light' onclick='changePhonicLetter(\"" + tmpId + "\"); event.cancelBubble=true; removeStyle(\"" + tmpId + "\"); return false;'>" +
-            "<div class='click-me' id='" + tmpId + "' onclick='setRandomLinearBackground(this); event.cancelBubble=true;' oncontextmenu='removeStyle(this); return false;'>" + word[l] + "</div>" +
-            "</div>");
+function getLetterPhonicDiv() {
+    let output = $('<div class="click-me-container rounded" onclick="setRandomLinearBackgroundAndChildren(this)" oncontextmenu="removeStyle(this); return false;"></div>');
+
+    let u = Math.imul(Math.floor(window.performance.now()), getRandomNumber(256, 512));
+    let word = getPhonicWord()
+    output.attr('id', ("rand_word_" + word + "_" + u));
+
+    for (var i = 0; i < word.length; i++) {
+        let changer = $('<div class="phonic-letter-container text-light" onclick="changePhonicLetter(this.firstChild); event.cancelBubble=true; removeStyle(this); return false;"></div>');
+        let letter = $('<div class="click-me" onclick="setRandomLinearBackground(this); event.cancelBubble=true;" oncontextmenu="removeStyle(this); return false;"></div>');
+        letter.text(word[i])
+        letter.appendTo(changer);
+        changer.appendTo(output);
     }
+
     return output;
+}
+
+function removeLastRandomLetterPhonic() {
+    if ($('#letterPhonicsStage').children().length > MIN_NUM_OF_PHONIC_LETTER) {
+        $('#letterPhonicsStage').children().last().remove();
+        decrement('phonicWordAmount');
+    }
+}
+
+function addRandomLetterPhonic() {
+    let f = "foo"
+    getLetterPhonicDiv().appendTo('#letterPhonicsStage');
+    let b = "bar"
+    increment('phonicWordAmount');
+    return "foobar";
+}
+
+function setRandomLetterPhonicsStage() {
+    let amount = getPhonicWordAmount();
+    for (var i = amount; i > 0; i--) {
+        $('#letterPhonicsStage').children().remove();
+    }
+    for (var i = 0; i < amount; i++) {
+        getLetterPhonicDiv().appendTo($('#letterPhonicsStage'));
+    }
 }
 
 function getPhonicWord() {
@@ -444,33 +475,45 @@ function isVowel(l) {
     return l.length === 1 && l.match(/[a-z]/i) && VOWELS.includes(l);
 }
 
-function changePhonicLetter(letter) {
-    let l = $("#" + letter).text();
+function changePhonicLetter(obj) {
+    let l = obj.textContent;
     let isUpperCase = (l === l.toUpperCase());
     let tmp = isVowel(l) ? getRandomVowel() : getRandomConsonant();
     tmp = (isUpperCase) ? tmp.toUpperCase() : tmp.toLowerCase();
-    $("#" + letter).text(tmp);
+    obj.firstChild.textContent = tmp;
 }
 
 function setRandomLinearBackgroundAndChildren(ele) {
-    var c = ele.childNodes
-    let b = getVerticalGradient()
+    let letters = $("#" + ele.id).children("div").children("div");
+    let b = getVerticalGradient();
     let colors = b.split(' ');
     let color1 = colors[1].slice(0, -1)
     let color2 = colors[2].slice(0, -1)
-    if (isDark(color1) && isDark(color2)) {
-        $(ele).css({ color: "#ddd" });
-    } else {
-        $(ele).css({ color: "#222" });
-    }
-    $(ele).css({ background: b });
-    for (var i = 0; i < c.length; i++) {
-        let tmpId = c[i].childNodes[0].id
-        $("#"+tmpId).css({ background: b });
-        if (isDark(color1) && isDark(color2)) {
-            $("#"+tmpId).css({ color: "#ddd" });
+    let dark = isDark(color1) && isDark(color2);
+    for (var i = 0; i < letters.length; i++) {
+        let tmp = $(letters[i]);
+        tmp.css({ background: b });
+        if (dark) {
+            tmp.css({ color: "#ddd" });
         } else {
-            $("#"+tmpId).css({ color: "#222" });
+            tmp.css({ color: "#222" });
         }
     }
+}
+
+function getRandomDoublePhonic() {
+    return ALL_DOUBLES[getRandomIndex(ALL_DOUBLES)];
+}
+
+function setDoublePhonicLetterStage() {
+    let amount = 5;
+    let output = "";
+    // for (var i = 0; i < getPhonicWordAmount(); i++) {
+    for (var i = 0; i < amount; i++) {
+        let w = getRandomDoublePhonic()
+        output += ("<div class='click-me rounded' id='double_phonic_" + w + "_" + i + "' onclick='setRandomLinearBackground(this)' oncontextmenu='removeStyle(this); return false;'>");
+        output += w;
+        output += ("</div>");
+    }
+    $('#doublePhonicLetterStage').html(output);
 }
