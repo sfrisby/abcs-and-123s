@@ -61,7 +61,7 @@
         <div class="divider"></div>
 
         <div class="flex-shrink-0 p-3 align-self-start" style="width: 16rem;">
-            <a href="#" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom-dark">
+            <a href="#" class="d-flex pb-3 mb-3 link-dark text-decoration-none border-bottom-dark">
                 <svg class="bi me-2" width="30" height="24">
                     <use xlink:href="#defs4447"></use>
                 </svg>
@@ -69,16 +69,44 @@
             </a>
             <ul class="list-unstyled ps-0">
                 <li class="mb-1">
-                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#pre-k-collapse" aria-expanded="true" style="font-weight: bolder;">
-                        Pre-K
+                    <button class="btn btn-toggle rounded" data-bs-toggle="collapse" data-bs-target="#k-collapse"
+                        aria-expanded="true" style="font-weight: bolder;">
+                        Kindergarten
                     </button>
-                    <div class="collapse show" id="pre-k-collapse">
+                    <div class="collapse show" id="k-collapse">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                             <li>
-                                <button class="btn btn-toggle align-items-center rounded collapsed ms-2"
-                                    data-bs-toggle="collapse" data-bs-target="#pre-k-letters-collapse"
-                                    aria-expanded="false" id="navbarPreKLetterBtn">
+                                <button class="btn btn-toggle rounded collapsed ms-2" data-bs-toggle="collapse"
+                                    data-bs-target="#k-reading-collapse" aria-expanded="false" id="navbarPreKLetterBtn">
+                                    Reading
+                                </button>
+                                <div class="collapse" id="k-reading-collapse">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" li
+                                        id="k-reading-links">
+                                        <li><a href="#" class="link-dark rounded"
+                                                onclick="openPage('randomLetterPhonics', this)"
+                                                id="randomLetterPhonicsBtn">Random Letter Phonics</a></li>
+                                        <li><a href="#" class="link-dark rounded"
+                                                onclick="openPage('doubleLetterPhonics', this)"
+                                                id="doubleLetterPhonicsBtn">Double Letter Phonics
+                                            </a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="mb-1">
+                    <button class="btn btn-toggle rounded collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#pre-k-collapse" aria-expanded="false" style="font-weight: bolder;">
+                        Pre-K
+                    </button>
+                    <div class="collapse" id="pre-k-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li>
+                                <button class="btn btn-toggle rounded collapsed ms-2" data-bs-toggle="collapse"
+                                    data-bs-target="#pre-k-letters-collapse" aria-expanded="false"
+                                    id="navbarPreKLetterBtn">
                                     Letters
                                 </button>
                                 <div class="collapse" id="pre-k-letters-collapse">
@@ -96,20 +124,15 @@
                                         <li><a href="#" class="link-dark rounded"
                                                 onclick="openPage('letterMatch', this)" id="letterMatchBtn">Match</a>
                                         </li>
-                                        <li><a href="#" class="link-dark rounded"
-                                                onclick="openPage('letterPhonics', this)"
-                                                id="letterPhonicsBtn">Phonics</a></li>
-                                        <li><a href="#" class="link-dark rounded" onclick="openPage('letterGame', this)"
-                                                id="letterGameBtn">Game</a></li>
                                         <li><a href="#" class="link-dark rounded" onclick="openPage('letterQuiz', this)"
                                                 id="letterQuizBtn">Quiz</a></li>
                                     </ul>
                                 </div>
                             </li>
                             <li>
-                                <button class="btn btn-toggle align-items-center rounded collapsed ms-2"
-                                    data-bs-toggle="collapse" data-bs-target="#pre-k-numbers-collapse"
-                                    aria-expanded="false" id="navbarPreKNumberBtn">
+                                <button class="btn btn-toggle rounded collapsed ms-2" data-bs-toggle="collapse"
+                                    data-bs-target="#pre-k-numbers-collapse" aria-expanded="false"
+                                    id="navbarPreKNumberBtn">
                                     Numbers
                                 </button>
                                 <div class="collapse" id="pre-k-numbers-collapse">
@@ -132,14 +155,13 @@
         </li>
         <li class="border-top-dark my-3"></li>
         <li class="mb-1">
-            <button class="btn align-items-center rounded" onclick="openPage('About',   this)" id="navbarAboutBtn">
+            <button class="btn rounded" onclick="openPage('About',   this)" id="navbarAboutBtn">
                 About
             </button>
         </li>
         <li class="border-top-dark my-3"></li>
         <li class="mb-1">
-            <button type="button" class="btn btn-info align-items-center rounded"
-                onclick="setRandomLinearBackground('body')">
+            <button type="button" class="btn btn-info rounded" onclick="setRandomLinearBackground('body')">
                 &olarr; Background
             </button>
         </li>
@@ -150,7 +172,124 @@
 
         <div class="flex-shrink-0">
 
-            <!-- LETTERS -->
+            <!-- K Letters -->
+            <div id="randomLetterPhonics" class="tabContent">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-group">
+                                <button type="button" class="btn btn-info btn-lg fs-1"
+                                    onclick="setLetterPhonicsStage()">&olarr;</button>
+                                <span class="input-group-text bg-dark btn-outline-dark text-light">
+                                    <div class="half-rem-right">Amount</div>
+                                    <div class="input-group">
+                                        <button class="btn btn-outline-info bg-dark fs-2" type="button"
+                                            id="ordered-max-sub-btn"
+                                            onclick="decrement('phonicWordAmount'); setLetterPhonicsStage()">
+                                            - </button>
+                                        <input type="text"
+                                            class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
+                                            placeholder="count by"
+                                            aria-label="The number of random numbers to generate." id="phonicWordAmount"
+                                            value="1" oninput="setLetterPhonicsStage()" maxlength="4">
+                                        <button class="btn btn-outline-info bg-dark fs-2" type="button"
+                                            id="ordered-max-add-btn"
+                                            onclick="increment('phonicWordAmount'); setLetterPhonicsStage()">
+                                            + </button>
+                                    </div>
+                                </span>
+                                <span class="input-group-text bg-dark btn-outline-dark text-light"
+                                    id="phonic-letter-checkboxes">
+                                    <div class="half-rem-right">Pattern</div>
+                                    <button class="btn btn-outline-info bg-dark fs-2" type="button"
+                                        id="remove-phonics-letter-btn"
+                                        onclick="removePhonicsLetter(); setLetterPhonicsStage()"
+                                        title="Remove last letter (minimum of 3).">
+                                        - </button>
+                                    <span class="input-group-text bg-dark btn-outline-dark text-light p-0">
+                                        <div class="p-3 border bg-dark">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="phonic-letter-1"
+                                                    id="consonant-1" title="Consonant" checked
+                                                    onchange="setLetterPhonicsStage()">
+                                                <label class="form-check-label" for="consonant-1">
+                                                    C
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="phonic-letter-1"
+                                                    id="vowel-1" title="Vowel" onchange="setLetterPhonicsStage()">
+                                                <label class="form-check-label" for="vowel-1">
+                                                    V
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </span>
+                                    <span class="input-group-text bg-dark btn-outline-dark text-light p-0">
+                                        <div class="p-3 border bg-dark">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="phonic-letter-2"
+                                                    id="consonant-2" title="Consonant"
+                                                    onchange="setLetterPhonicsStage()">
+                                                <label class="form-check-label" for="consonant-2">
+                                                    C
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="phonic-letter-2"
+                                                    id="vowel-2" title="Vowel" checked
+                                                    onchange="setLetterPhonicsStage()">
+                                                <label class="form-check-label" for="vowel-2">
+                                                    V
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </span>
+                                    <span class="input-group-text bg-dark btn-outline-dark text-light p-0">
+                                        <div class="p-3 border bg-dark">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="phonic-letter-3"
+                                                    id="consonant-3" title="Consonant" checked
+                                                    onchange="setLetterPhonicsStage()">
+                                                <label class="form-check-label" for="consonant-3">
+                                                    C
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="phonic-letter-3"
+                                                    id="vowel-3" title="Vowel" onchange="setLetterPhonicsStage()">
+                                                <label class="form-check-label" for="vowel-3">
+                                                    V
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </span>
+                                    <button class="btn btn-outline-info bg-dark fs-2" type="button"
+                                        id="add-phonics-letter-btn" title="Add new consonant (default) or vowel."
+                                        onclick="addPhonicsLetter(); setLetterPhonicsStage()">
+                                        + </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div id="letterPhonicsStage"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="doubleLetterPhonics" class="tabContent">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col">
+                            <div id="doublePhonicLetterStage"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pre-k Letters -->
             <div id="letterAlphabet" class="tabContent">
                 <div class="container-fluid">
                     <div class="row">
@@ -247,107 +386,8 @@
                     <div class="row">
                         <div class="col">
                             <div id="matchLetterStage">
-                                TODO
+                                <p>Match upper to lower case letters or vice-versa.</p>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="letterPhonics" class="tabContent">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col">
-                            <div class="input-group">
-                                <button type="button" class="btn btn-info btn-lg fs-1"
-                                    onclick="setLetterPhonicsStage()">&olarr;</button>
-                                <span class="input-group-text bg-dark btn-outline-dark text-light">
-                                    <div class="half-rem-right">Amount</div>
-                                    <div class="input-group">
-                                        <button class="btn btn-outline-info bg-dark fs-2" type="button"
-                                            id="ordered-max-sub-btn"
-                                            onclick="decrement('phonicWordAmount'); setLetterPhonicsStage()">
-                                            - </button>
-                                        <input type="text"
-                                            class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
-                                            placeholder="count by"
-                                            aria-label="The number of random numbers to generate."
-                                            id="phonicWordAmount" value="5" oninput="setLetterPhonicsStage()"
-                                            maxlength="4">
-                                        <button class="btn btn-outline-info bg-dark fs-2" type="button"
-                                            id="ordered-max-add-btn"
-                                            onclick="increment('phonicWordAmount'); setLetterPhonicsStage()">
-                                            + </button>
-                                    </div>
-                                </span>
-                                <span class="input-group-text bg-dark btn-outline-dark text-light" id="phonic-letter-checkboxes">
-                                    <div class="half-rem-right">Pattern</div>
-                                    <button class="btn btn-outline-info bg-dark fs-2" type="button"
-                                        id="remove-phonics-letter-btn" onclick="removePhonicsLetter(); setLetterPhonicsStage()" title="Remove last letter (minimum of 3).">
-                                        - </button>
-                                    <span class="input-group-text bg-dark btn-outline-dark text-light p-0">
-                                        <div class="p-3 border bg-dark">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="phonic-letter-1"
-                                                    id="consonant-1" title="Consonant" checked onchange="setLetterPhonicsStage()">
-                                                <label class="form-check-label" for="consonant-1">
-                                                    C
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="phonic-letter-1"
-                                                    id="vowel-1" title="Vowel" onchange="setLetterPhonicsStage()">
-                                                <label class="form-check-label" for="vowel-1">
-                                                    V
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </span>
-                                    <span class="input-group-text bg-dark btn-outline-dark text-light p-0">
-                                        <div class="p-3 border bg-dark">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="phonic-letter-2"
-                                                    id="consonant-2" title="Consonant" onchange="setLetterPhonicsStage()">
-                                                <label class="form-check-label" for="consonant-2">
-                                                    C
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="phonic-letter-2"
-                                                    id="vowel-2" title="Vowel" checked onchange="setLetterPhonicsStage()">
-                                                <label class="form-check-label" for="vowel-2">
-                                                    V
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </span>
-                                    <span class="input-group-text bg-dark btn-outline-dark text-light p-0">
-                                        <div class="p-3 border bg-dark">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="phonic-letter-3"
-                                                    id="consonant-3" title="Consonant" checked onchange="setLetterPhonicsStage()">
-                                                <label class="form-check-label" for="consonant-3">
-                                                    C
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="phonic-letter-3"
-                                                    id="vowel-3" title="Vowel" onchange="setLetterPhonicsStage()">
-                                                <label class="form-check-label" for="vowel-3">
-                                                    V
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </span>
-                                    <button class="btn btn-outline-info bg-dark fs-2" type="button"
-                                        id="add-phonics-letter-btn" title ="Add new consonant (default) or vowel." onclick="addPhonicsLetter(); setLetterPhonicsStage()">
-                                        + </button>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div id="letterPhonicsStage"></div>
                         </div>
                     </div>
                 </div>
@@ -372,22 +412,9 @@
                     </div>
                 </div>
             </div>
-            <div id="letterGame" class="tabContent">
-                <!-- 
-                TODO: Create a letter game like bejeweled where letters are the jewels
-                * 26 rows?
-                * 13 characters (cols) per row
-                Start out at selecting A then B etc. More points rewarded for the number
-                of alphabet characters touching each other - also combo with different
-                cases but just get half the points.
-                Game over after getting 3 characters wrong or the next letter needed
-                doesn't exist?
-                -->
-                <div id="letterGameBoard"></div>
-            </div>
-            <!-- END OF Letters -->
+            <!-- END OF Pre-K Letters -->
 
-            <!-- NUMBERS -->
+            <!-- Pre-K Numbers -->
             <div id="numbersOrdered" class="tabContent">
                 <div class="container-fluid">
                     <div class="row">
@@ -567,24 +594,24 @@
                     </div>
                 </div>
             </div>
-            <!-- END OF NUMBERS -->
+            <!-- END OF Pre-K Numbers -->
 
-            <div id="About" class="tabContent">
+            <div id="About" class="tabContent text-wrap" style="width: 65%;">
                 <h3>About</h3>
-                <p>ABCs and 123s is a place for me to help my children learn their letters and numbers while providing
-                    me with an excuse to sharpen my skills. It was made and is intended for simple interaction and
-                    discussion
-                    together.
-                </p>
-                <p>Created by Spencer Frisby with credit to <a href="https://www.w3schools.com/"
-                        target="_blank">W3Schools</a>, <a href="https://jquery.com/" target="_blank">jQuery</a>, <a
+                <h4>
+                    ABCs and 123s is a place for me to help my children learn their letters and numbers while providing
+                    me with an excuse to sharpen my skills. It is intended for simple interaction and discussion.
+                </h4>
+                <h5>Created by Spencer Frisby with credit to <a class="fw-bold text-reset"
+                        href="https://www.w3schools.com/" target="_blank">W3Schools</a>, <a class="fw-bold text-reset"
+                        href="https://jquery.com/" target="_blank">jQuery</a>, <a class="fw-bold text-reset"
                         href="https://getbootstrap.com/" target="_blank">Bootstrap</a>, and <a
-                        href="https://fonts.google.com/" target="_blank">Google Fonts</a>.
-                </p>
-                <p>Visit me at <a href="https://github.com/sfrisby" target="_blank">Github</a> or <a
+                        class="fw-bold text-reset" href="https://fonts.google.com/" target="_blank">Google Fonts</a>.
+                </h5>
+                <h6>Visit me at <a class="fw-bolder text-reset" href="https://github.com/sfrisby"
+                        target="_blank">Github</a> or <a class="fw-bolder text-reset"
                         href="https://www.linkedin.com/in/spencer-f-8246b527" target="_blank">LinkedIn</a>.
-                </p>
-                <button onclick="setRandomLinearBackground($('#About'))">&#10051; Change Background &#10051;</button>
+                </h6>
             </div> <!-- About -->
 
         </div>

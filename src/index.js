@@ -19,7 +19,7 @@ $(document).ready(function () {
     document.getElementById("navbarPreKLetterBtn").click();
     // document.getElementById("letterQuizBtn").click();
     // document.getElementById("letterAlphabetBtn").click();
-    document.getElementById("letterPhonicsBtn").click();
+    document.getElementById("randomLetterPhonicsBtn").click();
     
 
     setOrderedNumbers();
@@ -29,6 +29,7 @@ $(document).ready(function () {
     setOrderedLetterContent();
     setRandomLetterContent();
     setLetterPhonicsStage();
+    setDoublePhonicLetterStage();
 
     // Setup ordered and random letter cards.
     // Set the game board.
@@ -39,7 +40,7 @@ $(document).ready(function () {
     $("#firstLowOrdLetter").prop('disabled', true);
     $("#prevLowOrdLetter").prop('disabled', true);
     getRandomLetter();
-    setGameBoard();
+    //setGameBoard();
 });
 
 function removeStyle(element) {
@@ -53,12 +54,16 @@ function removeStyle(element) {
 function clearNavbarSelection() {
     let links = [];
     links.push($.makeArray($("#navbarAboutBtn"))[0]);
+    $.makeArray($("#k-reading-links").children("li").children("a")).forEach(e => {
+        links.push(e);
+    });
     $.makeArray($("#pre-k-letter-links").children("li").children("a")).forEach(e => {
         links.push(e);
     });
     $.makeArray($("#pre-k-number-links").children("li").children("a")).forEach(e => {
         links.push(e);
     });
+
     for (let i = 0; i < links.length; i++) {
         links[i].style.backgroundColor = "";
         links[i].style.fontWeight = "";
