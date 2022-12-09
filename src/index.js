@@ -28,7 +28,7 @@ $(document).ready(function () {
 
     setOrderedLetterContent();
     setRandomLetterContent();
-    setLetterPhonicsStage();
+    setRandomLetterPhonicsStage();
     setDoublePhonicLetterStage();
 
     // Setup ordered and random letter cards.
@@ -43,11 +43,11 @@ $(document).ready(function () {
     //setGameBoard();
 });
 
-function removeStyle(element) {
-    if (element.id != null) {
-        $("#" + element.id).removeAttr("style");
-    } else {
-        $("#" + element).removeAttr("style");
+function removeStyle(obj) {
+    try {
+        $(obj).removeAttr("style");
+    } catch(err) {
+        throw ("Failed to remove style for: " + obj.textContent + ". ID was: " +obj.id);
     }
 }
 

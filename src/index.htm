@@ -179,22 +179,20 @@
                         <div class="col">
                             <div class="input-group">
                                 <button type="button" class="btn btn-info btn-lg fs-1"
-                                    onclick="setLetterPhonicsStage()">&olarr;</button>
+                                    onclick="setRandomLetterPhonicsStage()">&olarr;</button>
                                 <span class="input-group-text bg-dark btn-outline-dark text-light">
                                     <div class="half-rem-right">Amount</div>
                                     <div class="input-group">
                                         <button class="btn btn-outline-info bg-dark fs-2" type="button"
-                                            id="ordered-max-sub-btn"
-                                            onclick="decrement('phonicWordAmount'); setLetterPhonicsStage()">
+                                            id="ordered-max-sub-btn" onclick="removeLastRandomLetterPhonic();">
                                             - </button>
                                         <input type="text"
                                             class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
                                             placeholder="count by"
                                             aria-label="The number of random numbers to generate." id="phonicWordAmount"
-                                            value="1" oninput="setLetterPhonicsStage()" maxlength="4">
+                                            value="1" oninput="setRandomLetterPhonicsStage()" maxlength="2">
                                         <button class="btn btn-outline-info bg-dark fs-2" type="button"
-                                            id="ordered-max-add-btn"
-                                            onclick="increment('phonicWordAmount'); setLetterPhonicsStage()">
+                                            id="ordered-max-add-btn" onclick="addRandomLetterPhonic()">
                                             + </button>
                                     </div>
                                 </span>
@@ -203,22 +201,22 @@
                                     <div class="half-rem-right">Pattern</div>
                                     <button class="btn btn-outline-info bg-dark fs-2" type="button"
                                         id="remove-phonics-letter-btn"
-                                        onclick="removePhonicsLetter(); setLetterPhonicsStage()"
-                                        title="Remove last letter (minimum of 3).">
+                                        onclick="removeRandomPhonicsLetter(); setRandomLetterPhonicsStage()"
+                                        title="Remove last letter (minimum of 1).">
                                         - </button>
                                     <span class="input-group-text bg-dark btn-outline-dark text-light p-0">
                                         <div class="p-3 border bg-dark">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="phonic-letter-1"
                                                     id="consonant-1" title="Consonant" checked
-                                                    onchange="setLetterPhonicsStage()">
+                                                    onchange="setRandomLetterPhonicsStage()">
                                                 <label class="form-check-label" for="consonant-1">
                                                     C
                                                 </label>
                                             </div>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="phonic-letter-1"
-                                                    id="vowel-1" title="Vowel" onchange="setLetterPhonicsStage()">
+                                                    id="vowel-1" title="Vowel" onchange="setRandomLetterPhonicsStage()">
                                                 <label class="form-check-label" for="vowel-1">
                                                     V
                                                 </label>
@@ -230,7 +228,7 @@
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="phonic-letter-2"
                                                     id="consonant-2" title="Consonant"
-                                                    onchange="setLetterPhonicsStage()">
+                                                    onchange="setRandomLetterPhonicsStage()">
                                                 <label class="form-check-label" for="consonant-2">
                                                     C
                                                 </label>
@@ -238,7 +236,7 @@
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="phonic-letter-2"
                                                     id="vowel-2" title="Vowel" checked
-                                                    onchange="setLetterPhonicsStage()">
+                                                    onchange="setRandomLetterPhonicsStage()">
                                                 <label class="form-check-label" for="vowel-2">
                                                     V
                                                 </label>
@@ -250,14 +248,14 @@
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="phonic-letter-3"
                                                     id="consonant-3" title="Consonant" checked
-                                                    onchange="setLetterPhonicsStage()">
+                                                    onchange="setRandomLetterPhonicsStage()">
                                                 <label class="form-check-label" for="consonant-3">
                                                     C
                                                 </label>
                                             </div>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="phonic-letter-3"
-                                                    id="vowel-3" title="Vowel" onchange="setLetterPhonicsStage()">
+                                                    id="vowel-3" title="Vowel" onchange="setRandomLetterPhonicsStage()">
                                                 <label class="form-check-label" for="vowel-3">
                                                     V
                                                 </label>
@@ -266,7 +264,7 @@
                                     </span>
                                     <button class="btn btn-outline-info bg-dark fs-2" type="button"
                                         id="add-phonics-letter-btn" title="Add new consonant (default) or vowel."
-                                        onclick="addPhonicsLetter(); setLetterPhonicsStage()">
+                                        onclick="addRandomPhonicsLetter(); setRandomLetterPhonicsStage()">
                                         + </button>
                                 </span>
                             </div>
@@ -281,6 +279,14 @@
             </div>
             <div id="doubleLetterPhonics" class="tabContent">
                 <div class="container-fluid">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-group">
+                                <button type="button" class="btn btn-info btn-lg fs-1"
+                                    onclick="setDoublePhonicLetterStage()">&olarr;</button>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col">
                             <div id="doublePhonicLetterStage"></div>
@@ -350,7 +356,6 @@
                                         <div class="half-rem-right">Amount</div>
                                         <div class="input-group">
                                             <button class="btn btn-outline-info bg-dark fs-2" type="button"
-                                                id="ordered-max-sub-btn"
                                                 onclick="decrement('randLetterAmount'); setRandomLetterContent()">
                                                 - </button>
                                             <input type="text"
@@ -360,7 +365,6 @@
                                                 id="randLetterAmount" value="10" oninput="setRandomLetterContent()"
                                                 maxlength="4">
                                             <button class="btn btn-outline-info bg-dark fs-2" type="button"
-                                                id="ordered-max-add-btn"
                                                 onclick="increment('randLetterAmount'); setRandomLetterContent()">
                                                 + </button>
                                         </div>
@@ -443,14 +447,14 @@
                                     <div class="half-rem-right">Max</div>
                                     <div class="input-group">
                                         <button class="btn btn-outline-info bg-dark fs-2" type="button"
-                                            id="ordered-max-sub-btn" onclick="minusOrderedMax(); setOrderedNumbers()"> -
+                                            onclick="minusOrderedMax(); setOrderedNumbers()"> -
                                         </button>
                                         <input type="text"
                                             class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
                                             placeholder="maximum" aria-label="Maximum value." id="oMax" value="20"
                                             oninput="setOrderedNumbers()" maxlength="4">
                                         <button class="btn btn-outline-info bg-dark fs-2" type="button"
-                                            id="ordered-max-add-btn" onclick="addOrderedMax(); setOrderedNumbers()"> +
+                                            onclick="addOrderedMax(); setOrderedNumbers()"> +
                                         </button>
                                     </div>
                                 </span>
@@ -459,14 +463,14 @@
                                     <div class="half-rem-right">Counter</div>
                                     <div class="input-group">
                                         <button class="btn btn-outline-info bg-dark fs-2" type="button"
-                                            id="ordered-max-sub-btn" onclick="minusCountBy(); setOrderedNumbers()"> -
+                                            onclick="minusCountBy(); setOrderedNumbers()"> -
                                         </button>
                                         <input type="text"
                                             class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
                                             placeholder="count by" aria-label="Count between min and max value."
                                             id="oCountBy" value="1" on oninput="setOrderedNumbers()" maxlength="4">
                                         <button class="btn btn-outline-info bg-dark fs-2" type="button"
-                                            id="ordered-max-add-btn" onclick="addCountBy(); setOrderedNumbers()"> +
+                                            onclick="addCountBy(); setOrderedNumbers()"> +
                                         </button>
                                     </div>
                                 </span>
@@ -492,14 +496,14 @@
                                     <div class="half-rem-right">Min</div>
                                     <div class="input-group">
                                         <button class="btn btn-outline-info bg-dark fs-2" type="button"
-                                            id="ordered-min-sub-btn" onclick="minusRandMin(); setRandomNumbers()"> -
+                                            onclick="minusRandMin(); setRandomNumbers()"> -
                                         </button>
                                         <input type="text"
                                             class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
                                             placeholder="minimum" aria-label="Minimum value." id="rMin" value="0"
                                             oninput="setRandomNumbers()" maxlength="4">
                                         <button class="btn btn-outline-info bg-dark fs-2" type="button"
-                                            id="ordered-min-add-btn" onclick="addRandMin(); setRandomNumbers()"> +
+                                            onclick="addRandMin(); setRandomNumbers()"> +
                                         </button>
                                     </div>
                                 </span>
@@ -508,14 +512,14 @@
                                     <div class="half-rem-right">Max</div>
                                     <div class="input-group">
                                         <button class="btn btn-outline-info bg-dark fs-2" type="button"
-                                            id="ordered-max-sub-btn" onclick="minusRandMax(); setRandomNumbers()"> -
+                                            onclick="minusRandMax(); setRandomNumbers()"> -
                                         </button>
                                         <input type="text"
                                             class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
                                             placeholder="maximum" aria-label="Maximum value." id="rMax" value="20"
                                             oninput="setRandomNumbers()" maxlength="4">
                                         <button class="btn btn-outline-info bg-dark fs-2" type="button"
-                                            id="ordered-max-add-btn" onclick="addRandMax(); setRandomNumbers()"> +
+                                            onclick="addRandMax(); setRandomNumbers()"> +
                                         </button>
                                     </div>
                                 </span>
@@ -524,7 +528,7 @@
                                     <div class="half-rem-right">Amount</div>
                                     <div class="input-group">
                                         <button class="btn btn-outline-info bg-dark fs-2" type="button"
-                                            id="ordered-max-sub-btn" onclick="decrement('rAmount'); setRandomNumbers()">
+                                            onclick="decrement('rAmount'); setRandomNumbers()">
                                             - </button>
                                         <input type="text"
                                             class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
@@ -532,7 +536,7 @@
                                             aria-label="The number of random numbers to generate." id="rAmount"
                                             value="5" oninput="setRandomNumbers()" maxlength="4">
                                         <button class="btn btn-outline-info bg-dark fs-2" type="button"
-                                            id="ordered-max-add-btn" onclick="increment('rAmount'); setRandomNumbers()">
+                                            onclick="increment('rAmount'); setRandomNumbers()">
                                             + </button>
                                     </div>
                                 </span>
