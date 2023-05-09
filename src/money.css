@@ -1,0 +1,12 @@
+.click-coin {
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    background-color: none;
+    display: inline-block;
+    user-select: none;
+} .click-coin:hover {
+    background-color: royalblue;
+    outline: rgba(175, 243, 15, 0.7) dashed 0.25rem;
+}

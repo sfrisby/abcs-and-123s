@@ -19,11 +19,13 @@ $(document).ready(function () {
     // document.getElementById("numberQuizBtn").click();
     // document.getElementById("numberRandBtn").click();
 
-    document.getElementById("navbarPreKLetterBtn").click();
+    // document.getElementById("navbarPreKLetterBtn").click();
     // document.getElementById("letterQuizBtn").click();
     // document.getElementById("letterAlphabetBtn").click();
-    document.getElementById("randomLetterPhonicsBtn").click();
+    // document.getElementById("randomLetterPhonicsBtn").click();
 
+    document.getElementById("navbarKinderMoneyBtn").click();
+    document.getElementById("kinderRandomCoinsBtn").click();
 
     setOrderedNumbers();
     setRandomNumber(false);
@@ -34,6 +36,7 @@ $(document).ready(function () {
     setRandomLetterPhonicsStage();
     setDoublePhonicLetterStage();
 
+    setKinderOrderedCoinsStage();
     setKinderRandomCoinsStage();
 
     // Setup ordered and random letter cards.
@@ -47,6 +50,12 @@ $(document).ready(function () {
     getRandomLetter();
     //setGameBoard();
 });
+
+function getRand32Uint() {
+    var array = new Uint32Array(1);
+    window.crypto.getRandomValues(array);
+    return array;
+}
 
 function removeStyle(obj) {
     try {

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="sidebars.css">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="letters.css">
+    <link rel="stylesheet" href="money.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
@@ -326,7 +327,7 @@
                         <div class="col">
                             <div class="input-group">
                                 <button type="button" class="btn btn-info btn-lg fs-1"
-                                    onclick="">&olarr;</button>
+                                    onclick="setKinderOrderedCoinsStage();">&olarr;</button>
                             </div>
                         </div>
                     </div>
@@ -345,6 +346,30 @@
                             <div class="input-group">
                                 <button type="button" class="btn btn-info btn-lg fs-1"
                                     onclick="setKinderRandomCoinsStage()">&olarr;</button>
+                                <span class="input-group-text bg-dark btn-outline-dark text-light">
+                                    <span class="input-group-text bg-dark btn-outline-dark text-light">
+                                        <div class="half-rem-right">Amount</div>
+                                        <div class="input-group">
+                                            <button class="btn btn-outline-info bg-dark fs-2" type="button"
+                                                onclick="removeKinderRandomCoin()">
+                                                - </button>
+                                            <input type="text"
+                                                class="form-control btn-outline-info bg-dark text-light fs-3 max-width-6rem"
+                                                placeholder="count by"
+                                                aria-label="The number of random numbers to generate."
+                                                id="kinderRandomCoinAmount" value="5"
+                                                oninput="setKinderRandomCoinsStage()" maxlength="4">
+                                            <button class="btn btn-outline-info bg-dark fs-2" type="button"
+                                                onclick="addKinderRandomCoin()">
+                                                + </button>
+                                        </div>
+                                    </span>
+                                </span>
+                                <button id="kinderRandomCoinCheck1" type="button" class="btn btn-secondary btn-lg fs-1" onclick="kinderRandomCoinCheck(this);"></button>
+                                <button id="kinderRandomCoinCheck2" type="button" class="btn btn-secondary btn-lg fs-1" onclick="kinderRandomCoinCheck(this);"></button>
+                                <button id="kinderRandomCoinCheck3" type="button" class="btn btn-secondary btn-lg fs-1" onclick="kinderRandomCoinCheck(this);"></button>
+                                <button id="kinderRandomCoinCheck4" type="button" class="btn btn-secondary btn-lg fs-1" onclick="kinderRandomCoinCheck(this);"></button>
+                                <button id="kinderRandomCoinCheck5" type="button" class="btn btn-secondary btn-lg fs-1" onclick="kinderRandomCoinCheck(this);"></button>
                             </div>
                         </div>
                     </div>

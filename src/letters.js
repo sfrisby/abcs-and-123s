@@ -413,10 +413,8 @@ function letterPhonicStageIsEmpty() {
 
 function getLetterPhonicDiv() {
     let output = $('<div class="click-me-container rounded" onclick="setRandomLinearBackgroundAndChildren(this)" oncontextmenu="removeStyle(this); return false;"></div>');
-
-    let u = Math.imul(Math.floor(window.performance.now()), getRandomNumber(256, 512));
     let word = getPhonicWord()
-    output.attr('id', ("rand_word_" + word + "_" + u));
+    output.attr('id', ("rand_word_" + word + "_" + getRand32Uint()));
 
     for (var i = 0; i < word.length; i++) {
         let changer = $('<div class="phonic-letter-container text-light" onclick="changePhonicLetter(this.firstChild); event.cancelBubble=true; removeStyle(this); return false;"></div>');
@@ -425,7 +423,6 @@ function getLetterPhonicDiv() {
         letter.appendTo(changer);
         changer.appendTo(output);
     }
-
     return output;
 }
 
@@ -437,11 +434,8 @@ function removeLastRandomLetterPhonic() {
 }
 
 function addRandomLetterPhonic() {
-    let f = "foo"
     getLetterPhonicDiv().appendTo('#letterPhonicsStage');
-    let b = "bar"
     increment('phonicWordAmount');
-    return "foobar";
 }
 
 function setRandomLetterPhonicsStage() {
