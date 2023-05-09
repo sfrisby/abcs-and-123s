@@ -171,21 +171,24 @@ let colorRound = function (s, e, u) {
     return (Math.round(colorReferenceStep(s.g, e.g, u)));
 }
 
+
+let isAnimatedRandomLinearBackgroundRunning = false;
 function setAnimatedRandomLinearBackground(ele) {
+    if (isAnimatedRandomLinearBackgroundRunning) return; // Simply ignore transition if already animating.
     let lastColors = lastBodyBackground.split(' ');
     let lastColorsFirst = lastColors[1].slice(1, -1); // Producing hex '######'.
-    let lastColorFistRGB = { r: lastColorsFirst.slice(0,2), g: lastColorsFirst.slice(2,4), b: lastColorsFirst.slice(4,6) }; // Splitting hex to RGB components.
+    let lastColorFistRGB = { r: lastColorsFirst.slice(0, 2), g: lastColorsFirst.slice(2, 4), b: lastColorsFirst.slice(4, 6) }; // Splitting hex to RGB components.
     let lastColorsSecond = lastColors[2].slice(1, -1);
-    let lastColorSecondRGB = { r: lastColorsSecond.slice(0,2), g: lastColorsSecond.slice(2,4), b: lastColorsSecond.slice(4,6) }; // Splitting hex to RGB components.
-    let lastColorDeg = lastColors[0].split('(')[1].slice(0,-4); // Call to slice removes 'deg,'.
-    
+    let lastColorSecondRGB = { r: lastColorsSecond.slice(0, 2), g: lastColorsSecond.slice(2, 4), b: lastColorsSecond.slice(4, 6) }; // Splitting hex to RGB components.
+    let lastColorDeg = lastColors[0].split('(')[1].slice(0, -4); // Call to slice removes 'deg,'.
+
     let newColor = getRandomLinearGradient();
     let newColors = newColor.split(' ');
     let newColorsFirst = newColors[1].slice(1, -1);
-    let newColorsFirstRGB = { r: newColorsFirst.slice(0,2), g: newColorsFirst.slice(2,4), b: newColorsFirst.slice(4,6) };
+    let newColorsFirstRGB = { r: newColorsFirst.slice(0, 2), g: newColorsFirst.slice(2, 4), b: newColorsFirst.slice(4, 6) };
     let newColorsSecond = newColors[2].slice(1, -1);
-    let newColorsSecondRGB = { r: newColorsSecond.slice(0,2), g: newColorsSecond.slice(2,4), b: newColorsSecond.slice(4,6) };
-    let newColorsDeg = newColors[0].split('(')[1].slice(0,-4);
+    let newColorsSecondRGB = { r: newColorsSecond.slice(0, 2), g: newColorsSecond.slice(2, 4), b: newColorsSecond.slice(4, 6) };
+    let newColorsDeg = newColors[0].split('(')[1].slice(0, -4);
 
     lastBodyBackground = newColor;
     var interval = 10;
@@ -196,9 +199,11 @@ function setAnimatedRandomLinearBackground(ele) {
     let id = null;
     clearInterval(id);
     id = setInterval(frame, 10);
+    isAnimatedRandomLinearBackgroundRunning = true;
     function frame() {
         if (u >= 1.0) {
             clearInterval(id);
+            isAnimatedRandomLinearBackgroundRunning = false;
         } else {
             let deg = Math.round(colorReferenceStep(lastColorDeg, newColorsDeg, u));
             let rFirst = colorReferenceStepHex(lastColorFistRGB.r, newColorsFirstRGB.r, u);
@@ -209,12 +214,12 @@ function setAnimatedRandomLinearBackground(ele) {
             let bSecond = colorReferenceStepHex(lastColorSecondRGB.b, newColorsSecondRGB.b, u);
             let first = (rFirst + gFirst + bFirst).toString()
             let second = (rSecond + gSecond + bSecond).toString();
-            let tmp = 'linear-gradient(' + deg + 'deg, #' + first + ', #' + second +')';
-            $(ele).css({ background: 'linear-gradient(' + deg + 'deg, #' + first + ', #' + second +')' });
+            let tmp = 'linear-gradient(' + deg + 'deg, #' + first + ', #' + second + ')';
+            $(ele).css({ background: 'linear-gradient(' + deg + 'deg, #' + first + ', #' + second + ')' });
             u += step_u;
         }
     }
-    if (isDark("#"+newColorsFirst) && isDark("#"+newColorsSecond)) {
+    if (isDark("#" + newColorsFirst) && isDark("#" + newColorsSecond)) {
         $(ele).css({ color: "#ddd" });
     } else {
         $(ele).css({ color: "#222" });
